@@ -94,6 +94,20 @@ class CLL:
                             temp.next=temp.next.next
                             break
                         temp=temp.next
+    
+    def sortCLL(self):
+        p=self.last.next
+        while p != self.last:
+            q=p.next
+            while q != self.last.next:
+                if p.item > q.item:
+                    temp=p.item
+                    p.item=q.item
+                    q.item=temp
+
+                q=q.next
+            p=p.next
+
     def __iter__(self):
         if self.last==None:
             return CLLIterator(None)
@@ -130,6 +144,9 @@ cll.insert_after(cll.search(10),50)
 for x in cll:
     print(x,end=' ')
 print()
+cll.print_list()
+print("After sort: ")
+cll.sortCLL()
 cll.print_list()
                     
 
