@@ -31,6 +31,32 @@ class SLL:
             n=Node(data,p.link)
             p.link=n
 
+    def add_before(self,val,data):
+        p=self.start
+        if p.data == val:
+            n=Node(data,self.start)
+            self.start=n
+        else:
+            while p.link is not None and p.link.data!=val:
+                p=p.link
+            n=Node(data,p.link)
+            p.link=n
+    
+    def delete_item(self,val):
+        p=self.start
+        if self.start is None:
+            print("Empty Linked List")
+        elif p.data == val:
+            self.start=self.start.link
+        else:
+            while p.link is not None and p.link.data!= val:
+                p=p.link
+            if p.link is None:
+                print("Not present")
+            else:
+                p.link=p.link.link
+
+
     def display(self):
         p=self.start
         while p is not None:
@@ -46,4 +72,11 @@ obj.add_last(99)
 
 obj.add_after(99,77)
 
+obj.add_before(99,1)
+
+obj.display()
+
+obj.delete_item(3)
+
+print()
 obj.display()
