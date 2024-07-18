@@ -1,6 +1,5 @@
 # Single linked list code
 
-
 class Node:
     def __init__(self,data=None,link=None):
         self.data=data
@@ -62,6 +61,19 @@ class SLL:
         while p is not None:
             print(p.data,end=" ")
             p=p.link
+        print()
+
+    def sortLL(self):
+        p=self.start
+        while(p.link is not None):
+            q=p.link
+            while(q is not None):
+                if p.data > q.data:
+                    temp=p.data
+                    p.data=q.data
+                    q.data=temp
+                q=q.link
+            p=p.link
 
 obj=SLL()
 obj.add_first(3)
@@ -78,5 +90,13 @@ obj.display()
 
 obj.delete_item(3)
 
-print()
+# obj.add_first(3)
+# obj.add_first(4)
+# obj.add_first(5)
+# obj.add_first(6)
+
+obj.display()
+
+obj.sortLL()
+
 obj.display()
