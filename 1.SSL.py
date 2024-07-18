@@ -70,6 +70,19 @@ class SLL:   # head pointer
                     temp=temp.next
     def __iter__(self):       # for making the LL iterable
         return SLLIterator(self.start)
+    # sorting of LL
+    def sortLL(self):
+        if not self.is_empty():
+            p=self.start
+            while p.next is not None:
+                q=p.next
+                while q is not None:
+                    if p.item > q.item:
+                        temp=p.item
+                        p.item=q.item
+                        q.item=temp
+                    q=q.next
+                p=p.next
 class SLLIterator:   # explicitly making the LL iterable***
     def __init__(self,start):
         self.current=start
@@ -81,6 +94,7 @@ class SLLIterator:   # explicitly making the LL iterable***
         data=self.current.item
         self.current=self.current.next
         return data
+    
             
 obj1=SLL()
 
@@ -96,6 +110,8 @@ def case4():
 def case5():
     num=int(input("Enter the item to delete: "))
     obj1.delete_item(num)
+def case6():
+    obj1.sortLL()
 def default_case():
     exit()
 
@@ -108,6 +124,7 @@ def switch_case(argument):
         '3': case3 ,
         '4': case4,
         '5': case5,
+        '6': case6,
         'default': "Default case code"
     }
     # Get the code corresponding to the argument from the dictionary
@@ -116,7 +133,7 @@ def switch_case(argument):
 
 
 while True:
-    print("\n\n2)add begin \n3)print\n4)Insert after\n5)Delete Item")
+    print("\n\n2)add begin \n3)print\n4)Insert after\n5)Delete Item\n6)Sort in ascending order")
     ch=str(input("Enter your choice: "))
     switch_case(ch)
 
