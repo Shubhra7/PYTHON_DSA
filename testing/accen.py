@@ -1,14 +1,19 @@
 
-def diff(n,m):
-    sum1=0
-    sum2=0
-    for i in range(1,m+1):
-        if (i % n ==0):
-            sum1+=i
-        else:
-            sum2+=i
-    return abs(sum1-sum2)
+def lgsm(arr):
+    if (len(arr) == 0):
+        return 0
+    else:
+        eve=[]
+        odd=[]
+        for i in range(len(arr)):
+            if i%2==0:
+                eve.append(arr[i])
+            else:
+                odd.append(arr[i])
+        eve.sort()
+        odd.sort()
+        ans= eve[-2] + odd[1]
+        return ans
 
-n=3
-m=10
-print(diff(n,m))
+arr=list(map(int,input().split()))
+print(lgsm(arr))
