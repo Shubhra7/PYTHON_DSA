@@ -1,24 +1,15 @@
-
-
-def check(s):
-    ndig=0
-    cap=0
-    if(len(s)>=4):
-        if not s[0].isdigit():
-            for i in range(len(s)):
-                if( s[i]==' ' or s[i]=='/'):
-                    return 0
-                if(s[i]>='A' and s[i]<='Z'):
-                    cap+=1
-                if s[i].isdigit():
-                    ndig+=1
-            if (cap >0 and ndig>0):
-                return 1
-        else:
-            return 0
+def findC(arr,num,diff):
+    ans=0
+    for i in arr:
+        if(abs(i-num) <= diff):
+            ans+=1
+    if(ans>0):
+        return ans
     else:
-        return 0
+        return -1
 
+arr=list(map(int,input().split()))
+num=13
+diff=2
 
-print(check("aA1_67"))
-print(check("a987 abC012"))
+print(findC(arr,num,diff))
