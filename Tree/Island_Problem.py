@@ -14,7 +14,7 @@ def bfs(i,j):
             row = r+m
             col = c+n
             if(row in range(rows) and col in range(cols)
-               and grid[row][col]==1 and (row,col) not in visited):
+               and grid[row][col]==1 and (row,col) not in visited):   # First condition is very important
                 visited.add((row,col))
                 q.append((row,col))
 

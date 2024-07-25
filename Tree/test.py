@@ -2,8 +2,6 @@ import collections
 
 q=collections.deque()
 
-
-
 def bfs(i,j):
     q.append((i,j))
     visited.add((i,j))
