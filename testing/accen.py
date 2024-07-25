@@ -1,15 +1,14 @@
-def findC(arr,num,diff):
-    ans=0
-    for i in arr:
-        if(abs(i-num) <= diff):
-            ans+=1
-    if(ans>0):
-        return ans
-    else:
-        return -1
 
-arr=list(map(int,input().split()))
-num=13
-diff=2
+def diff(n,m):
+    sum1=0
+    sum2=0
+    for i in range(1,m+1):
+        if (i % n ==0):
+            sum1+=i
+        else:
+            sum2+=i
+    return abs(sum1-sum2)
 
-print(findC(arr,num,diff))
+n=3
+m=10
+print(diff(n,m))
