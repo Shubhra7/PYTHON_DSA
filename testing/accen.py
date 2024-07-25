@@ -1,19 +1,23 @@
 
-def lgsm(arr):
-    if (len(arr) == 0):
-        return 0
+import sys
+
+def Psu(s,arr):
+    if (len(arr) < 2):
+        return -1
     else:
-        eve=[]
-        odd=[]
-        for i in range(len(arr)):
-            if i%2==0:
-                eve.append(arr[i])
-            else:
-                odd.append(arr[i])
-        eve.sort()
-        odd.sort()
-        ans= eve[-2] + odd[1]
+        maxi=sys.maxsize
+        ans=0
+        for i in range(len(arr)-1):
+            for j in range(i+1,len(arr)):
+                val=arr[i] + arr[j]
+                if(val<=s):
+                    if(maxi > val):
+                        maxi=val
+                        ans=arr[i]*arr[j]
         return ans
 
+
+
+sum=int(input())
 arr=list(map(int,input().split()))
-print(lgsm(arr))
+print(Psu(sum,arr))
