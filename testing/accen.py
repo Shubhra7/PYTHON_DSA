@@ -1,23 +1,16 @@
 
-def decN(n,num):
-    l=[]
-    while num!=0:
-        rem=num%n
-        l.append(rem)
-        num=num//n
-    l=l[::-1]
+def moveHy(s):
     ans=""
-    for i in l:
-        if i>9:
-            extra=i-9
-            val= (ord('A')-1) + extra
-            ans+=chr(val)
+    count=0
+    for i in s:
+        if i=='-':
+            count+=1
         else:
-            ans+=str(i)
-    return ans
+            ans+=i
+    return ('-'*count + ans)
+        
 
-
-
-
-print(decN(12,718))
-print(decN(21,5678))
+s="Move-Hyphens-to-Front"
+p="String-Compare"
+print(moveHy(s))
+print(moveHy(p))
