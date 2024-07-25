@@ -1,16 +1,16 @@
 
-def moveHy(s):
-    ans=""
-    count=0
-    for i in s:
-        if i=='-':
-            count+=1
+def cal(arr):
+    eve=[]
+    odd=[]
+    for i in range(len(arr)):
+        if (i%2==0):
+            eve.append(arr[i])
         else:
-            ans+=i
-    return ('-'*count + ans)
-        
+            odd.append(arr[i])
+    eve.sort()
+    odd.sort()
+    return(eve[-2] + odd[-2])
 
-s="Move-Hyphens-to-Front"
-p="String-Compare"
-print(moveHy(s))
-print(moveHy(p))
+
+arr=[3,4,1,7,9]
+print(cal(arr))
