@@ -1,23 +1,23 @@
 
-import sys
+def decN(n,num):
+    l=[]
+    while num!=0:
+        rem=num%n
+        l.append(rem)
+        num=num//n
+    l=l[::-1]
+    ans=""
+    for i in l:
+        if i>9:
+            extra=i-9
+            val= (ord('A')-1) + extra
+            ans+=chr(val)
+        else:
+            ans+=str(i)
+    return ans
 
-def Psu(s,arr):
-    if (len(arr) < 2):
-        return -1
-    else:
-        maxi=sys.maxsize
-        ans=0
-        for i in range(len(arr)-1):
-            for j in range(i+1,len(arr)):
-                val=arr[i] + arr[j]
-                if(val<=s):
-                    if(maxi > val):
-                        maxi=val
-                        ans=arr[i]*arr[j]
-        return ans
 
 
 
-sum=int(input())
-arr=list(map(int,input().split()))
-print(Psu(sum,arr))
+print(decN(12,718))
+print(decN(21,5678))
