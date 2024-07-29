@@ -1,22 +1,18 @@
 
-def ansR(arr,r,unit):
-    if (len(arr) == 0):
-        return -1
-    else:
-        total=r*unit
-        sum=0
-        # count=0
-        for i in range(len(arr)):
-            sum+=arr[i]
-            # print(sum)
-            if sum>= total:
-                return i+1
-            # count+=1
-        return 0
+def OptBin(st):
+    ans=int(st[0])
+    for i in range(1,len(st),2):
+        if st[i] == 'A':
+            ans=ans & int(st[i+1])
+        elif st[i] == 'B':
+            ans=ans | int(st[i+1])
+        elif st[i] == 'C':
+            ans = ans ^ int(st[i+1])
+    return ans
 
 
+st="1C0C1C1A0B1"
+print(OptBin(st))
 
-arr=list(map(int,input().split()))
-r=7
-unit=2
-print(ansR(arr,r,unit))
+kalu="0C1A1B1C1C1B0A0"
+print(OptBin(kalu))
