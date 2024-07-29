@@ -1,25 +1,16 @@
 
-def CheckPassword(st):
-    if (len(st) >= 4):
-        if not st[0].isdigit():
-            cap=0
-            num=0
-            for i in range(len(st)):
-                if (st[i]==' ' or st[i]=='/'):
-                    print("shubhra")
-                    return 0
-                if (st[i]>='A' and st[i]<='Z'):
-                    cap+=1
-                if (st[i].isdigit()):
-                    num+=1
-            if( cap>0 and num>0):
-                return 1
+def diffof(n,m):
+    div=[]
+    nodiv=[]
+    for i in range(1,m+1):
+        if i % n==0:
+            div.append(i)
         else:
-            print("kalu1")
-            return 0
-    else:
-        print("kalu1")
-        return 0 
+            nodiv.append(i)
+    return abs(sum(div) - sum(nodiv))
 
-st="a987 abC012"
-print(CheckPassword(st))
+
+n=4
+m=20
+print(diffof(n,m))
+print(diffof(3,10))
