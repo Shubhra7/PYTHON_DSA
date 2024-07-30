@@ -1,16 +1,20 @@
 
-def ProductSmallest(sum,arr):
-    if (len(arr)<2):
-        return -1
-    arr.sort()
-    if ((arr[0] + arr[1]) <= sum):
-        return (arr[0]*arr[1])
-    else:
-        return 0
+def DectoN(n,num):
+    rem=[]
+    while (num!=0):
+        rem.append(num%n)
+        num=num//n
+    rem=rem[::-1]
+    ans=""
+    for i in rem:
+        if i > 9:
+            extra=i-9
+            val=(ord('A')-1) + extra
+            ans += chr(val)
+        else:
+            ans += str(i)
+    return ans
 
 
-
-sum = 4
-arr=list(map(int,input().split()))
-
-print(ProductSmallest(sum,arr))
+print(DectoN(12,718))
+print(DectoN(21,5678))
