@@ -1,21 +1,24 @@
 
-def NumberOfCarries(num1,num2):
-    carry=0
-    c=0
-    while num1!=0 or num2!=0:
-        val=(num1%10) + (num2%10) + carry
-        if val > 9:
-            carry = val // 10
-            c+=1
-        num1 = num1 //10
-        num2 = num2 //10
-    return c
-        
+def expo(n):
+    count=0
+    while (n%2==0):
+        count+=1
+        n=n//2
+    return count
+
+
+def MaxEx(a,b):
+    ex=0
+    ans=0
+    for i in range(a,b+1):
+        val=expo(i)
+        if val > ex:
+            ex=val
+            ans=i
+    return(ans)
 
 
 
 
-num1=451
-num2=349
-print(NumberOfCarries(num1,num2))
-print(NumberOfCarries(23,563))
+print(MaxEx(7,12))
+print(MaxEx(4,7))
