@@ -16,7 +16,7 @@
 # https://youtu.be/GrNSGC8Z2T0?t=468
 
 
-
+## **** Kadane's algorithm ****
 
 def maxSubarraySum(arr, n) :
 	# Your code here
@@ -32,5 +32,5 @@ def maxSubarraySum(arr, n) :
         return 0
 	
 
-arr=[1, 2, 7, -4, 3, 2, -10, 9, 1]
+arr=[5,4,-1,7,8]
 print(maxSubarraySum(arr,10))
