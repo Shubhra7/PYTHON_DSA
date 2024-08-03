@@ -1,14 +1,18 @@
-def diffof(n,m):
-    div=[]
-    nondiv=[]
-    for i in range(1,m+1):
-        if (i%n == 0):
-            div.append(i)
+
+def largeSmall(arr):
+    even=[]
+    odd=[]
+    for i in range(len(arr)):
+        if (i % 2 == 0):
+            even.append(arr[i])
         else:
-            nondiv.append(i)
-    return abs(sum(nondiv) - sum(div))
+            odd.append(arr[i])
+    even.sort()
+    odd.sort()
+    return even[-2] + odd[1]
 
 
 
-print(diffof(3,10))
-print(diffof(4,20))
+
+arr=list(map(int,input().split()))
+print(largeSmall(arr))
