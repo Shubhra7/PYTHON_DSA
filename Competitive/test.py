@@ -1,11 +1,10 @@
-def ProSma(sum,arr):
-    if (len(arr) == 0):
-        return -1
-    arr.sort()
-    if ((arr[0] + arr[1]) <= sum):
-        return arr[0]*arr[1]
-    return 0
+s=input()
+ans=""
+count=0
+for i in range(len(s)):
+    if (s[i] == '-'):
+        count +=1
+    else:
+        ans += s[i]
 
-
-arr=list(map(int,input().split()))
-print(ProSma(6,arr))
+print('-'*count + ans)
