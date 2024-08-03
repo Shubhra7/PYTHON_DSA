@@ -1,17 +1,12 @@
+s=input()
+ans=int(s[0])
+for i in range(1,len(s),2):
+    if (s[i] == 'A'):
+        ans &= int(s[i+1])
+    elif (s[i] == 'B'):
+        ans |= int(s[i+1])
+    elif (s[i] == 'C'):
+        ans ^= int(s[i+1])
+    
+print(ans)
 
-def find(total,arr):
-    sum=0
-    for i in range(len(arr)):
-        sum += arr[i]
-        if (sum >= total):
-            return i+1
-    return -1
-        
-
-r=int(input("Enter:"))
-unit=int(input())
-arr=list(map(int,input().split()))
-
-total = r*unit
-
-print(find(total,arr))
