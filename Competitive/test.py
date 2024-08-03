@@ -1,22 +1,33 @@
 import collections
 
-def check(s):
-    p=[]
-    for i in range(len(s)):
-        if (s[i]=='[' or s[i]=='{' or s[i]=='('):
-            p.append(s[i])
-        else:
-            if (len(p) == 0):
-                return False
-            val = p.pop()
-            if (s[i]==']' and val != '['):
-                return False
-            elif (s[i]=='}' and val != '{'):
-                return False
-            elif (s[i] == ')' and val != '('):
-                return False
-    return True
+q=collections.deque()
+visited=set()
+direction = [[1,0],[-1,0],[0,1],[0,-1]]
 
+def bfs(i,j):
+    q.append((i,j))
+    visited.add((i,j))
+    while q:
+        r,c=q.popleft()
+        for m,n in direction:
+            rows = r + m
+            cols = c + n
+            if (rows in range(row) and cols in range(col) and 
+                grid[rows][cols] == 1 and (rows,cols) not in visited):
+                q.append((rows,cols))
+                visited.add((rows,cols))
 
-s="[({)}]"
-print(check(s))
+grid=[[1,1,0,1],
+      [1,1,0,1],
+      [1,0,0,1]]
+
+row=len(grid)
+col=len(grid[0])
+
+count=0
+for i in range(row):
+    for j in range(col):
+        if (grid[i][j] == 1 and (i,j) not in visited):
+            bfs(i,j)
+            count+=1
+print(count)
