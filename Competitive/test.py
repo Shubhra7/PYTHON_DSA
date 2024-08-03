@@ -1,16 +1,23 @@
-grid=[[1,2,3,4],
-      [2,1,3,6],
-      [3,0,0,1],
-      [0,0,0,0]]
+def search(arr,target,left,right):
+    if (left > right):
+        return -1
+    mid = left + (right - left)//2
+    if (arr[mid] == target):
+        return mid
+    if (arr[left] <= arr[mid]):
+        if (arr[left] <= target and arr[mid]>= target):
+            return search(arr,target,left,mid-1)
+        else:
+            return search(arr,target,mid+1,right)
+    else:
+        if (arr[mid]<=target and arr[right]>=target):
+            return search(arr,target,mid+1,right)
+        else:
+            return search(arr,target,left,mid-1)
 
-sum = 0
-n=len(grid[0])
-re=[]
-for i in range(len(grid)):
-        for j in range(len(grid[0])):
-                if (i==j or (i+j+1)==n):
-                        re.append(grid[i][j])
-                        sum = sum + grid[i][j]
 
-print(sum)
-print(re)
+
+
+arr = [10,11,0,1,2,6,9]
+print(search(arr,11,0,len(arr)-1))
+print(search(arr,2,0,len(arr)-1))
