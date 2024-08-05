@@ -22,7 +22,7 @@ obj.add_beg(4)
 obj.add_beg(5)
 obj.add_beg(7)
 obj.display()
-=======
+
 def maxSubarraySum(arr):
     cur_max=arr[0]
     ans=arr[0]
