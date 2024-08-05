@@ -1,69 +1,10 @@
-class Node:
-    def __init__(self,data=None,link=None):
-        self.data=data
-        self.link=link
+grid = [[1,2,3],
+        [4,3,1]]
 
-class SLL:
-    def __init__(self):
-        self.start=None
-    def add_beg(self,val):
-        n=Node(val,self.start)
-        self.start=n
-    def display(self):
-        p=self.start
-        while p is not None:
-            print(p.data,end=" ")
-            p=p.link
-        print()
-    def isEmpty(self):
-        if self.start is None:
-            return True
-        else:
-            return False
-    def add_end(self,val):
-        if not self.isEmpty():
-            p=self.start
-            while p.link is not None:
-                p=p.link
-            n=Node(val)
-            p.link=n
-        else:
-            self.add_beg(val)
-    def add_after(self,data,val):
-        if not self.isEmpty():
-            p=self.start
-            while ( p is not None and p.data!=data):
-                p=p.link
-            if p is not None:
-                n=Node(val,p.link)
-                p.link=n
-    
-    def sortLL(self):
-        p=self.start
-        while p.link is not None:
-            q=p.link
-            while q is not None:
-                if (p.data < q.data):
-                    temp=p.data
-                    p.data=q.data
-                    q.data=temp
-                q=q.link
-            p=p.link
+r = [[grid[j][i] for j in range(len(grid))] for i in range(len(grid[0]))]
+print(r)
 
-        
+for i in range(len(r)):
+    r[i]=r[i][::-1]
 
-obj=SLL()
-obj.add_beg(4)
-obj.add_beg(5)
-obj.add_beg(7)
-
-obj.add_end(1)
-obj.add_end(10)
-obj.add_end(77)
-
-obj.add_after(77,99)
-obj.display()
-obj.sortLL()
-obj.display()
-
-
+print(r)
