@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 class Node:
     def __init__(self,data=None,link=None):
         self.data=data
@@ -35,4 +34,4 @@ def maxSubarraySum(arr):
 
 arr=[5,4,-1,7,8]
 print(maxSubarraySum(arr))
->>>>>>> 73fbde2caaac984a150a153786b74d72c55c1f65
+
