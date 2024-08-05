@@ -1,22 +1,23 @@
-import collections
+class Node:
+    def __init__(self,data=None,link=None):
+        self.data=data
+        self.link=link
 
-def check(s):
-    p=[]
-    for i in range(len(s)):
-        if (s[i]=='[' or s[i]=='{' or s[i]=='('):
-            p.append(s[i])
-        else:
-            if (len(p) == 0):
-                return False
-            val = p.pop()
-            if (s[i]==']' and val != '['):
-                return False
-            elif (s[i]=='}' and val != '{'):
-                return False
-            elif (s[i] == ')' and val != '('):
-                return False
-    return True
+class SLL:
+    def __init__(self):
+        self.start=None
+    def add_beg(self,val):
+        n=Node(val,self.start)
+        self.start=n
+    def display(self):
+        p=self.start
+        while p is not None:
+            print(p.data,end=" ")
+            p=p.link
+        print()
 
-
-s="[({)}]"
-print(check(s))
+obj=SLL()
+obj.add_beg(4)
+obj.add_beg(5)
+obj.add_beg(7)
+obj.display()
