@@ -37,6 +37,18 @@ class SLL:
             if p is not None:
                 n=Node(val,p.link)
                 p.link=n
+    
+    def sortLL(self):
+        p=self.start
+        while p.link is not None:
+            q=p.link
+            while q is not None:
+                if (p.data < q.data):
+                    temp=p.data
+                    p.data=q.data
+                    q.data=temp
+                q=q.link
+            p=p.link
 
         
 
@@ -50,6 +62,8 @@ obj.add_end(10)
 obj.add_end(77)
 
 obj.add_after(77,99)
+obj.display()
+obj.sortLL()
 obj.display()
 
 
