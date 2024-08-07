@@ -1,23 +1,20 @@
-def pasRec(s):
-    m=s[::-1]
-    i=0
-    j=2
-    n=len(s)
-    ans=""
-    while (j <= n and i<=j ):
-        val = int(m[i:j])
-        if (val >= 65 and val <=90):
-            ans = ans + chr(val)
-            i=j
-            j=j+2
-        elif (val >= 97 and val <= 122):
-            ans = ans + chr(val)
-            i=j
-            j=j+2
-        else:
-            j=j+1
-    return ans
+def generate_permutation(N):
+    # The simplest permutation which satisfies the condition is the natural order
+    return list(range(1, N + 1))
 
+def main():
+    data = input().split()
+    
+    T = int(data[0])
+    test_cases = [int(data[i]) for i in range(1, T + 1)]
+    
+    results = []
+    for N in test_cases:
+        permutation = generate_permutation(N)
+        results.append(" ".join(map(str, permutation)))
+    
+    # Print all results
+    print("\n".join(results))
 
-s=input()
-print(pasRec(s))
+if __name__ == "__main__":
+    main()
