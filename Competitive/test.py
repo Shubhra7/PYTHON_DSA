@@ -1,15 +1,18 @@
+import collections 
 
-def maxSubarraySum(arr,n):
-    cur_max=arr[0]
-    ans=arr[0]
-    for i in range(1,len(arr)):
-        cur_max = max(arr[i], cur_max + arr[i])
-        ans = max(ans, cur_max)
-    return ans
+grid = [[1,0,1,1,1],
+        [1,0,0,1,1],
+        [0,0,0,0,1]]
 
+visited=set()
+q= collections.deque()
+directions = [[1,0],[-1,0],[0,1],[0,-1]]
 
-arr=[5,4,-1,7,8]
-print(maxSubarraySum(arr,10))
-
-s= [2, 3, 4, -3, 5, -9, 7]
-print(maxSubarraySum(s,5))
+row = len(grid)
+col = len(grid[0])
+count=0
+for i in range(row):
+    for j in range(col):
+        if (grid[i][j] == 1):
+            bfs(i,j)
+            count+=1
