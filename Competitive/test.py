@@ -1,3 +1,5 @@
+def lcs(x,y):
+
 fName = input()
 lName = input()
 
@@ -10,3 +12,5 @@ s2_flit = "".join([x for x in lName if x in common])
 print(s1_flit)
 print(s2_flit)
 print(min(s1_flit,s2_flit,key=len))
+
+print(lcs(fName,lName))
