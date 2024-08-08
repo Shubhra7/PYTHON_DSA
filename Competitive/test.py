@@ -1,37 +1,12 @@
-def lcs(x,y):
-    m=len(x)
-    n=len(y)
 
-    L = [[None]*(n+1) for i in range(m+1)]
-
-    for i in range(m+1):
-        for j in range(n+1):
-            if i==0 or j==0:
-                L[i][j] = 0
-            elif x[i-1] == y[j-1]:
-                L[i][j] = L[i-1][j-1] + 1
-                # print(y[j-1])
-            else:
-                L[i][j] = max(L[i-1][j], L[i][j-1])
-    
-    # for i in L:
-    #     print(i)
-
-    return L[m][n]
+def maxSubarraySum(arr,n):
+    cur_max=arr[0]
+    ans=arr[0]
+    for i in range(1,len(arr)):
+        cur_max = max(arr[i], cur_max + arr[i])
+        ans = max(ans, cur_max)
+    return ans
 
 
-fName = input()
-lName = input()
-
-common = set(fName) & set(lName)
-
-print(common)
-
-s1_flit = "".join([x for x in fName if x in common])
-s2_flit = "".join([x for x in lName if x in common])
-# print(s1_flit)
-# print(s2_flit)
-print(min(s1_flit,s2_flit,key=len))
-
-print(lcs(fName,lName))
-
+arr=[5,4,-1,7,8]
+print(maxSubarraySum(arr,10))
