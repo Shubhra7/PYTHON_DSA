@@ -10,3 +10,6 @@ def maxSubarraySum(arr,n):
 
 arr=[5,4,-1,7,8]
 print(maxSubarraySum(arr,10))
+
+s= [2, 3, 4, -3, 5, -9, 7]
+print(maxSubarraySum(s,5))
