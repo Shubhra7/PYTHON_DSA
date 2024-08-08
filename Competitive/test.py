@@ -1,20 +1,11 @@
-def generate_permutation(N):
-    # The simplest permutation which satisfies the condition is the natural order
-    return list(range(1, N + 1))
+fName = input()
+lName = input()
 
-def main():
-    data = input().split()
-    
-    T = int(data[0])
-    test_cases = [int(data[i]) for i in range(1, T + 1)]
-    
-    results = []
-    for N in test_cases:
-        permutation = generate_permutation(N)
-        results.append(" ".join(map(str, permutation)))
-    
-    # Print all results
-    print("\n".join(results))
+common = set(fName) & set(lName)
 
-if __name__ == "__main__":
-    main()
+print(common)
+
+s1_flit = "".join([x for x in fName if x in common])
+s2_flit = "".join([x for x in lName if x in common])
+print(s1_flit)
+print(s2_flit)
