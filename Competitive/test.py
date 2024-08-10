@@ -7,7 +7,7 @@ def check(a,b):
         for j in range(n+1):
             if i==0 or j==0:
                 c[i][j]=0
-            if (a[i-1] == b[j-1]):
+            elif (a[i-1] == b[j-1]):
                 c[i][j] = c[i-1][j-1] + 1
             else:
                 c[i][j] = max(c[i-1][j], c[i][j-1])
