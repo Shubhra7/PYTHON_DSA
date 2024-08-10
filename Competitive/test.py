@@ -13,7 +13,7 @@ def check(a,b):
                 c[i][j] = max(c[i-1][j], c[i][j-1])
     for i in c:
         print(i)
-    return c[m-1][n-1]
+    return c[m][n]
             
 s='harry'
 p='sally'
