@@ -3,8 +3,8 @@ def check(a,b):
     m = len(a)
     n = len(b)
     c=[[0 for i in range(m+1)] for j in range(n+1)]
-    for i in range(m):
-        for j in range(n):
+    for i in range(m+1):
+        for j in range(n+1):
             if i==0 or j==0:
                 c[i][j]=0
             if (a[i-1] == b[j-1]):
