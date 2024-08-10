@@ -15,7 +15,6 @@ def check(a,b):
         print(i)
     return c[m-1][n-1]
             
-
 s='harry'
 p='sally'
 
