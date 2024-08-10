@@ -1,34 +1,22 @@
-import collections 
 
-def bfs(i,j):
-    q.append((i,j))
-    visited.add((i,j))
-    while q:
-        r,c = q.popleft()
-        for m,n in directions:
-            ro = r + m
-            co = c + n
-            if (ro in range(row) and co in range(col) and
-                grid[ro][co]==1 and (ro,co) not in visited):
-                visited.add((ro,co))
-                q.append((ro,co))
+def check(a,b):
+    m = len(a)
+    n = len(b)
+    c=[[0 for i in range(m+1)] for j in range(n+1)]
+    for i in range(m):
+        for j in range(n):
+            if i==0 or j==0:
+                c[i][j]=0
+            if (a[i-1] == b[j-1]):
+                c[i][j] = c[i-1][j-1] + 1
+            else:
+                c[i][j] = max(c[i-1][j], c[i][j-1])
+    for i in c:
+        print(i)
+    return c[m-1][n-1]
+            
 
+s='harry'
+p='sally'
 
-grid = [[1,0,1,1,1],
-        [1,0,0,1,1],
-        [0,0,0,0,1]]
-
-visited=set()
-q= collections.deque()
-directions = [[1,0],[-1,0],[0,1],[0,-1]]
-
-row = len(grid)
-col = len(grid[0])
-count=0
-for i in range(row):
-    for j in range(col):
-        if (grid[i][j] == 1 and (i,j) not in visited):
-            bfs(i,j)
-            count+=1
-
-print(count)
+print(check(s,p))
