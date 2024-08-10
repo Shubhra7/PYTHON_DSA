@@ -22,15 +22,14 @@ def maxSubarraySum(arr, n) :
 	# Your code here
     # return the answer
     curr_max=arr[0]
-    ans=arr[0]
+    ans=0
     for i in range(1,len(arr)):
         curr_max=max(arr[i],arr[i]+curr_max)
         ans=max(ans, curr_max)
-    if (ans >0):
-        return ans
-    else:
-        return 0
-	
+  
+    
 
 arr=[5,4,-1,7,8]
 print(maxSubarraySum(arr,10))
+arr1=[-5,-4,-1,-7,-8]
+print(maxSubarraySum(arr1,10))
