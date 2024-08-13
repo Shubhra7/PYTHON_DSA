@@ -26,6 +26,7 @@ def maxSubarraySum(arr, n) :
     for i in range(1,len(arr)):
         curr_max=max(arr[i],arr[i]+curr_max)
         ans=max(ans, curr_max)
+    return ans
   
     
 
