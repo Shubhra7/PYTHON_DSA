@@ -1,4 +1,3 @@
-
 def check(a,b):
     m = len(a)
     n = len(b)
