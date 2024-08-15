@@ -10,15 +10,18 @@
 # Link: https://prepinsta.com/python-program/given-a-sequence-of-words-print-all-anagrams-together/
 
 
+from collections import defaultdict # to create a dictionary
+ 
+#taking the words as input list
+words = [ "cat", "dog", "tac", "god", "act", "z" ]
 
-from collections import defaultdict
-wordArr = { 'cat', 'dog', 'tac', 'god', 'act', 'z' }
+# anagram dictionary
+anagrams = defaultdict(list)
 
-anargrams = defaultdict(list)
+# this will check if the words are anagrams of eachother
+for word in words:
+  anagrams[''.join(sorted(word))].append(word)
 
-for word in wordArr:
-    anargrams[''.join(sorted(word))].append(word)
-
-for i in anargrams.values():
-    print(' '.join(i))
-
+# this loop will print all the anagrams together
+for anagram in anagrams.values():
+  print(' '.join(anagram))
