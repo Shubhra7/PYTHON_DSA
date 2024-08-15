@@ -12,3 +12,13 @@
 
 
 from collections import defaultdict
+wordArr = { 'cat', 'dog', 'tac', 'god', 'act', 'z' }
+
+anargrams = defaultdict(list)
+
+for word in wordArr:
+    anargrams[''.join(sorted(word))].append(word)
+
+for i in anargrams.values():
+    print(' '.join(i))
+
