@@ -1,4 +1,7 @@
 
+## **** applicable only when each row is sorted..
+# Link: https://prepinsta.com/cpp-program/find-row-with-maximum-number-of-1s/
+
 def first_1(mat):
     left =0
     right = len(mat)-1
