@@ -1,6 +1,11 @@
 
 
-def median(mat,row,col):
+def median(mat,right,left):
+    while (right <= left):
+        mid = left + (right - left)//2
+        
+
+
 
 
 
