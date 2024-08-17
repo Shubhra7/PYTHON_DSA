@@ -1,5 +1,8 @@
 
 
+def median(mat,row,col):
+
+
 
 
 matrix = [     [ 1, 5, 7, 9, 11 ],
