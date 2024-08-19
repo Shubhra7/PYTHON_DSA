@@ -9,13 +9,11 @@ def median(mat,right,left):
     while (right <= left):
         mid = left + (right - left)//2
         valless = lowerbound(mat,mid)
-        
-        
-
-
-
-
-
+        if (valless >= req):
+            left = mid -1
+        else:
+            right = mid + 1
+    return left
 
 matrix = [     [ 1, 5, 7, 9, 11 ],
       [ 2, 3, 4, 8, 9 ],
