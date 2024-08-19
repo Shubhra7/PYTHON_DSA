@@ -1,8 +1,15 @@
+import bisect
+def lowerbound(mat,index):
+    val = bisect.bisect_left(mat,index)
+    return val+1
 
 
 def median(mat,right,left):
+    req = (right + left)//2
     while (right <= left):
         mid = left + (right - left)//2
+        valless = lowerbound(mat,mid)
+        
         
 
 
