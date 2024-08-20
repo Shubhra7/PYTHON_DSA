@@ -1,18 +1,11 @@
-Y = [[12,7],
-    [4 ,5],
-    [3 ,8]]
+from collections import defaultdict
 
-ans = Y[::-1]
-for i in ans:
-    print(i)
+ana = defaultdict(list)
 
+words = [ "cat", "dog", "tac", "god", "act", "z" ]
 
+for word in words:
+    ana[''.join(sorted(word))].append(word)
 
-res = [[Y[j][i] for j in range(len(Y))]for i in range(len(Y[0]))]
-
-for i in range(len(res)):
-    res[i]=res[i][::-1]
-
-
-for i in res:
-    print(i)
+for i in ana.values():
+    print(' '.join(i))
