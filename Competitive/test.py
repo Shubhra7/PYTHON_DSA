@@ -18,6 +18,8 @@ class DLL:
         while( p is not None):
             print(p.data,end=" ")
             p=p.nextlink
+    def addLast(self,val):
+        
 
 obj=DLL()
 obj.addFirst(4)
