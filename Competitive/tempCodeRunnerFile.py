@@ -1,3 +1,3 @@
-for i in range(len(ans):
-    ans[i]=ans[i][::-1]
-print(ans)
+obj.addFirst(4)
+obj.addFirst(3)
+obj.addFirst(5)
