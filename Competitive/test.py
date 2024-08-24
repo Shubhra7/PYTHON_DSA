@@ -1,28 +1,39 @@
-def search(arr,left,right,item):
-    if(left > right):
-        return -1
-    mid = left + (right - left)//2
-    if(arr[mid]==item):
-        return mid
-    if(arr[left] <= arr[mid]):
-        if(arr[left]<=item and item<=arr[mid]):
-            return search(arr,left,mid-1,item)
-        else:
-            return search(arr,mid+1,right,item)
-    else:
-        if(arr[mid]<=item and item<=arr[right]):
-            return search(arr,mid+1,right,item)
-        else:
-            return search(arr,left,mid-1,item)
+N = 5
 
 
-arr=[7,8,9,0,1,2,3,4,5,6]
-print(search(arr,0,len(arr)-1,9))
-print(search(arr,0,len(arr)-1,0))
-print(search(arr,0,len(arr)-1,1))
-print(search(arr,0,len(arr)-1,2)) 
-print(search(arr,0,len(arr)-1,3))
-print(search(arr,0,len(arr)-1,4))
-print(search(arr,0,len(arr)-1,5))
-print(search(arr,0,len(arr)-1,6))
-print(search(arr,0,len(arr)-1,68))
+def findMaxValue(mat):
+    maxValue = -100
+
+    maxArr = [[0] * N for z in range(N)]
+
+    maxArr[N - 1][N - 1] = mat[N - 1][N - 1]
+    maxv = mat[N - 1][N - 1]
+
+    for j in range(N - 2, -1, -1):
+        if mat[N - 1][j] > maxv:
+            maxv = mat[N - 1][j]
+        maxArr[N - 1][j] = maxv
+
+    maxv = mat[N - 1][N - 1]
+
+    for i in range(N - 2, -1, -1):
+        if mat[i][N - 1] > maxv:
+            maxv = mat[i][N - 1]
+            maxArr[i][N - 1] = maxv
+
+    for i in range(N - 2, -1, -1):
+        for j in range(N - 2, -1, -1):
+            if maxArr[i + 1][j + 1] - mat[i][j] > maxValue:
+                maxValue = maxArr[i + 1][j + 1] - mat[i][j]
+            maxArr[i][j] = max(mat[i][j], max(maxArr[i][j + 1], maxArr[i + 1][j]))
+
+    return maxValue
+
+
+matrix = [[ 1,  2, -1, -4, -20],
+          [-8, -3,  4,  2,   1],
+          [ 3,  8,  6,  1,   3],
+          [-4, -1,  1,  7,  -6],
+          [ 0, -4, 10, -5,   1]]
+
+print("Maximum Value is", findMaxValue(matrix))
