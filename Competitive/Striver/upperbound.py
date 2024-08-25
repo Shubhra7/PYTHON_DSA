@@ -21,7 +21,7 @@
 
 import bisect
 
-arr=[1, 4, 7, 8, 10]
+arr=[1, 4, 7, 7,7,8, 10]
 n=7
 low=0
 high=len(arr)
