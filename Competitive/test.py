@@ -2,7 +2,6 @@ import collections
 
 grid = [[2,1,1],[0,1,1],[1,0,1]]
 
-
 visited=set()
 directions = [[1,0],[-1,0],[0,1],[0,-1]]
 q = collections.deque()
@@ -16,6 +15,7 @@ for i in range(row):
             fresh.add((i,j))
         if( grid[i][j] == 2):
             q.append((i,j,0))
+
 ans=0
 while q:
     i,j,time = q.popleft()
