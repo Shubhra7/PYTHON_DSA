@@ -1,53 +1,30 @@
-N = 5
+grid = [[1,2,3],
+        [8,9,4],
+        [7,6,5]]
 
-def print_mat(mat):
-    for i in range(len(mat)):
-        print(mat[i])
+row = len(grid)
+col = len(grid[0])
 
+up = 0
+down = row - 1
+left = 0
+right = col - 1
 
-def findMaxValue(mat):
-    maxValue = -100
-
-    maxArr = [[0] * N for z in range(N)]
-
-    maxArr[N - 1][N - 1] = mat[N - 1][N - 1]
-    maxv = mat[N - 1][N - 1]
-
-    # print(maxv)
-
-    for j in range(N - 2, -1, -1):
-        if mat[N - 1][j] > maxv:
-            maxv = mat[N - 1][j]
-        maxArr[N - 1][j] = maxv
+while ( up <= down and left <= right):
+    for i in range(left,right + 1):
+        print(grid[up][i],end=" ")
+    up += 1
     
-    print_mat(maxArr)
-    
+    for i in range(up,down+1):
+        print(grid[i][right],end=" ")
+    right -= 1
 
-    maxv = mat[N - 1][N - 1]
+    for i in range(right,left-1,-1):
+        print(grid[down][i],end=" ")
+    down -= 1
+    # print("Hl",down," ",up," hi",end="  ")
 
-    for i in range(N - 2, -1, -1):
-        if mat[i][N - 1] > maxv:
-            maxv = mat[i][N - 1]
-        maxArr[i][N - 1] = maxv
-    print()
-    print_mat(maxArr)
-    print()
-
-    for i in range(N - 2, -1, -1):
-        for j in range(N - 2, -1, -1):
-            if maxArr[i + 1][j + 1] - mat[i][j] > maxValue:
-                maxValue = maxArr[i + 1][j + 1] - mat[i][j]
-            maxArr[i][j] = max(mat[i][j], max(maxArr[i][j + 1], maxArr[i + 1][j]))
-            print_mat(maxArr)
-            print()
-
-    return maxValue
-
-
-matrix = [[ 1,  2, -1, -4, -20],
-          [-8, -3,  4,  2,   1],
-          [ 3,  8,  6,  1,   3],
-          [-4, -1,  1,  7,  -6],
-          [ 0, -4, 10, -5,   1]]
-
-print("Maximum Value is", findMaxValue(matrix))
+    for j in range(down,up-1,-1):
+        # print("heelo","(",left,j,")",end="  ")
+        print(grid[j][left],end=" ")
+    left += 1
