@@ -6,7 +6,7 @@ def check_no(match, word):
         j -= 1
         i -= 1
     return count
-        
+
 arr = list(input().split())
 match = input()
 
