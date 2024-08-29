@@ -7,17 +7,19 @@ def check_no(match, word):
         i -= 1
     return count
 
+def max_Rhyme(arr,match):
+    ml=0
+    ans=""
+    for i in arr:
+       cl = check_no(match,i)
+       if( cl>ml or (cl == ml and len(i)<len(ans))):
+              ml = cl
+              ans = i
+    return ans
+
 arr = list(input().split())
 match = input()
-
 print(arr)
-ml=0
-ans=""
 
-for i in arr:
-    cl = check_no(match,i)
-    if( cl>ml or (cl == ml and len(i)<len(ans))):
-        ml = cl
-        ans = i
-print(ans)
+print(max_Rhyme(arr,match))
     
