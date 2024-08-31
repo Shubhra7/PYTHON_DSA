@@ -1,16 +1,13 @@
 n=int(input())
 
-p=0
-for i in range(1,n):
-    for k in range(i,n):
+for i in range(n,0,-1):
+    for j in range(i,n):
         print(" ",end="")
-    print("*",end="")
-    if((i+p) > 1):
-        for j in range(i+p-2):
+    for k in range(2*i - 1):
+        if k==0 or k==2*i - 2 or i==n:
+            print("*",end="")
+        else:
             print(" ",end="")
-        print("*",end=" ")
-    p += 1
     print()
-    # print("hi")
-for k in range(n+p):
-    print("*",end="")
+
+
