@@ -1,42 +1,15 @@
 
-# s="snakewatergunwater"
-s="snakewaterwatergun"
 
-a=[]
-b=[]
-flag=0
+def divident_pos(arr, divisior, quotinet, rem):
+    ans = (divisior*quotient)+rem
+    if ans in arr:
+        return arr.index(ans)
+    else:
+        return -1
 
-n=len(s)
-word=""
-for i in range(n):
-    word += s[i]
-    if(word=="snake" or word=="water" or word=="gun"):
-        if(flag == 0):
-            a.append(word[0])
-            word=""
-            flag=1
-        else:
-            b.append(word[0])
-            word=""
-            flag=0
-# Each moves
-# print(a)
-# print(b)
+arr = [5,6,7,9,10]
+divisior = 2
+quotient = 3
+rem = 1
 
-A, B= 0,0
-for i in range(len(a)):
-    if (a[i]=='s' and b[i]=='w'):
-        A += 1
-    elif (a[i]=='w' and b[i]=='g'):
-        A += 1
-    elif (a[i]=='g' and b[i]=='s'):
-        A += 1
-
-print("A wins: ",A," times.")
-
-
-    
-    
-    
-        
-    
+print(divident_pos(arr, divisior, quotient, rem))
