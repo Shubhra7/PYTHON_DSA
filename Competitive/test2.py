@@ -1,14 +1,28 @@
-arr = [4,5,7,2,15,20]
-m=5
+start = 3
+
+n = int(input("Enter the row: "))
+for i in range(1,n+1):
+    ans=""
+    for j in range(0,i):
+        ans = str(start+j) + ans
+    start += i
+    print(ans)
+
+pop = start
+start -= 1
+ans = ""
+for i in range(n):
+    ans = ans + str(start)
+    start -= 1
+print(ans)
 
 
-arr.sort()
-t_can=0
-for i in arr:
-    if(i % 5 == 0):
-        t_can += 1
-    else:
-        if(m>=i):
-            t_can += 1
-            m -= i
-print(t_can)
+count = pop - n - 1
+
+for i in range(n-1,-1,-1):
+    ans =""
+    for j in range(i,0,-1):
+        ans = ans + str(count)
+        count -= 1
+    print(ans)
+
