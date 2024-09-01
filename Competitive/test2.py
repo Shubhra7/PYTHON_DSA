@@ -1,15 +1,14 @@
+arr = [4,5,7,2,15,20]
+m=5
 
 
-def divident_pos(arr, divisior, quotinet, rem):
-    ans = (divisior*quotient)+rem
-    if ans in arr:
-        return arr.index(ans)
+arr.sort()
+t_can=0
+for i in arr:
+    if(i % 5 == 0):
+        t_can += 1
     else:
-        return -1
-
-arr = [5,6,7,9,10]
-divisior = 2
-quotient = 3
-rem = 1
-
-print(divident_pos(arr, divisior, quotient, rem))
+        if(m>=i):
+            t_can += 1
+            m -= i
+print(t_can)
