@@ -16,7 +16,7 @@ def max_rhyme(arr,word):
     maxi=0
     for i in arr:
         val = match(i,word)
-        print(i," : ",val)
+        # print(i," : ",val)
         if(val > maxi):
             maxi = val
             ans = i
