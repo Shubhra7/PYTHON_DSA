@@ -33,7 +33,6 @@ def max_sub(s1,s2):
     print(ans)
     return maxi
 
-
 s1 = "future"
 s2 = "adventure"
 
