@@ -1,10 +1,8 @@
-arr = [1,2,3,6,10,11,13,21,5,4]
+import re
+input1 = "abc   bcd cda"
+input2 = "abc bad"
 
-even, odd = 0,0
-for i in arr:
-    if(i%2==0):
-        even += i
-    else:
-        odd += i
-
-print(even,"  ",odd)
+# ans = re.split(r'\s+',input1)
+ans = re.sub('[^ab]','#',input2)
+print(ans)
+print(len(ans))
