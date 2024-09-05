@@ -1,33 +1,40 @@
-s1 = "adfutventur"
-s2 = "future"
-
-row = len(s2)
-col = len(s1)
-
-dp = [[0  for i in range(col+1)]for j in range(row+1)]
-maxi = 0
-ro,co = 0,0
-
-for i in range(1,row+1):
-    for j in range(1,col+1):
-        if(s2[i-1]==s1[j-1]):
-            dp[i][j]=dp[i-1][j-1]+1
-            if(maxi < dp[i][j]):
-                maxi = dp[i][j]
-                ro,co = i,j
+def solve(n,e,d):
+    if(n==0):
+        return -1
+    if(e==0 or d==0):
+        return 0
+    if(d<7):
+        if((d*e)%n == 0):
+            return (d*e)//n
         else:
-            dp[i][j]=0
+            return ((d*e)//n + 1)
+    if((n*6) < (e*7)):
+        return -1
+    
+    ans = 0
+    weeks = d // 7
+    if((weeks*e*7)%n == 0):
+        ans += (weeks*e*7)//n
+    else:
+        ans += (((weeks*e*7)//n)+1)
+ 
+    left = (ans*n) - (weeks*e*7)
 
-#For see the dp matrix
-for i in dp:
-    print(i)
+    left_days = d%7
 
-print(maxi)
-print(ro,"  ",co)
+    req = (left_days*e) - left
 
-ans =""
-for i in range(ro-1,ro-1-maxi,-1):
-    ans = s2[i] + ans
+    if(req % n == 0):
+        ans += (req//n)
+    else:
+        ans += ((req//n)+1)
+ 
+    return ans
 
-print(ans)
 
+
+n=5
+e=2
+d=10
+
+print(solve(n,e,d))
