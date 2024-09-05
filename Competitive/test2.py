@@ -1,11 +1,27 @@
-def add_xor(arr):
-    ans1, ans2= arr[0],arr[1]
-    for i in range(2,len(arr)):
-        if(i%2==0):
-            ans1 += arr[i]
+n=5
+e=2
+d=10
+flag=0
+
+count = 1
+ava = n
+l=[]
+l.append(ava)
+for i in range(1,d+1):
+    if( ava >= e):
+        ava -= e
+        l.append(ava)
+    else:
+        if(i%7 != 0):
+            ava += n
+            count += 1
+            ava -= e
+            l.append(ava)
         else:
-            ans2 ^= arr[i]
-    return ans1 + ans2
-            
-arr = [1,2,4,2,1]
-print(add_xor(arr))
+            print(-1)
+            flag=1
+            break
+if(flag == 0):
+    print(count)
+print(l)
+
