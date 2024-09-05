@@ -3,8 +3,8 @@ e=2
 d=10
 flag=0
 
-count = 1
-ava = n
+count = 0
+ava = 0
 l=[]
 l.append(ava)
 for i in range(1,d+1):
