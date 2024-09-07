@@ -1,27 +1,42 @@
-n=5
-e=2
-d=10
-flag=0
+class Node:
+    def __init__(self,data=None,prevlink=None,nextlink=None):
+        self.data = data
+        self.prevlink = prevlink
+        self.nextlink = nextlink
 
-count = 0
-ava = 0
-l=[]
-l.append(ava)
-for i in range(1,d+1):
-    if( ava >= e):
-        ava -= e
-        l.append(ava)
-    else:
-        if(i%7 != 0):
-            ava += n
-            count += 1
-            ava -= e
-            l.append(ava)
+class DLL:
+    def __init__(self):
+        self.start = None
+
+    def isEmpty(self):
+        if (self.start is None):
+            return True
         else:
-            print(-1)
-            flag=1
-            break
-if(flag == 0):
-    print(count)
-print(l)
+            return False
+        
+    def add_First(self,data):
+        if(self.isEmpty()):
+            n=Node(data)
+            self.start=n
+        else:
+            n=Node(data)
+            n.nextlink=self.start
+            self.start=n
+    
+    def display(self):
+        if(not self.isEmpty()):
+            p=self.start
+            while(p is not None):
+                print(p.data,end=" ")
+                p=p.nextlink
 
+obj= DLL()
+obj.add_First(3)
+obj.add_First(10)
+
+obj.display()
+
+
+
+        
+        
