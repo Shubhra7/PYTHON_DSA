@@ -76,6 +76,18 @@ class DLL:
                 p=p.nextlink
             else:
                 print("Not Found!!")
+    
+    def sort_ll(self):
+        p=self.start
+        while (p.nextlink is not None):
+            q=p.nextlink
+            while (q is not None):
+                if(p.data > q.data):
+                    temp=p.data
+                    p.data=q.data
+                    q.data=temp
+                q=q.nextlink
+            p = p.nextlink
 
 
             
@@ -91,6 +103,11 @@ obj.add_after(10,108)
 obj.add_before(69,1007)
 
 print("The printed list is: ",end="")
+obj.display()
+
+print()
+obj.sort_ll()
+print("The sorted printed list is: ",end="")
 obj.display()
 
 
