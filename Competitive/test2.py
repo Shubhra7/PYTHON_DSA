@@ -7,7 +7,7 @@ def fact(n):
             val *= i 
         return val
 
-text = "abbep"
+text = "abbcep"
 l = ['a','e','i','o','u','A','E','I','O','U']
 d={}
 Ccount = 0
