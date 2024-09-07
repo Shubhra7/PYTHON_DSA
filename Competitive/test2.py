@@ -1,9 +1,5 @@
-pass1 = "File_12"
 
-l=list(pass1.split('_'))
+l = [1,2,3,4,1,2,0,1,2,3]
+print(len(l))
 
-if (l[0]=="File"):
-    if(l[1].isdigit()):
-        print(int(l[1]))
-else:
-    print(-1)
+print("Hi bro")
