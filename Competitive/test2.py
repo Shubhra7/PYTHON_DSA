@@ -37,9 +37,26 @@ class DLL:
             p=self.start
             while( p.nextlink is not None):
                 p = p.nextlink
+            print(p.data)
             n=Node(data)
             n.prevlink=p
             p.nextlink=n
+    
+    def add_after(self,val,data):
+        if(self.isEmpty()):
+            print("Empty list")
+        else:
+            p=self.start
+            while (p is not None):
+                if(p.data == val):
+                    n=Node(data)
+                    n.prevlink = p
+                    n.nextlink = p.nextlink
+                    p.nextlink = n
+                    break
+                p=p.nextlink
+            else:
+                print("Not found!!")
 
             
 
@@ -48,6 +65,9 @@ obj.add_First(3)
 obj.add_First(10)
 obj.add_last(33)
 obj.add_last(69)
+
+obj.add_after(69,108)
+
 
 obj.display()
 
