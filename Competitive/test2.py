@@ -57,6 +57,26 @@ class DLL:
                 p=p.nextlink
             else:
                 print("Not found!!")
+    
+    def add_before(self,val,data):
+        if(self.isEmpty()):
+            print("Empty List!!")
+        elif (self.start.data == val):
+            self.add_First(data)
+        else:
+            p=self.start
+            while(p.nextlink is not None):
+                if(p.nextlink.data == val):
+                    n=Node(data)
+                    n.prevlink=p
+                    n.nextlink=p.nextlink
+                    p.nextlink.prevlink = n
+                    p.nextlink = n
+                    break
+                p=p.nextlink
+            else:
+                print("Not Found!!")
+
 
             
 
@@ -66,9 +86,11 @@ obj.add_First(10)
 obj.add_last(33)
 obj.add_last(69)
 
-obj.add_after(69,108)
+obj.add_after(10,108)
 
+obj.add_before(69,1007)
 
+print("The printed list is: ",end="")
 obj.display()
 
 
