@@ -29,10 +29,26 @@ class DLL:
             while(p is not None):
                 print(p.data,end=" ")
                 p=p.nextlink
+    
+    def add_last(self,data):
+        if(self.isEmpty()):
+            self.add_First(data)
+        else:
+            p=self.start
+            while( p.nextlink is not None):
+                p = p.nextlink
+            n=Node(data)
+            n.prevlink=p
+            p.nextlink=n
+
+            
 
 obj= DLL()
-obj.add_First(3)
-obj.add_First(10)
+# obj.add_First(3)
+# obj.add_First(10)
+
+# obj.add_last(33)
+obj.add_last(69)
 
 obj.display()
 

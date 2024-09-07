@@ -1,3 +1,4 @@
-obj.addFirst(4)
-obj.addFirst(3)
-obj.addFirst(5)
+obj.add_First(3)
+# obj.add_First(10)
+
+# obj.add_last(33)
