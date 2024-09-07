@@ -8,9 +8,7 @@ def fact(n):
         return val
 
 text = "abbep"
-
 l = ['a','e','i','o','u','A','E','I','O','U']
-
 d={}
 Ccount = 0
 
@@ -23,6 +21,6 @@ req = 1
 for i in d.values():
     if (i>1):
         req = req * fact(i)
-        
+
 print(Ccount)
 print("The permutaion result is: ",fact(Ccount)/req)
