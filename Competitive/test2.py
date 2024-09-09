@@ -1,21 +1,15 @@
-n=14
-
-# print(bin(n)[2:].count('1'))
-
-count = 0
-while (n>0):
-    count += n & 1
-    n >>= 1
-
-print(count)
-
-n=11
-ans=""
-while(n>0):
-    if(n%2==0):
-        ans+=str('0')
+text = "TeamATeamBTeamATeamBTeamATeamBTeamBTeamA"
+ 
+i=4 
+Aval, Bval = 0,0
+while (i < len(text)):
+    if(text[i]=='A'):
+        Aval += 1
     else:
-        ans += str('1')
-    n = n//2
-print(ans[::-1])
+        Bval += 1
+    i += 5
 
+if(Aval > Bval):
+    print("TeamA")
+else:
+    print("TeamB")
