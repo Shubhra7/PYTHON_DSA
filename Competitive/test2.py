@@ -1,5 +1,5 @@
-# arr=[1,6,0,-1,-2,3,4,8,6,4,3,2,1,0]
-arr=[1,0]
+arr=[1,6,0,-1,-2,3,4,8,6,4,3,2,1,0]
+# arr=[1,0]
 
 count=0
 maxi=0
@@ -11,10 +11,13 @@ for i in range(1,len(arr)):
             p.append(arr[i-1])
         p.append(arr[i])
         count += 1
-        maxi = max(maxi,count+1)
+        # maxi = max(maxi,count+1)
     else:
+        print(maxi,"  ",count+1)
+        maxi = max(maxi,count+1)
         count = 0
         j=i
+    maxi=max(maxi,count+1)
 
 print(maxi)
 print(p[-maxi:len(p)])
