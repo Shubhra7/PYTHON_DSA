@@ -1,8 +1,19 @@
-n=int(input())
+import sys
+# arr = [5,4,2,1,-2,1,3]
+arr=[3,3]
 
-val = 3.14*n*n
+min, min2 = sys.maxsize, sys.maxsize
 
-if( val - int(val) > 0.5):
-    print(int(val)+1)
+for i in range(len(arr)):
+    if(min > arr[i]):
+        min2 = min
+        min = arr[i]
+    elif(min2 > arr[i] and min!=arr[i]): # 2nd condition for avoid duplicate values
+        min2=arr[i]
+
+if(min2 == sys.maxsize):
+    print("Not possible")
 else:
-    print(int(val))
+    print(min2)
+    
+
