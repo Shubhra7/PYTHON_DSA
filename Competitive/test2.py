@@ -1,12 +1,4 @@
-text= "hello.worlkopliad.from.shubhrajit"
+n=int(input("Enter the radius value: "))
 
-ans=""
-l=list(text.split('.'))
-maxi=0
-for i in l:
-    if len(i) > maxi:
-        maxi=len(i)
-        ans=i
-
-print(maxi)
-print(ans)
+ans = 3.14*n*n
+print(round(ans))
