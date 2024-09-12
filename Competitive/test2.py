@@ -1,15 +1,18 @@
+import sys
 def min_hour_consume(arr,h):
     low=1
     high=max(arr)
-    ans=0
+    ans=sys.maxsize
     while(low<=high):
         mid = low + (high-low)//2
         req=0
         for i in arr:
             req += (i//mid) + (i%mid!=0)
-        if req <= h:
+        print(mid," : ",req)
+        if req <= h and ans>req:
             ans=req
             high=mid-1
+            print("Yes")
         else:
             low = mid+1
     return ans
