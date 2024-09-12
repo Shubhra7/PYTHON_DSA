@@ -9,8 +9,8 @@ def min_hour_consume(arr,h):
         for i in arr:
             req += (i//mid) + (i%mid!=0)
         print(mid," : ",req)
-        if req <= h and ans>req:
-            ans=req
+        if req <= h:
+            ans=mid
             high=mid-1
             print("Yes")
         else:
