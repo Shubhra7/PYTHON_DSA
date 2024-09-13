@@ -27,9 +27,11 @@ def median(mat,m,n):
     # print(low)
     # print(high)
     req = (m * n)//2
+    # print(req)
     while (low <= high):
         mid = low + (high - low)//2
         smallEqual = countSmallEqual(mat,m,n,mid)
+        # print("(",low," , " ,high, ")","==>",mid," : ",smallEqual)
         if(smallEqual <= req):
             low = mid + 1
         else:
