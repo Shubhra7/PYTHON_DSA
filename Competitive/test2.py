@@ -1,28 +1,23 @@
-s1="adventure"
-s2="fadvenuture"
-
-row,col =len(s1), len(s2)
-dp=[[0 for i in range(len(s2)+1)] for j in range(len(s1)+1)]
-maxi=-1
-ro,co =-1,-1
-
-for i in range(1,row+1):
-    for j in range(1,col+1):
-        if(s1[i-1] == s2[j-1]):
-            dp[i][j]=dp[i-1][j-1]+1
-            if(dp[i][j] > maxi):
-                maxi=dp[i][j]
-                ro,co=i,j
+def min_hour_consume(arr,h):
+    low = 1
+    high = max(arr)
+    ans=0
+    while (low <= high):
+        mid = low + (high-low)//2
+        req= 0
+        for i in arr:
+            req += (i//mid) + (i%mid!=0)
+        # print(mid," : ",req)
+        if (req <= h):
+            ans=mid
+            high=mid-1
         else:
-            dp[i][j]=0
-
-print(maxi)
-
-ans=""
-for i in range(maxi):
-    ans =s1[ro-1] + ans
-    ro -= 1
-
-print(ans)
+            low = mid+1
+    return ans
 
 
+
+arr = [4,9,11,17]
+h=8
+ans1 = min_hour_consume(arr,h)
+print(ans1)
