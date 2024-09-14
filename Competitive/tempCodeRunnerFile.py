@@ -1,2 +1,2 @@
-n=(2//4)+(4%2!=0)
-print(n)
+
+# for i in range(3):
