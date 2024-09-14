@@ -1,28 +1,43 @@
-def fact(n):
-    ans=1
-    for i in range(1,n+1):
-        ans *= i
-    return ans
+n=int(input())
+co=[]
+for i in range(3):
+    co.append(list(input().split()))
 
-def permut(s):
+print("The ceo is: ")
+for i in co:
+    print(i)
 
-    l=['a','e','i','o','u','A','E','I','O','U']
-
-    d={}
-    count1=0
-
-    for i in range(len(s)):
-        if (s[i] not in l):
-            count1 += 1
-            d[s[i]] = d.get(s[i],0)+1
-    ans = 1
-    for i in d.values():
-        if(i>1):
-            ans *= fact(i)
-
-    return int(fact(count1) / ans)
-
-s="ybghjahebuyitob"
-print(permut(s))
-
-
+print()
+i=0
+while i<n-2:    
+    if co[0][i]=='#':       
+         print("#",end="")        
+         i+=1        
+         continue   
+    if co[0][i]=='.' and co[0][i+1]=='*' and co[0][i+2]=='.':
+          if co[1][i]=='*' and co[1][i+1]=='*' and co[1][i+2]=='*':            
+              if co[2][i]=='*' and co[2][i+1]=='.' and co[2][i+2]=='*':                
+                  print('A',end="")    
+    if co[0][i]=='*' and co[0][i+1]=='*' and co[0][i+2]=='*':        
+        if co[1][i]=='*' and co[1][i+1]=='*' and co[1][i+2]=='*':            
+            if co[2][i]=='*' and co[2][i+1]=='*' and co[2][i+2]=='*':                
+                print('E',end="")                
+                i+=3                
+                continue        
+        elif co[1][i]=='.' and co[1][i+1]=='*' and co[1][i+2]=='.':            
+                if co[2][i]=='*' and co[2][i+1]=='*' and co[2][i+2]=='*':                
+                    print('I',end="")                
+                    i+=3                
+                    continue        
+        elif co[1][i]=='*' and co[1][i+1]=='.' and co[1][i+2]=='*':            
+            if co[2][i]=='*' and co[2][i+1]=='*' and co[2][i+2]=='*':                
+                print('O',end="")                
+                i+=3               
+                continue    
+    if co[0][i]=='*' and co[0][i+1]=='.' and co[0][i+2]=='*':        
+        if co[1][i]=='*' and co[1][i+1]=='.' and co[1][i+2]=='*':            
+            if co[2][i]=='*' and co[2][i+1]=='*' and co[2][i+2]=='*':                
+                print('U',end="")                
+                i+=3                
+                continue    
+    i+=1
