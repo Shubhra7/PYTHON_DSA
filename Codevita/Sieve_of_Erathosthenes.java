@@ -21,9 +21,11 @@ public class Sieve_of_Erathosthenes{
         }
         return true;
     }
+
     public static void main(String[] args) {
         System.out.println("HI bubai");
         System.out.println("16: "+isPrime(16));
         System.out.println("17: "+isPrime(17));
+        System.out.println("17: "+isPrime(19));
     }
 }
