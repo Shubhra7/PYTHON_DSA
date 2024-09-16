@@ -1,7 +1,22 @@
-from collections import Counter
+def checkPrime(l,i):
+    for i in range(len(l)):
+        p=
 
-nums=[1,2,1,4]
+d = int(input())
+p = int(input())
 
-ans=Counter(nums)
-print(ans)
-print(ans[5])
+n = d//p
+
+l=[0 for i in range(p)]
+print(l)
+
+val=1
+for i in range(p):
+    l[i] += val
+    val += n
+
+print(l)
+
+val=1
+for i in range(n):
+    checkPrime(l,i)
