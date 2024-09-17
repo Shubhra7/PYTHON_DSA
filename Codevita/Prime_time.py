@@ -18,12 +18,14 @@ count = 0
 # as 0, 1 not prime so starting from 2
 for i in range(2, n):    
     prime_time = True    
-
-for j in range(p):        
-    num = i + j * n        
-    if not prime_list[num]:            
-        prime_time = False            
-        break    
+    for j in range(p):        
+        num = i + j * n        
+        if not prime_list[num]:            
+            prime_time = False            
+            break   
+        # print("HI")
+        print(num,end=" ")
+    print() 
     if prime_time:        
-        count += 1
+            count += 1
 print(count)
