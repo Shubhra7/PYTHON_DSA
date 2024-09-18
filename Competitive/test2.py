@@ -1,9 +1,8 @@
-stone=input()
-instruction=input()
+def win_joshep(n,k):
+    winner = 1
+    for i in range(2,n+1):
+        winner = (winner + (k-1))%i + 1
+    # print(winner)
+    return winner
 
-idx=0
-for i in range(len(instruction)):
-    if (instruction[i] == stone[idx]):
-        idx += 1
-
-print(idx+1)
+print(win_joshep(41,2))
