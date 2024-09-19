@@ -7,6 +7,16 @@ class Node:
 class DLL:
     def __init__(self) -> None:
         self.start = None
+    def add_last(self,data):
+        if self.start is None:
+            self.add_first(data)
+            return
+        n=Node(data)
+        p=self.start
+        while p.nextlink is not None:
+            p=p.nextlink
+        p.nextlink=n
+        n.prevlink=p
     def add_first(self,data):
         n=Node(data)
         if self.start is None:
@@ -43,9 +53,11 @@ obj.add_first(4)
 obj.add_first(12)
 obj.add_first(45)
 obj.add_first(6)
+obj.add_last(4555)
+obj.add_last(499)
 
 obj.display()    
 
-obj.reverse()
+# obj.reverse()
 
-obj.display()
+# obj.display()
