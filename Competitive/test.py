@@ -45,18 +45,36 @@ class DLL:
         l.nextlink=l.prevlink
         l.prevlink=temp1
         self.start=l
+    def sortLL(self):
+        p=self.start
+        while p is not None:
+            q=p.nextlink
+            while q is not None:
+                if (p.data > q.data):
+                    temp=p.data
+                    p.data=q.data
+                    q.data=temp
+                q=q.nextlink
+            p=p.nextlink
+
 
 
 obj = DLL()
-obj.add_first(3)
-obj.add_first(4)
+
 obj.add_first(12)
 obj.add_first(45)
 obj.add_first(6)
-obj.add_last(4555)
+# obj.add_last(4555)
+obj.add_first(3)
+obj.add_first(4)
 obj.add_last(499)
 
-obj.display()    
+obj.display()  
+obj.sortLL()
+
+obj.display()
+
+
 
 # obj.reverse()
 
