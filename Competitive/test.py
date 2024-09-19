@@ -17,14 +17,33 @@ class DLL:
             self.start=n
     def display(self):
         p=self.start
+        print()
         print("The Linked list is: ")
         while p is not None:
             print("|",p.data,"|",end=" -> ")
             p=p.nextlink
+    def reverse(self):
+        l=self.start
+        p=l.nextlink
+        while p is not None:
+            temp1=l.nextlink
+            l.nextlink=l.prevlink
+            l.prevlink=temp1
+            l=p
+            p=l.nextlink
+        temp1=l.nextlink
+        l.nextlink=l.prevlink
+        l.prevlink=temp1
+        self.start=l
+
 
 obj = DLL()
 obj.add_first(3)
 obj.add_first(4)
 obj.add_first(6)
 
-obj.display()        
+obj.display()    
+
+obj.reverse()
+
+obj.display()
