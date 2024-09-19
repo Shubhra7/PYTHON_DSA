@@ -40,6 +40,8 @@ class DLL:
 obj = DLL()
 obj.add_first(3)
 obj.add_first(4)
+obj.add_first(12)
+obj.add_first(45)
 obj.add_first(6)
 
 obj.display()    
