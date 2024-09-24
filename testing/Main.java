@@ -16,7 +16,8 @@ class A{
 class B extends A{
     int value1;
     B(int value1){
-        this.value1=value1;
+      super(value1);
+      this.value1=value1;
     }
     void justprint(){
         System.out.println("The value1 is: "+value1);
@@ -25,8 +26,12 @@ class B extends A{
 
 class Main {
     public static void main(String[] args) {
-        A obj=new A(4);
-        obj.printvalue();
+        // A obj=new A(4);
+        // obj.printvalue();
+
+        B obj1=new B(5);
+        obj1.printvalue();
+        obj1.justprint();
         
     }
 }
