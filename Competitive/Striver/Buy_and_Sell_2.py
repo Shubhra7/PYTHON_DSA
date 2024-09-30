@@ -12,4 +12,4 @@ def max_profit(price):
     return noshare
 
 price = [7,1,5,3,6,4]
-print(max_profit(price))
+print("The maximum profit will be: ",max_profit(price))
