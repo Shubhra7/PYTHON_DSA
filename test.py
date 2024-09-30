@@ -1,24 +1,16 @@
-from collections import Counter
+t=2
+text1="bggbgbbg"
+text = list(text1)
 
-def anargram_check(s1,s2):
-    p=Counter(s1)
-    print(p)
-    for i in s2:
-        if(i not in p.keys()):
-            return False
-        p[i] = p.get(i)  - 1
+for i in range(t):
+    j=0
+    while j<len(text)-1:
+        if(text[j]=='b' and text[j+1]=='g'):
+            temp = text[j]
+            text[j] = text[j+1]
+            text[j+1] = temp
+            j += 2
+        else:
+            j+=1
 
-    print(p)
-    ans = 0
-    for i in p.values():
-        ans += i
-
-    if(ans == 0):
-        return True
-    else:
-        return False
-
-s1 = "abbkalllu"
-s2="bbkallalu"
-print(anargram_check(s1,s2))
-
+print(''.join(text))
