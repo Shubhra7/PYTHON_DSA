@@ -1,3 +1,7 @@
+# Link: https://youtu.be/XdbPH2tfXF4?t=594&si=M8yYELjQbm-ZCEJZ
+
+# Boys would be behind the girls in t time which condition will get
+
 t=2
 text1="bggbgbbg"
 text = list(text1)
