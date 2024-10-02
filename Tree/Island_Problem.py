@@ -4,6 +4,7 @@ import collections
 visited=set()
 q=collections.deque()
 directions = [[1,0],[-1,0],[0,1],[0,-1]]
+# not checking diagonally 
 
 def bfs(i,j):
     q.append((i,j))
