@@ -1,15 +1,18 @@
-# Link: https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/
-# video link: https://youtu.be/XdbPH2tfXF4?t=1190&si=DnZSpyK62eHm92yi
+def covert_to_12Hour(hour,min):
+    if(hour >= 12):
+        period = "PM"
+        if(hour > 12):
+            hour -= 12
+    else:
+        period = "AM"
+        if(hour == 0):  # Handle midnight case (00:00)
+            hour = 12
+    print("The answer is: ",hour,":",min)
 
-def max_profit(price):
-    onestock = -price[0]
-    noshare = 0
-    for i in range(1,len(price)):
-        print(onestock," ", noshare)
-        onestock = max(noshare - price[i], onestock)
-        noshare = max(onestock + price[i], noshare)
-    print(onestock," ", noshare)
-    return noshare
+hour =  int(input("Enter the hour(0-23): "))
+min = int(input("Enter the minute(0-59): "))
 
-price = [7,1,5,3,6,4]
-print(max_profit(price))
+if(hour < 0 or hour > 23 or min<0 or min > 59):
+    print("Invalid time input")
+else:
+    covert_to_12Hour(hour,min)
