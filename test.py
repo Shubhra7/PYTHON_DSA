@@ -4,6 +4,7 @@ pairs = [[0,1], [2,3]]
 
 priority = {}
 #making priority dictonary
+# jar stha pair hoyacha tar aga karor preferences e kao ache kina
 for p1, p2 in pairs:
     priority[p1] = preferences[p1][:preferences[p1].index(p2)]
     priority[p2] = preferences[p2][:preferences[p2].index(p1)]
@@ -12,7 +13,7 @@ print(priority)
 res = 0 #act as a counter for unhappy friends
 for p1 in priority:
     for p2 in priority[p1]:    # Checking ami jake valobasi, seoo ki amkee valo base
-        if p1 in priority[p2]:
+        if p1 in priority[p2]:     # amr list e je aga acha tar list eo ki ami aga achi check!!
             print(p1)
             res += 1
             break
