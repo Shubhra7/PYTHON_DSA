@@ -2,6 +2,10 @@ n=4
 preferences = [[1,2,3], [3,2,0], [3,1,0], [1,2,0]]  
 pairs = [[0,1], [2,3]]
 
+# -----------------------------------
+#### *******  METHOD-1************
+# -----------------------------------
+
 priority = {}
 #making priority dictonary
 # jar stha pair hoyacha tar aga karor preferences e kao ache kina
@@ -19,6 +23,11 @@ for p1 in priority:
             break
 print(res)
 # return res
+
+# -----------------------------------
+### ******* METHOD - 2 **********
+# -----------------------------------
+
 
 # premap = [[99 for i in range(n)] for i in range(n)]
 
