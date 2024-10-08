@@ -17,7 +17,7 @@ public class Combination_sum_L8 {
         }
         if(target>=arr[index]){
         ds.add(arr[index]);
-        findCombination(index,arr,ds, target-arr[index]);
+        findCombination(index,arr,ds, target-arr[index]);  // only index because single element can repeat
 
         ds.remove(ds.size()-1);
     }
