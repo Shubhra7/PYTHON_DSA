@@ -3,10 +3,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class test {
+    public static ArrayList<Integer> b=new ArrayList<>();
 
     public static void merge(int arr[],int low, int mid, int high){
-        int l1=low, l2=mid+1, i=low;
-        ArrayList<Integer> b=new ArrayList<>();
+        int l1=low,l2=mid+1,i;
+        
         while(l1<=mid && l2<=high){
             if(arr[l1]<=arr[l2]){
                 b.add(arr[l1]);
@@ -15,15 +16,15 @@ public class test {
                 b.add(arr[l2]);
                 l2++;
             }
-        }
-        while (l1<=mid) {
-            b.add(arr[l1++]);
-        }
-        while (l2<=high) {
-            b.add(arr[l2++]);
-        }
-        for(i=low;i<=high;i++){
-            arr[i]=b.get(i-low);
+            while (l1<=mid) {
+                b.add(arr[l1++]);
+            }
+            while (l2<=high) {
+                b.add(arr[l2++]);
+            }
+            for(i=low;i<=high;i++){
+                arr[i]=b.get(i-low);
+            }
         }
     }
     public static void mergeS(int arr[],int left, int right){
