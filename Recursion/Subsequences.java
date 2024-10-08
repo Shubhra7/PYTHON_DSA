@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 // Subsequences ==> a contiguous/ non-contiguious sequences, which follows the **order**
-// Striver video => 6
+// Striver video => 6 (Recursion series)
 
 public class Subsequences {
     public static void print_subseq(int i, int arr[], ArrayList<Integer> arrLi, int n) {
