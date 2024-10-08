@@ -2,6 +2,10 @@ import java.util.*;
 import java.lang.*;
 import java.io.*;
 
+// Return the subsequences which have the sum of given sum
+// Process like pick or non pick
+// Striver recursion video ==> 7
+
 public class Sum_subSeq {
     public static void sum_seq(int ind,int arr[], ArrayList<Integer> bigL,int sum,int s){
         if(ind == arr.length){
