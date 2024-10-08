@@ -9,10 +9,11 @@ public class Subsequences {
             System.out.println(arrLi);
             return;
         }
-        arrLi.add(arr[i]);
+        // Important to remeber
+        arrLi.add(arr[i]);  // add like trial room cloth
         print_subseq(i + 1, arr, arrLi, n);
 
-        arrLi.remove(arrLi.size() - 1);
+        arrLi.remove(arrLi.size() - 1);  // then out the cloth 
         print_subseq(i + 1, arr, arrLi, n);
     }
 
