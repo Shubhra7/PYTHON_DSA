@@ -4,10 +4,14 @@
 import java.util.ArrayList;
 
 public class Combination_sum_L8 {
+
+    public static ArrayList<ArrayList<Integer>> obj = new ArrayList<ArrayList<Integer>>();
+
     static void findCombination(int index,int arr[],ArrayList<Integer> ds,int target){
-        if(index == arr.length-1){
+        if(index == arr.length){
             if(target==0){
                 System.out.println(ds);
+                obj.add(new ArrayList<>(ds));
             }
             return;
         }
@@ -24,6 +28,7 @@ public class Combination_sum_L8 {
         int target=7;
         ArrayList<Integer> ds = new ArrayList<>();
         findCombination(0,arr,ds,target);
+        System.out.println("The combinations are: "+obj);
     }
     
 }
