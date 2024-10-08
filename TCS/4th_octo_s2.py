@@ -9,7 +9,7 @@
 # o/p = False
 
 def check(arr):
-    maxi=0
+    maxi=0   # maxi means Highest koto index obdhi jeta parchi
     for i in range(len(arr)):
         if i>maxi:
             return False
