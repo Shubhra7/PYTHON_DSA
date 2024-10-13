@@ -24,7 +24,7 @@ public class Subsequences {
 
     public static void main(String args[]) {
         int arr[] = { 3, 1, 2 };
-        // System.out.println(Arrays.toString(arr));
+        // int arr[] = { 1,2,-3 };
         ArrayList<Integer> arrLi = new ArrayList<Integer>();
         ArrayList<ArrayList<Integer>> bran = new ArrayList<ArrayList<Integer>>();
 
