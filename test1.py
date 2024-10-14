@@ -10,6 +10,7 @@ def solve(n,e,d):
             return ((d*e)//n + 1)
     if(n*6)<(e*7):
         return -1
+    
     ans=0
     if((d*e)%n == 0):
         ans = (d*e)//n
