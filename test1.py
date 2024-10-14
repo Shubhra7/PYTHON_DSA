@@ -1,9 +1,13 @@
+def add_xor(arr):
+    ans1=0
+    ans2=0
+    for i in range(len(arr)):
+        if(i%2==0):
+            ans1 += arr[i]
+        else:
+            ans2 ^= arr[i]
+    return ans1 + ans2
 
-def fib(n):
-    if(n==0 or n==1):
-        return 1
-    else:
-        return (fib(n-1)**2)+(fib(n-2)**2)
 
-n=int(input("Enter the value of n: "))
-print(fib(n)%47)
+arr = [1,2,4,2,1]
+print(add_xor(arr))
