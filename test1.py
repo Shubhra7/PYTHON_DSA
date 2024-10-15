@@ -24,8 +24,9 @@ def find_pair(arr):
             if(req in d.keys() and d[req]>0):
                 count += 1
                 d[req]=d[req]-1
+            print(d)
     print(count)
 
 
-arr=[0,2,58,58,2,60]
+arr=[0,2,58,58,2,60,62,58]
 print(find_pair(arr))
