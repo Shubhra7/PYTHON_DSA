@@ -1,17 +1,9 @@
-def isprime(n):
-    if(n<=3):
-        return True
-    else:
-        if(((n**2)-1)%24 == 0):
-            return True
-        return False
+st = "10111011"
 
-num = 92
-arr=list(str(num))
-sum=0
+arr = st.split('0')
+print()
+ans=""
 for i in arr:
-    sum += int(i)
-if(isprime(sum)):
-    print("yes")
-else:
-    print("no")
+    val = chr(ord('A')-1+len(i))
+    ans += val
+print(ans)
