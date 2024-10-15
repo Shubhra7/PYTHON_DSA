@@ -1,8 +1,3 @@
-n=14
-print(bin(n)[2:])
-count=0
-while(n>0):
-    count += n&1
-    n >>= 1
-
-print(count)
+arr=[1,2,3,4,5,6,7]
+k=3
+arr = arr[::-1]
