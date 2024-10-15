@@ -1,17 +1,30 @@
-import sys
-def second_lar_count(arr):
-    min,mini2 = sys.maxsize, sys.maxsize
-    for i in range(len(arr)):
-        if(arr[i] < min):
-            mini2 = min
-            min = arr[i]
-        elif(arr[i]<mini2):
-            mini2 = arr[i]
-    if(min == mini2):
-        return 0
-    return mini2
+def match_count(i,match):
+    count = 0
+    x=len(i)-1
+    y=len(match)-1
+    while(x>=0 and y>=0 and i[x]==match[y]):
+        count += 1
+        x -= 1
+        y -= 1
+    return count
 
-arr = [1,2,3,3,4,4]
-print(second_lar_count(arr))
-arr1 = [2,2,2,2,2]
-print(second_lar_count(arr1))
+def max_rhy(arr,match):
+    print("hi")
+    ans=""
+    maxi=0
+    for i in arr:
+        req = match_count(i,match)
+        print(req)
+        if(maxi < req):
+            ans = i
+            maxi = req
+        elif(maxi == req):
+            if(len(ans)>len(i)):
+                ans=i
+    print("hi2")
+    return ans
+
+
+arr = ["gender","blender","blunder","under"]
+match = "thunder"
+print(max_rhy(arr,match))
