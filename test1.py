@@ -1,14 +1,6 @@
-text = "TeamATeamBTeamATeamBTeamATeamBTeamBTeamA"
+arr = [4,9,11,17]
 
-Av = Bv =0
+h=8
 
-for i in range(4,len(text),5):
-    if(text[i]=='A'):
-        Av += 1
-    else:
-        Bv += 1
-
-if(Av > Bv):
-    print("TeamA")
-else:
-    print("TeamB")
+ans = min_hour_consume(arr,h)
+print(ans)
