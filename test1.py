@@ -1,32 +1,27 @@
-def solve(n,e,d):
-    if(n==0):
-        return -1
-    if(e==0 or d==0):
-        return 0
-    if(d<7):
-        if((d*e)%n == 0):
-            return (d*e)//n
-        else:
-            return ((d*e)//n + 1)
-    if(n*6)<(e*7):
-        return -1
-    print("hi")#
-    ans=0
-    if((d*e)%n == 0):
-        ans = (d*e)//n
+arr=[1,6,0,-1,-2,3,4,8,6,4,3,2,1,0]
+
+count = 0
+p=[]
+maxi=0
+j=0
+for i in range(1,len(arr)):
+    if(arr[i]<arr[i-1]):
+        if arr[i-1] not in p:
+            print(arr[i-1],end=" ")
+            p.append(arr[i-1])
+        p.append(arr[i])
+        print(arr[i],end=" ")
+        count += 1
     else:
-        ans = (d*e)//n + 1
-   
-    
-    return ans
-    
-
-n=5
-e=2
-d=10
-
-# n=12
-# e=11
-# d=7
-
-print(solve(n,e,d))
+        print()
+        maxi=max(maxi,count+1)
+        count = 0
+        j=i
+if(maxi < count+1):
+    maxi = count+1
+    j=i
+# maxi = max(maxi,count+1)
+print()
+print(maxi)
+print(p)
+print(p[-maxi:len(p)])
