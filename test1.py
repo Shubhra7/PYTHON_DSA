@@ -1,24 +1,17 @@
-s1,s2 = "adventure","fadvenuture"
-row = len(s2)
-col = len(s1)
-d=[[0 for i in range(col+1)]for j in range(row+1)]
-maxi=0
-ro,co =0,0
-for i in range(1,row+1):
-    for j in range(1,col+1):
-        if(s2[i-1] == s1[j-1]):
-            d[i][j] = d[i-1][j-1]+1
-            if(maxi < d[i][j]):
-                maxi = d[i][j]
-                ro,co = i,j
-        else:
-            d[i][j] = 0
+import sys
+def second_lar_count(arr):
+    min,mini2 = sys.maxsize, sys.maxsize
+    for i in range(len(arr)):
+        if(arr[i] < min):
+            mini2 = min
+            min = arr[i]
+        elif(arr[i]<mini2):
+            mini2 = arr[i]
+    if(min == mini2):
+        return 0
+    return mini2
 
-for i in d:
-    print(i)
-ans=""
-i=0
-while(i<maxi):
-    ans = s2[ro-i-1] + ans
-    i +=1
-print(ans)
+arr = [1,2,3,3,4,4]
+print(second_lar_count(arr))
+arr1 = [2,2,2,2,2]
+print(second_lar_count(arr1))
