@@ -10,7 +10,7 @@ public class Combination_sum_L8 {
     static void findCombination(int index,int arr[],ArrayList<Integer> ds,int target){
         if(index == arr.length){
             if(target==0){
-                System.out.println(ds);
+                // System.out.println(ds);
                 obj.add(new ArrayList<>(ds));
             }
             return;
@@ -24,7 +24,8 @@ public class Combination_sum_L8 {
         findCombination(index+1,arr,ds,target);
     }
     public static void main(String[] args) {
-        int arr[] ={2,3,6,7};
+        // int arr[] ={2,3,6,7};
+        int arr[] ={3,2,1};
         int target=7;
         ArrayList<Integer> ds = new ArrayList<>();
         findCombination(0,arr,ds,target);
