@@ -48,14 +48,16 @@ def XFROMY(x,y,S,R):
     i=j
     j+=1
   if(stra == 0 and revi == 0):
-    print("Impossible")
+    #print("Impossible")
+    return "Impossible"
   else:
     ans = (stra*S) + (revi*R)
-    print(str(ans))
+    #print(str(ans))
+    return str(ans).strip()
   
         
 
 x=input()
 y=input()
 S,R = map(int,input().split())
-XFROMY(x,y,S,R)
+print(XFROMY(x,y,S,R))
