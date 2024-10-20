@@ -1,12 +1,21 @@
 text = "hello.hubhrajit.name.is.shubhrajit"
 
-arr = list(text.split('.'))
-
-maxi=0
+maxi = 0
 ans=""
-for i in range(len(arr)):
-    if(len(arr[i]) > maxi):
-        maxi = len(arr[i])
-        ans = arr[i]
+
+j=0
+for i in range(1,len(text)):
+    if(text[i] == '.'):
+        val = i - j
+        if(maxi < val):
+            maxi = val
+            ans = text[j:i]
+            # print(ans)
+        j=i+1
+val = i - j + 1
+# print(val)
+if(maxi < val):
+    ans = text[j:i+1]
 
 print(ans)
+
