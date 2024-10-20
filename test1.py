@@ -1,21 +1,26 @@
-text = "hello.hubhrajit.name.is.shubhrajit"
+def fact(n):
+    if(n==0):
+        return 1
+    else:
+        return n*fact(n-1)
 
-maxi = 0
-ans=""
+def permut(s):
+    d={}
+    vow = ['a','e','i','o','u']
+    count = 0
+    for i in range(len(s)):
+        if s[i] not in vow:
+            count += 1
+            d[s[i]] = d.get(s[i],0)+1
+    dual=1
+    for i in d.values():
+        if i > 1:
+            dual *= fact(i)
+    print(count)
+    return int(fact(count)/dual)
 
-j=0
-for i in range(1,len(text)):
-    if(text[i] == '.'):
-        val = i - j
-        if(maxi < val):
-            maxi = val
-            ans = text[j:i]
-            # print(ans)
-        j=i+1
-val = i - j + 1
-# print(val)
-if(maxi < val):
-    ans = text[j:i+1]
 
-print(ans)
+s="ybghjahebuyitob"
+print(permut(s.lower()))
+
 
