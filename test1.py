@@ -1,19 +1,22 @@
-from collections import Counter
 
-def delete_earn(nums):
-    d=Counter(nums)
-    low=min(nums)
-    high = max(nums)
+def tar_mes(n):
+    ans = (n//60 + 1)*60
+    return ans
+def combo(arr):
+    d={}
+    p=[]
+    count=0
+    for i in arr:
+        tar = tar_mes(i)-i
+        if(d.get(tar,0) > 0):
+            d[tar] -= 1
+            count += 1
+            p.append([i,tar])
+        else:
+            d[i]=d.get(i,0)+1
+    print(p)
+    print(count)
+    return count
 
-    pick= low*d[low]
-    nopick=0
-    for i in range(low+1,high+1):
-        newpick = nopick + (i*d[i])
-        newnopick = max(nopick,pick)
-
-        pick=newpick
-        nopick=newnopick
-    return max(pick,nopick)
-
-nums = [2,2,3,3,3,4]
-print(delete_earn(nums))
+arr = [2,58,58,2,60,60]
+print(combo(arr))
