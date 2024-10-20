@@ -1,16 +1,15 @@
-t=2
-text="bggbgbbg"
-text1 = list(text)
+s1 = "abbkalllu"
+s2="bbkallalu"
 
-for i in range(t):
-    j=0
-    while j<len(text1)-1:
-        if(text1[j]=='b' and text1[j+1]=='g'):
-            temp=text1[j]
-            text1[j]=text1[j+1]
-            text1[j+1]=temp
-            j += 2
-        else:
-            j+=1
+x, y = sorted(list(s1)), sorted(list(s2))
+print(x)
+print(y)
+ans1 = "".join(x)
+ans2 = "".join(y)
 
-print("".join(text1))
+print(ans1," ",ans2)
+
+if(ans2 == ans1):
+    print("Yes")
+else:
+    print("No")
