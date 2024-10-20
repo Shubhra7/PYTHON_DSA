@@ -1,19 +1,13 @@
-def solve(arr,h):
-    low=1
-    high=max(arr)
-    while(low<=high):
-        mid = low +(high -low)//2
-        req=0
-        for i in arr:
-            req += (i//mid) + (i%mid!=0)
-        if(req <=h):
-            ans=mid
-            high=mid-1
-        else:
-            low = mid+1
-    return ans
+dice=3
+num=str(1234)
 
-arr=[4,9,11,17]
-h=8
+if(dice %2 ==0):
+    j=0
+else:
+    j=1
 
-print(solve(arr,h))
+sum=0
+for i in range(j,len(num),2):
+    sum += int(num[i])
+
+print(sum)
