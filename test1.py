@@ -1,18 +1,25 @@
-def convert_to_12Hour(hour,min):
-    if(hour >= 12):
-        period="PM"
-        if(hour > 12):
-            hour = hour-12
-    else:
-        if(hour == 0):
-            ansH=12
-        period="AM"
-    print("The time is: ",hour,":",min,period)
+def max_rhyme(arr,given):
+    mini = min([len(i) for i in arr])
+    ans=0
+    val=""
+    maxi=0
+    for j in arr:
+        ans=0
+        for i in range(1,mini+1):
+            if(j[-i] != given[-i]):
+                break
+            ans += 1
+        if(maxi < ans):
+            val = j
+            maxi=ans
+        if(maxi == ans):
+            if(len(val) > len(j)):
+                val=j
+    print(maxi)
+    print(val)
+        
 
-hour =  int(input("Enter the hour(0-23): "))
-min = int(input("Enter the minute(0-59): "))
+arr=["gender","blender","blunder","under"]
+given = "thunder"
 
-if(hour < 0 or hour > 23 or min<0 or min > 59):
-    print("Invalid time input")
-else:
-    convert_to_12Hour(hour,min)
+max_rhyme(arr,given)
