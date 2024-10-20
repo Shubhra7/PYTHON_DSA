@@ -1,15 +1,17 @@
-s1 = "abbkalllu"
-s2="bbkallalu"
+def score(arr):
+    hcount=0
+    sc=0
+    for i in arr:
+        if(i=='H'):
+            sc += 2
+            hcount+=1
+        else:
+            sc -= 1
+            hcount=0
+        if(hcount==3):
+            return sc
+    return sc
 
-x, y = sorted(list(s1)), sorted(list(s2))
-print(x)
-print(y)
-ans1 = "".join(x)
-ans2 = "".join(y)
 
-print(ans1," ",ans2)
-
-if(ans2 == ans1):
-    print("Yes")
-else:
-    print("No")
+arr1 = ['T','T','T']
+print(score(arr1))
