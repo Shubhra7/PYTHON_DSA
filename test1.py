@@ -1,3 +1,7 @@
-H,v,vn = 10,20,5
-ans = H * (v/vn)**2
-print(int(ans))
+s1 = "shavrya"
+# p/p = ahsvrys
+
+ans = s1.replace('s','*').replace('a','s').replace('*','a')
+
+print(ans)
+
