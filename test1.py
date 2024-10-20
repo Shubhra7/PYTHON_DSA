@@ -1,25 +1,16 @@
-def max_rhyme(arr,given):
-    mini = min([len(i) for i in arr])
-    ans=0
-    val=""
-    maxi=0
-    for j in arr:
-        ans=0
-        for i in range(1,mini+1):
-            if(j[-i] != given[-i]):
-                break
-            ans += 1
-        if(maxi < ans):
-            val = j
-            maxi=ans
-        if(maxi == ans):
-            if(len(val) > len(j)):
-                val=j
-    print(maxi)
-    print(val)
-        
+t=2
+text="bggbgbbg"
+text1 = list(text)
 
-arr=["gender","blender","blunder","under"]
-given = "thunder"
+for i in range(t):
+    j=0
+    while j<len(text1)-1:
+        if(text1[j]=='b' and text1[j+1]=='g'):
+            temp=text1[j]
+            text1[j]=text1[j+1]
+            text1[j+1]=temp
+            j += 2
+        else:
+            j+=1
 
-max_rhyme(arr,given)
+print("".join(text1))
