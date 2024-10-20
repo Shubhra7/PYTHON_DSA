@@ -1,8 +1,12 @@
-def win_joshep(n,k):
-    if(n==0):
-        return 1
-    else:
-        return (win_joshep(n-1,k)+k)%n
+# arr=[2,3,-8,7,-1,2,3]
+# arr=[-2,-4]
+arr=[5,4,1,7,8]
 
-print(win_joshep(41,2)+1)
-print(win_joshep(5,3)+1)
+# arr=[5,4,-1,7,8]
+sum=arr[0]
+ans=arr[0]
+for i in range(1,len(arr)):
+    sum = max(arr[i],sum + arr[i])
+    ans = max(ans,sum)
+
+print(ans)
