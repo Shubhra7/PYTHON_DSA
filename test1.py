@@ -1,10 +1,19 @@
-n=int(input("Enter the distance:" ))
-area=3.14*n*n
+def isprime(n):
+    if(n==2 or n==3):
+        return True
+    if(n>3):
+        if(((n**2)-1)%24)==0:
+            return True
+    return False
 
-val = area - int(area)
+n=int(input("Enter the number: "))
+arr = list(str(n))
 
-if(val > 0.5):
-    area = int(area)+1
+sum=0
+for i in arr:
+    sum += int(i)
+
+if(isprime(sum)):
+    print("Yes")
 else:
-    area = int(area)
-print("The answer is: ",area)
+    print("No")
