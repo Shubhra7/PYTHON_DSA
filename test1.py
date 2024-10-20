@@ -1,11 +1,12 @@
-def cal(arr):
-    ans1, ans2 = arr[0],arr[1]
-    for i in range(2,len(arr)):
-        if(i%2==0):
-            ans1 += arr[i]
-        else:
-            ans2 ^= arr[i]
-    return ans1 + ans2
+text = "hello.hubhrajit.name.is.shubhrajit"
 
-arr = [1,2,4,2,1]
-print(cal(arr))
+arr = list(text.split('.'))
+
+maxi=0
+ans=""
+for i in range(len(arr)):
+    if(len(arr[i]) > maxi):
+        maxi = len(arr[i])
+        ans = arr[i]
+
+print(ans)
