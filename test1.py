@@ -1,26 +1,26 @@
-def solve(n,e,d):
-    if(n==0):
-        return -1
-    if(e==0 or d==0):
-        return 0
-    if(e*7 > n*6):
-        return -1
-    if(d<7):
-        val = e*d
-        return (val//n)+(val%n!=0)
+def do(arr):
+    j=0
+    maxi =0
+    val=0
+    p=[]
+    for i in range(1,len(arr)):
+        if(arr[i]<arr[i-1]):
+            val += 1
+        else:
+            if(val > maxi):
+                maxi=val
+                j=i-1
+            val =0
     
-    weeks= d//7
-    need = weeks*7*e
-    pur_count = (need//n) + (need%n!=0)
-    left_item = (pur_count*n)- need
-    left_days = d%7
-    req = (left_days*e) - left_days
+    if(val > maxi):
+        j=i
+        maxi = val
+    print(maxi + 1)
+    kalu = arr[j-maxi:j+1]
+    print(kalu)
 
-    pur_count += (req//n) + (req%n!=0)
 
-    return pur_count
 
-n=12
-e=11
-d=7
-print(solve(n,e,d))
+# arr=[1,6,0,-1,-2,3,4,8,6,4,3,2,1,0]
+arr=[7,5,2,-1,-2,-3,0,1,2,3,4,8,7,6,5,4,3,1]
+do(arr)
