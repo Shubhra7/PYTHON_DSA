@@ -1,10 +1,8 @@
-Stone = "BBBR"
-INS= "RRRBGBRBBB"
+def win_joshep(n,k):
+    if(n==0):
+        return 1
+    else:
+        return (win_joshep(n-1,k)+k)%n
 
-ind =0
-for i in range(len(Stone)):
-    if(Stone[i] == INS[ind]):
-        ind +=1
-
-print(ind+1)
-    
+print(win_joshep(41,2)+1)
+print(win_joshep(5,3)+1)
