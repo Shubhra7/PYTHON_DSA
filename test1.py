@@ -1,22 +1,22 @@
-arr=[1,2,3,4,5,6,7]
-k=1
-arr = arr[::-1]
+text = "TeamATeamBTeamATeamBTeamATeamBTeamBTeamATeamA"
+
+Aval , Bval =0,0
 
 i=0
-j=k-1
-while( i<j):
-    arr[j] = arr[i] ^ arr[j]
-    arr[i] = arr[i] ^ arr[j]
-    arr[j] = arr[i] ^ arr[j]
-    i+=1
-    j -=1
+while(i<len(text)):
+    if(text[i] == 'A'):
+        Aval += 1
+        i += 5
+    elif(text[i] == 'B'):
+        Bval += 1
+        i += 5
+    else:
+        i+=1
+print(Aval, " ",Bval)
+if(Aval > Bval):
+    print("TeamA")
+else:
+    print("TeamB")
+    
 
-i=k
-j=len(arr)-1
-while( i<j):
-    arr[j] = arr[i] ^ arr[j]
-    arr[i] = arr[i] ^ arr[j]
-    arr[j] = arr[i] ^ arr[j]
-    i+=1
-    j -=1
-print(arr)
+    
