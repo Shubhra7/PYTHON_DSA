@@ -1,7 +1,10 @@
-n=9
+def fibo(n):
+    if(n==0):
+        return 0
+    if(n==1):
+        return 1
+    else:
+        return fibo(n-1) + fibo(n-2)
 
-ans=""
-while n>0:
-    ans = str(0+(n%2!=0)) + ans
-    n=n//2
-print(ans)
+n=int(input("Enter the number: "))
+print(fibo(n))
