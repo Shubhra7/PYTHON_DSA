@@ -1,14 +1,11 @@
-def max_version(arr1,n):
-    maxi=-1
-    for i in arr1:
-        l=i.split('_')
-        if(l[0]=='File' and l[1].isdigit()):
-            if(int(l[1]) > maxi):
-                maxi=int(l[1])
-    return maxi
+def max_profit(price):
+    pick=-price[0]
+    nopick=0
+    for i in range(1,len(price)):
+        pick = max(pick, nopick-price[i])
+        nopick = max(nopick, pick+price[i])
+        print(pick," ",nopick)
+    return nopick
 
-
-
-n=4
-arr = ["File_2","File_1","File_6s","Fil_7"]
-print(max_version(arr,n))
+price = [7,1,5,3,6,4]
+print("The maximum profit will be: ",max_profit(price))
