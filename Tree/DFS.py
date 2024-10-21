@@ -3,8 +3,8 @@
 def dfs(start,visit, adj, l):
     visit.add(start)
     l.append(start)
-    for i in adj[start]:
-        if(i not in visit):
+    for i in adj[start]:    # Can use inspite of these two lines
+        if(i not in visit):  # for i in set(adj[start])-visited:
             dfs(i,visit,adj,l)
 
 # V= 5
@@ -19,4 +19,5 @@ adj = [[1,3], [2,0], [1], [0]]
 visit = set()
 l=[]
 dfs(0,visit,adj,l)
+# dfs(2,visit,adj,l)
 print(l)
