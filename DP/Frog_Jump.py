@@ -37,3 +37,29 @@ for i in range(1,len(arr)):
     prev2 = prev
     prev = min(ls,rs)
 print(prev)
+
+
+# ---------------------
+# Recursion Method
+# ---------------------
+
+def solve(ind,arr,dp):
+    if(ind == 0):
+        return 0
+    if(dp[ind]!=-1):
+        return dp[ind]
+    ls = solve(ind-1,arr,dp) + abs(arr[ind] - arr[ind-1])
+    rs=sys.maxsize
+    if ind>1:
+        rs = solve(ind-2,arr,dp) + abs(arr[ind] - arr[ind-2])
+    dp[ind] = min(ls,rs)
+    return dp[ind]
+
+
+arr = [7,4,4,2,6,6,3,4]
+# arr = [10,50,10]
+dp=[-1 for i in range(len(arr))]
+print(solve(len(arr)-1,arr,dp))
+
+
+
