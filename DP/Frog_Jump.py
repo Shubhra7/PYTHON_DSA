@@ -1,6 +1,11 @@
 # link: https://www.naukri.com/code360/problems/frog-jump_3621012?leftPanelTabValue=PROBLEM
 # video: Striver dp series (3rd video)
 
+
+# ---------------------
+# Tabulation Method
+# ---------------------
+
 import sys
 # arr=[7,4,4,2,6,6,3,4]
 arr=[10,50,10]
