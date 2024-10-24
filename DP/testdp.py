@@ -1,18 +1,35 @@
+# cook your dish here
 import sys
 
-def frogJump(n, heights) -> int:
+def swap(ind,arr):
+    temp=arr[ind]
+    arr[ind] = arr[-1]
+    arr[-1]=temp
 
-    # Write your code here.
-    prev, prev2=0,0
-    for i in range(1,len(arr)):
-        ls = prev + abs(heights[i] - heights[i-1])
-        rs=sys.maxsize
-        if i>1:
-            rs = prev2 + abs(heights[i] - heights[i-2])
-        prev2 = prev
-        prev = min(ls,rs)
-    return prev
+def solve(ind,arr,n,mini):
+    flag=0
+    if(ind == n):
+        return
+    if(arr[ind] <= (2*arr[n])):
+        flag=1
+        swap(ind,arr)
+    print(arr)
+    val = sum(arr[:n])
+    print(val)
+    if( mini > val):
+        mini = val
+        print(mini)
+        
+    solve(ind+1,arr,n,mini)
+    if flag==1:
+        swap(ind,arr)
+        solve(ind+1,arr,n,mini)
+    
 
-# arr=[10,20,30,10]
-arr=[10,50,10]
-print(frogJump(len(arr),arr))
+t = int(input())
+for i in range(t):
+    n=int(input())
+    arr=list(map(int,input().split()))
+    mini  = sys.maxsize
+    solve(0,arr,n,mini)
+    print(mini)
