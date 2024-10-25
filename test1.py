@@ -5,7 +5,7 @@ def val_get(arr,mid):
     return count
 
 def min_hour(arr,h):
-    low=0
+    low=1
     high=max(arr)
     while low<=high:
         mid = low + (high-low)//2
