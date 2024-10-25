@@ -1,16 +1,14 @@
-def convert_to_12Hour(hour,min):
-    if(hour >= 12):
-        period='PM'
-        if(hour>12):
-            hour = hour - 12
-    else:
-        period = 'AM'
-    print("The time is:",hour,":",min,period)
+from collections import Counter
+def second_lar_count(arr):
+    l = sorted(set(arr))
+    if(len(l) < 2):
+        return 0
+    d = Counter(arr)
+    print(d[l[-2]])
+    return l[-2]
 
-hour =  int(input("Enter the hour(0-23): "))
-min = int(input("Enter the minute(0-59): "))
+arr = [1,2,5,5,5,6,3,3,4,4]
+print(second_lar_count(arr))
 
-if(hour < 0 or hour > 23 or min<0 or min > 59):
-    print("Invalid time input")
-else:
-    convert_to_12Hour(hour,min)
+arr1 = [2,2,2,2,2]
+print(second_lar_count(arr1))
