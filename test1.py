@@ -1,14 +1,25 @@
-from collections import Counter
-def second_lar_count(arr):
-    l = sorted(set(arr))
-    if(len(l) < 2):
-        return 0
-    d = Counter(arr)
-    print(d[l[-2]])
-    return l[-2]
+s1 = "adventure"
+s2 = "fadvenuture"
 
-arr = [1,2,5,5,5,6,3,3,4,4]
-print(second_lar_count(arr))
+row = len(s2)
+col = len(s1)
 
-arr1 = [2,2,2,2,2]
-print(second_lar_count(arr1))
+dp =[[0 for i in range(col+1)]for j in range(row+1)]
+maxi=-1
+ro,co=-1,-1
+
+for i in range(1,row+1):
+    for j in range(1,col+1):
+        if(s2[i-1] == s1[j-1]):
+            dp[i][j] = dp[i-1][j-1]+1
+            if(maxi < dp[i][j]):
+                maxi = dp[i][j]
+                ro,co = i,j
+        else:
+            dp[i][j]=0
+
+print("Max same length: ",maxi)
+ans =""
+for i in range(ro-1,ro-maxi-1,-1):
+    ans = s2[i]+ans
+print(ans)
