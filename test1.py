@@ -1,17 +1,25 @@
-def paid_candy(n,arr,m):
-    count=0
-    for i in range(n):
-        if(arr[i]%5 == 0):
-            count += 1
-        elif(m >= arr[i]):
-            m -= arr[i]
-            count += 1
-    return count
+def Score(arr):
+    hcount=0
+    ans=0
+    for i in range(len(arr)):
+        if(arr[i] == 'H'):
+            hcount += 1
+            ans += 2
+        if(arr[i] == 'T'):
+            hcount = 0
+            ans -= 1
+        if(hcount == 3):
+            return ans
+    return ans
 
-n=3
-arr=[5,15,105]
-m=8
 
-print(paid_candy(n,arr,m))
-print(paid_candy(4,[5,4,15,6],5))
-print(paid_candy(4,[5,8,15,6],5))
+
+arr = ['H','T','H','H','T','T','H','T','H','H','T']
+arr1 = ['H','T','H','H','T','T','H','T','H','H','H','T']
+arr2 = ['H','H','H','T','T','T']
+arr3 = ['T','T','T']
+
+print(Score(arr))
+print(Score(arr1))
+print(Score(arr2))
+print(Score(arr3))
