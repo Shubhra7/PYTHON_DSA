@@ -1,27 +1,16 @@
-def A_Wins(s):
-    i=0
-    j=1
-    word=""
-    A,B =[],[]
-    for i in range(len(s)):
-        word += s[i]
-        if(word == 'snake' or word=='water' or word=='gun'):
-            if(j==1):
-                A.append(word[0])
-                j *= -1
-            elif(j==-1):
-                B.append(word[0])
-                j *= -1
-            word=""
-    Ac=0
-    for i in range(len(A)):
-        if(A[i]=='s' and B[i]=='w') or (A[i]=='w' and B[i]=='g') or (A[i]=='g' and B[i]=='s'):
-            Ac += 1
-    return Ac
- 
+def fibo(n):
+    if(n==0 or n==1):
+        return n
+    prev=1
+    prev2=0
+    for i in range(1,n):
+        ans = prev + prev2
+        prev2 = prev
+        prev = ans
+    return prev
 
-s="snakewatergunsnake"
-print("A wins: ",A_Wins(s)," times.")
-print()
-s1="snakesnakewatergun"
-print("A wins: ",A_Wins(s1)," times.")
+n=1
+print(fibo(n))
+print(fibo(2))
+print(fibo(3))
+print(fibo(4))
