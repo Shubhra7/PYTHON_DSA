@@ -1,12 +1,11 @@
-def dfs(start,adj,visited):
-    visited.add(start)
-    print(start)
-    for i in set(adj[start])-visited:
-        dfs(i,adj,visited)
+def max_profit(price):
+    pick = -price[0]
+    nopick = 0
+    for i in range(1,len(price)):
+        newpick = max(pick, nopick-price[i])
+        newnopick = max(nopick, pick + price[i])
+        pick, nopick = newpick, newnopick
+    return nopick
 
-
-V = 4
-adj = [[1,3], [2,0], [1], [0]]
-
-visited=set()
-dfs(2,adj,visited)
+price = [7,1,5,3,6,4]
+print("The maximum profit will be: ",max_profit(price))
