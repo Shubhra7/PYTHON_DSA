@@ -1,11 +1,14 @@
-def max_profit(price):
-    pick = -price[0]
-    nopick = 0
-    for i in range(1,len(price)):
-        newpick = max(pick, nopick-price[i])
-        newnopick = max(nopick, pick + price[i])
-        pick, nopick = newpick, newnopick
-    return nopick
+s2="bbkallalu"
+s1="abbkalllup"
 
-price = [7,1,5,3,6,4]
-print("The maximum profit will be: ",max_profit(price))
+l1 = list(s1)
+l1.sort()
+
+l2 = list(s2)
+l2.sort()
+
+if("".join(l1) == "".join(l2)):
+    print("Yes")
+else:
+    print("No")
+
