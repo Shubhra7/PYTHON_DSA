@@ -1,24 +1,13 @@
-def val_get(arr,mid):
-    count = 0
-    for i in range(len(arr)):
-        count += (arr[i]//mid) + (arr[i]%mid != 0)
-    return count
+text = "TeamATeamBTeamATeamBTeamATeamBTeamATeamA"
 
-def min_hour(arr,h):
-    low=1
-    high=max(arr)
-    while low<=high:
-        mid = low + (high-low)//2
-        val = val_get(arr,mid)
-        if( val <= h):
-            high = mid-1
-            ans=mid
-        else:
-            low = mid+1
-    return ans
-
-arr = [4,9,11,17]
-h=8
-
-ans = min_hour(arr,h)
-print(ans)
+Aval, Bval=0,0
+i=4
+for j in range(4,len(text),5):
+    if(text[j]=='A'):
+        Aval += 1
+    if(text[j]=='B'):
+        Bval += 1
+if(Aval > Bval):
+    print("TeamA")
+else:
+    print("TeamB")
