@@ -1,13 +1,24 @@
-dice=3
-num=str(1234)
+def val_get(arr,mid):
+    count = 0
+    for i in range(len(arr)):
+        count += (arr[i]//mid) + (arr[i]%mid != 0)
+    return count
 
-if(dice % 2==0):
-    j=0
-else:
-    j=1
+def min_hour(arr,h):
+    low=0
+    high=max(arr)
+    while low<=high:
+        mid = low + (high-low)//2
+        val = val_get(arr,mid)
+        if( val <= h):
+            high = mid-1
+            ans=mid
+        else:
+            low = mid+1
+    return ans
 
-sum=0
-for i in range(j,len(num),2):
-    sum += int(num[i])
+arr = [4,9,11,17]
+h=8
 
-print(sum)
+ans = min_hour(arr,h)
+print(ans)
