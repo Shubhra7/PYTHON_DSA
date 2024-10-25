@@ -1,16 +1,7 @@
-def fibo(n):
-    if(n==0 or n==1):
-        return n
-    prev=1
-    prev2=0
-    for i in range(1,n):
-        ans = prev + prev2
-        prev2 = prev
-        prev = ans
-    return prev
 
-n=1
-print(fibo(n))
-print(fibo(2))
-print(fibo(3))
-print(fibo(4))
+num = 9
+ans=""
+while num>0:
+    ans = str(int((num%2 !=0)))+ans
+    num = num//2
+print(ans)
