@@ -1,17 +1,13 @@
-from collections import Counter
+dice=3
+num=str(1234)
 
-def delete_earn(nums):
-    d=Counter(nums)
-    mini=min(nums)
-    maxi = max(nums)
-    pick = mini*d[mini]
-    nopick = 0
-    for i in range(mini+1, maxi+1):
-        newpick = nopick + (i*d[i])
-        newnopick = max(nopick,pick)
-        pick, nopick = newpick, newnopick
-        print(pick," ",nopick)
-    return max(pick,nopick)
+if(dice % 2==0):
+    j=0
+else:
+    j=1
 
-nums = [2,2,3,3,3,4]
-print(delete_earn(nums))
+sum=0
+for i in range(j,len(num),2):
+    sum += int(num[i])
+
+print(sum)
