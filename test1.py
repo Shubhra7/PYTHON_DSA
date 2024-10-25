@@ -1,25 +1,16 @@
-def Score(arr):
-    hcount=0
-    ans=0
-    for i in range(len(arr)):
-        if(arr[i] == 'H'):
-            hcount += 1
-            ans += 2
-        if(arr[i] == 'T'):
-            hcount = 0
-            ans -= 1
-        if(hcount == 3):
-            return ans
-    return ans
+t=2
+text1="bggbgbbg"
+text = list(text1)
 
+for _ in range(t):
+    # for i in range(0,len(text)-1,):
+    i=0
+    while(i<len(text)-1):
+        if(text[i]=='b' and text[i+1]=='g'):
+            text[i], text[i+1] = text[i+1],text[i]
+            i+=2
+        else:
+            i+=1
+    print("".join(text))
 
-
-arr = ['H','T','H','H','T','T','H','T','H','H','T']
-arr1 = ['H','T','H','H','T','T','H','T','H','H','H','T']
-arr2 = ['H','H','H','T','T','T']
-arr3 = ['T','T','T']
-
-print(Score(arr))
-print(Score(arr1))
-print(Score(arr2))
-print(Score(arr3))
+print("".join(text))
