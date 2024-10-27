@@ -1,28 +1,24 @@
-def solve(n,e,d):
-    if(e==0 or d==0):
-        return 0
-    if(n==0):
-        return -1
-    if(n*6 < e*7):
-        return -1
-    if(d<7):
-        ans = ((e*d)//n) + ((e*d)%n != 0)
-        return ans
-    weeks = d//7
-    ans = ((weeks*e*7)//n) + ((weeks*e*7)%n != 0)
-    left = (ans*n) - (weeks*7*e)
-    left_days = d%7
-    req = (left_days*e)-left
-    ans += (req//n) + (req%n !=0)
-    return ans
+def solve_dec(arr):
+    count = 0
+    maxi=0
+    ro=0
+    for i in range(1,len(arr)):
+        if(arr[i] < arr[i-1]):
+            count += 1
+        else:
+            if(maxi < count):
+                maxi = count
+                ro = i-1
+            count = 0
+    if(count > maxi):
+        maxi = count
+        ro = i
+    print(ro)
+    print(maxi+1)
+    print(arr[ro-maxi:ro+1])
+    
 
-
-# n=5
-# e=2
-# d=10
-
-n=12
-e=11
-d=7
-
-print(solve(n,e,d))
+arr=[1,6,0,-1,-2,3,4,8,6,4,3,2,1,0]
+# arr=[1]
+# arr=[9,8,7,5,4,3,2,1,0,-1,-2,3,4,8,6,4,3,2,1,0]
+solve_dec(arr)
