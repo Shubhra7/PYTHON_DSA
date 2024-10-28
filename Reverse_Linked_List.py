@@ -1,22 +1,46 @@
-arr=[9,8,7,5,4,3,2,1,0,-1,-2,3,4,8,6,4,3,2,1,0]
-# arr=[1,6,0,-1,-2,3,4,8,6,4,3,2,1,0]
-# arr=[1]
-j=0
-count=0
-maxi=0
-l=[]
+class Node:
+    def __init__(self,val=None,next=None) -> None:
+        self.val = val
+        self.next = next
 
-for i in range(1,len(arr)):
-    if(arr[i] < arr[i-1]):
-        count += 1
-    else:
-        if(maxi < count):
-            maxi = count
-            j=i-1
-        count = 0
-if(maxi < count):
-    maxi = count
-    j= len(arr)-1
+class LinkedList:
+    def __init__(self) -> None:
+        self.head=None
+    def push(self,data):
+        n = Node(data,self.head)
+        self.head = n
+    def __str__(self) -> str:
+        llprint=""
+        p=self.head
+        while p is not None:
+            # print(p.val,end=" ")
+            llprint += str(p.val)+ " "
+            p = p.next
+        return llprint
+    def reverseList(self,head):
+        if head is None or head.next is None:
+            return head
+        
+        # Reverse the rest list
+        rest = self.reverseList(head.next)
 
-print(maxi+1)
-print(arr[j-maxi:j+1])
+        # Put first element at the end
+        head.next.next = head
+        head.next = None
+
+        # Fix the header pointer
+        return rest
+
+obj = LinkedList()
+obj.push(3)
+obj.push(4)
+obj.push(45)
+
+print("The primary Linekd List is: ")
+print(obj)
+
+obj.head = obj.reverseList(obj.head)
+
+print("The reversed Linked list is: ")
+print(obj)
+        
