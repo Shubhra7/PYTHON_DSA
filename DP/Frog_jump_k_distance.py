@@ -15,6 +15,7 @@ for i in range(1,len(dp)):
         else:
             break
     dp[i]=min_step
-
+    
+print(dp)
 print(dp[-1])
             
