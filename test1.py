@@ -1,19 +1,14 @@
-def isprime(n):
-    if(n>1 and n<=3):
-        return True
-    else:
-        if((n**2)-1)%24 == 0:
-            return True
-    return False
+t=2
+text1="bggbgbbg"
+l = list(text1)
 
-def prime_index_sum(arr,n):
-    sum=0
-    for i in range(2,len(arr)):
-        if(isprime(i)):
-            sum += arr[i]
-    return sum
+for i in range(t):
+    j=1
+    while j < len(l):
+        if(l[j]=='g' and l[j-1]=='b'):
+            l[j], l[j-1] = l[j-1],l[j]
+            j += 2
+        else:
+            j += 1
 
-
-arr =[10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
-n=10
-print(prime_index_sum(arr,n))
+print("".join(l))
