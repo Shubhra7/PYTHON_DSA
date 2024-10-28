@@ -1,46 +1,26 @@
-class Node:
-    def __init__(self,val=None,next=None) -> None:
-        self.val = val
-        self.next = next
+def solve(n,e,d):
+    if(n==0):
+        return -1
+    if(e==0 or d==0):
+        return 0
+    if((n*6) < (e*7)):
+        return -1
+    if(d<7):
+        return ((e*d)//n) + ((e*d)%n != 0)
+    weeks = d//7
+    ans = ((weeks*7*e)//n) + ((weeks*7*e)%n != 0)
+    left = (ans*n) - (weeks*7*e)
+    left_days = d%7
+    req = (left_days*e) - left
+    ans += (req // n) + (req%n != 0)
+    return ans
 
-class LinkedList:
-    def __init__(self) -> None:
-        self.head=None
-    def push(self,data):
-        n = Node(data,self.head)
-        self.head = n
-    def __str__(self) -> str:
-        llprint=""
-        p=self.head
-        while p is not None:
-            # print(p.val,end=" ")
-            llprint += str(p.val)+ " "
-            p = p.next
-        return llprint
-    def reverseList(self,head):
-        if head is None or head.next is None:
-            return head
-        
-        # Reverse the rest list
-        rest = self.reverseList(head.next)
+n=5
+e=2
+d=10
 
-        # Put first element at the end
-        head.next.next = head
-        head.next = None
+# n=12
+# e=11
+# d=7
 
-        # Fix the header pointer
-        return rest
-
-obj = LinkedList()
-obj.push(3)
-obj.push(4)
-obj.push(45)
-
-print("The primary Linekd List is: ")
-print(obj)
-
-obj.head = obj.reverseList(obj.head)
-
-print("The reversed Linked list is: ")
-print(obj)
-        
+print(solve(n,e,d))
