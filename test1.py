@@ -1,11 +1,10 @@
-def max_profit(price):
-    pick = -price[0]
-    nopick = 0
-    for i in range(1,len(price)):
-        pick = max(pick,nopick-price[i])
-        nopick = max(nopick,pick + price[i])
-    return nopick
+def win_joshep(n,k):
+    if(n==1):
+        return 0
+    else:
+        return (((win_joshep(n-1,k))+k)%n)
 
 
-price = [7,1,5,3,6,4]
-print("The maximum profit will be: ",max_profit(price))
+print(win_joshep(41,2)+1)
+print(win_joshep(5,3)+1)
+print(win_joshep(1,3)+1)
