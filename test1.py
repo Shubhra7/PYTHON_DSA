@@ -1,16 +1,22 @@
-from collections import Counter
+s1="adventure"
+s2="fadvenuture"
 
-def delete_earn(nums):
-    d=Counter(nums)
-    mini = min(nums)
-    maxi = max(nums)
-    pick = mini*d[mini]
-    nopick = 0
-    for i in range(mini+1,maxi+1):
-        newpick = nopick + (i*d[i])
-        newnopick = max(pick,nopick)
+row = len(s1)
+col = len(s2)
 
-        pick,nopick = newpick, newnopick
-    return max(pick,nopick)
-nums = [2,2,3,3,3,4]
-print(delete_earn(nums))
+dp=[[0 for i in range(col+1)]for j in range(row+1)]
+maxi=0
+ro,co = -1,-1
+for i in range(1,row+1):
+    for j in range(1,col+1):
+        if(s1[i-1] == s2[j-1]):
+            dp[i][j] = dp[i-1][j-1]+1
+            if(maxi < dp[i][j]):
+                maxi = dp[i][j]
+                ro,co = i,j
+        else:
+            dp[i][j]=0
+
+print(maxi)
+print(ro,co)
+print(s1[ro-maxi:ro])
