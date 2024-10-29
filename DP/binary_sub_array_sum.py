@@ -7,7 +7,7 @@ def bin_sum(nums,k):
     count = 0
     while r<len(nums):
         sum += nums[r]
-        while sum>k :
+        while sum>k :  # jokhon basi hccha komata hbe
             sum -= nums[l]
             l += 1
         count += (r-l)+1
