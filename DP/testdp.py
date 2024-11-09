@@ -1,19 +1,21 @@
-import copy
-
-def find_subseq(index,arr,ds,ans,sumans):
-    if(index == len(arr)):
-        ans.append(copy.deepcopy(ds))
-        sumans.append(sum(ds))
-        return
-    ds.append(arr[index])
-    find_subseq(index+1,arr,ds,ans,sumans)
+def sum_seq(ind,arr,ds,target,s):
+    if(ind == len(arr)):
+        if(s == target):
+            print(ds)
+            return True
+        return False
+    ds.append(arr[ind])
+    s += arr[ind]
+    if(sum_seq(ind+1,arr,ds,target,s)==True):
+        return True
     ds.pop()
-    find_subseq(index+1,arr,ds,ans,sumans)
+    s -= arr[ind]
+    if(sum_seq(ind+1,arr,ds,target,s)==True):
+        return True
+    return False
 
-arr=[1,2,3]
+
+arr=[1,2,1,1]
+target=3
 ds=[]
-ans=[]
-sumans=[]
-find_subseq(0,arr,ds,ans,sumans)
-print(ans)
-print(sumans)
+sum_seq(0,arr,ds,target,0)

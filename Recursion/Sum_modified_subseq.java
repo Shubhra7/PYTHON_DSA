@@ -30,8 +30,8 @@ public class Sum_modified_subseq {
         return false;
     }
     public static void main(String[] args) {
-        int arr[] = {1,2,1};
-        int sum = 2;
+        int arr[] = {1,2,1,1};
+        int sum = 3;
         ArrayList<Integer> bigL = new ArrayList<Integer>();
         sum_seq(0,arr,bigL,sum,0);
     }
