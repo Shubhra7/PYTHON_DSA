@@ -60,6 +60,7 @@ arr = [7,4,4,2,6,6,3,4]
 # arr = [10,50,10]
 dp=[-1 for i in range(len(arr))]
 print(solve(len(arr)-1,arr,dp))
+print(dp)
 
 
 
