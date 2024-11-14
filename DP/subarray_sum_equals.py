@@ -1,4 +1,5 @@
 # Keeping subarray sums equal k
+# Link:  https://youtu.be/xvNwoz-ufXA?si=rhrMjHjnmG7s5fXW
 
 # nums = [1,1,1]
 # k=2
