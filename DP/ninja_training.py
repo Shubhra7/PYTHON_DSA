@@ -34,19 +34,20 @@ The total merit point is 11 which is the maximum.
 Hence, the answer is 11.
 
 '''
+import copy
 
-# point=[[1,2,5],
-#      [3,1,1],
-#      [3,3,3]]
-# n=3
-
-point = [[10,40,70],
-         [20,50,80],
-         [30,60,90]]
+point=[[1,2,5],
+     [3,1,1],
+     [3,3,3]]
 n=3
 
+# point = [[10,40,70],
+#          [20,50,80],
+#          [30,60,90]]
+# n=3
+
 # ------------------------------
-#---- Tabulation method-----
+#---- Tabulation method-----(bottom up)
 # ------------------------------
 
 dp=[[-1 for i in range(5)]for j in range(n+1)]
@@ -67,3 +68,53 @@ for day in range(1,n):
                 dp[day][last] = max(dp[day][last],value)
         
 print(dp[n-1][3])
+
+
+# ------------------------------
+#---- Recursion method-----(Top down)
+# ------------------------------
+
+def find_max(day,point,dp,last):
+    if(day == 0):
+        maxi=0
+        for i in range(len(point[0])):
+            if(i != last):
+                maxi = max(maxi,point[0][i])
+        return maxi
+    maxi=0
+    for task in range(3):
+        if(task != last):
+            value = point[day][task] + find_max(day-1,point,dp,task)
+            maxi = max(maxi,value)
+        dp[day][task]=maxi
+    return maxi
+
+
+dps=[[-1 for i in range(5)]for j in range(n+1)]
+ans = find_max(n-1,point,dps,3)
+print(ans)
+
+
+# ------------------------------
+#-------- Most optimum ---------
+# ------------------------------
+
+prev = [0 for i in range(5)]
+
+prev[1]=max(point[0][0],point[0][2])
+prev[0]=max(point[0][1],point[0][2])
+prev[2]=max(point[0][1],point[0][0])
+prev[3]=max(point[0][1],point[0][0],point[0][2])
+
+for day in range(1,n):
+    temp = [0 for i in range(4)]
+    for last in range(4):
+        temp[last]=0
+        
+        for task in range(3):
+            if(task != last):
+                temp[last] = max(temp[last], point[day][task]+prev[task])
+
+    prev = copy.deepcopy(temp)
+
+print(prev[3])
