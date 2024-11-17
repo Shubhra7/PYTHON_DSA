@@ -1,14 +1,20 @@
 import copy
-def find_seq(ind,arr,ds,ans):
-    if(ind == len(arr)):
-        ans.append(copy.deepcopy(ds))
+def find_subarr(arr,ans,toggles=None,i=0):
+    if toggles==None:
+        toggles=[0]*len(arr)
+    if(i==len(arr)):
+        subarr=[arr[i] for i in range(len(arr)) if toggles[i]==1]
+        if(sum(subarr) == 2):
+            ans.append(copy.deepcopy(subarr))
         return
-    ds.append(arr[ind])
-    find_seq(ind+1,arr,ds,ans)
-    ds.pop()
-    find_seq(ind+1,arr,ds,ans)
-arr=[1,2,3]
-ds=[]
+    toggles[i]=0
+    find_subarr(arr,ans,toggles,i+1)
+    toggles[i]=1
+    find_subarr(arr,ans,toggles,i+1)
+
+
+arr=[1,0,0,1,1,0]
 ans=[]
-find_seq(0,arr,ds,ans)
-print("The sub sequences are: ",ans)
+find_subarr(arr,ans)
+print(ans)
+print(len(ans))
