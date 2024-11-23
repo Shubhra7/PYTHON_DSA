@@ -1,4 +1,4 @@
-https://www.codechef.com/problems/TWOCLOSE
+# https://www.codechef.com/problems/TWOCLOSE
 
 import sys
 
@@ -28,3 +28,17 @@ while flag==1:
     # print("Hello")
 
 print(mini)
+
+#------------------------
+#       Second Method
+#------------------------
+
+temp=arr[:n]
+l=len(arr)
+temp.sort()
+last = arr[-1]
+
+for i in range(n):
+    if 2*last >= temp[i] and last<temp[i]:
+        last,temp[i] = temp[i],last
+print(sum(temp))
