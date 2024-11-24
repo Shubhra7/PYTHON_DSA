@@ -27,6 +27,25 @@ grid = [[1,2,3],[4,5,6]]
 m=len(grid)
 n=len(grid[0])
 
+#-------------------------
+# Using Tabulation
+#-------------------------
+
+tabu = [[0 for i in range(n)] for j in range(m)]
+
+for i in range(m):
+    for j in range(n):
+        if(i==0 and j==0):
+            tabu[i][j] = grid[i][j]
+        else:
+            down,right = sys.maxsize,sys.maxsize
+            if(i>0):
+                down = grid[i][j] + tabu[i-1][j]
+            if(j>0):
+                right = grid[i][j] + tabu[i][j-1]
+            tabu[i][j] = min(down,right)
+print(tabu[m-1][n-1])
+
 
 #-------------------------
 # Using Recursion
@@ -41,8 +60,8 @@ def find_minval_path(i,j,grid,dp):
         return dp[i][j]
     else:
         up = grid[i][j] + find_minval_path(i-1,j,grid,dp)
-        down = grid[i][j] + find_minval_path(i,j-1,grid,dp)
-        dp[i][j] = min(up,down)
+        left = grid[i][j] + find_minval_path(i,j-1,grid,dp)
+        dp[i][j] = min(up,left)
         return dp[i][j]
 
 dp=[[-1 for i in range(n)] for j in range(m)]
