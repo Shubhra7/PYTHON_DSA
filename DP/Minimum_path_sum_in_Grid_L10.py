@@ -28,6 +28,29 @@ m=len(grid)
 n=len(grid[0])
 
 #-------------------------
+# Space Optimization 
+#-------------------------
+
+cur=[0 for i in range(n)]   # only previous row
+
+for i in range(m):
+    temp = [0 for k in range(n)]    #only current row
+    for j in range(n):
+        if(i==0 and j==0):
+            temp[j] = grid[i][j]
+        else:
+            up,left = sys.maxsize, sys.maxsize
+            if(i>0):
+                up = grid[i][j] + cur[j]
+            if(j>0):
+                left = grid[i][j] + temp[j-1]
+            temp[j] = min(up,left) 
+    cur=temp
+
+print(cur[n-1])
+
+
+#-------------------------
 # Using Tabulation
 #-------------------------
 
@@ -45,6 +68,8 @@ for i in range(m):
                 right = grid[i][j] + tabu[i][j-1]
             tabu[i][j] = min(down,right)
 print(tabu[m-1][n-1])
+# for i in tabu:
+#     print(i)
 
 
 #-------------------------
