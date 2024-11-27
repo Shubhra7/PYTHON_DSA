@@ -19,6 +19,32 @@ Output: -10
 """
 
 # --------------------------------
+#   Optimal Method
+#---------------------------------
+triangle = [[1],
+            [2,3],
+            [3,6,7],
+            [8,9,6,10]]
+# O/P ===> 14
+
+n=len(triangle)
+dp=[0 for i in range(n)]
+for i in range(n):
+    dp[i] = triangle[n-1][i]
+
+for i in range(n-2,-1,-1):
+    cur = [0 for j in range(i+1)]
+    for j in range(i,-1,-1):
+        down = triangle[i][j] + dp[j]
+        dg = triangle[i][j] + dp[j+1]
+        dp[j] = min(down,dg)
+print("The optimal answer: ",end="")
+print(dp[0])
+
+
+
+
+# --------------------------------
 #   Tabulation Method
 #---------------------------------
 triangle = [[1],
