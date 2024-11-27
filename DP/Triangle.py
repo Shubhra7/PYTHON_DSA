@@ -18,6 +18,31 @@ Input: triangle = [[-10]]
 Output: -10
 """
 
+# --------------------------------
+#   Tabulation Method
+#---------------------------------
+triangle = [[1],
+            [2,3],
+            [3,6,7],
+            [8,9,6,10]]
+# O/P ===> 14
+
+n=len(triangle)
+dp=[[0 for i in range(n)] for j in range(n)]
+for i in range(n):
+    dp[n-1][i] = triangle[n-1][i]
+
+for i in range(n-2,-1,-1):
+    for j in range(i,-1,-1):
+        down = triangle[i][j] + dp[i+1][j]
+        dg = triangle[i][j] + dp[i+1][j+1]
+        dp[i][j] = min(down,dg)
+print("The tabulation answer: ",end="")
+print(dp[0][0])
+
+
+
+
 
 # --------------------------------
 #   Recursion Method
@@ -49,5 +74,7 @@ triangle = [[1],
 
 n=len(triangle)
 dp=[[-1 for i in range(n)] for j in range(n)]
+
+print("The recursion answer: ",end="")
 print(min_path_val(0,0,n,triangle,dp))
 
