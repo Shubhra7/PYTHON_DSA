@@ -22,6 +22,32 @@ Output: -10
 # --------------------------------
 #   Recursion Method
 #---------------------------------
+def min_path_val(i,j,n,triangle,dp):
+    if(i==n-1):
+        return triangle[i][j]
+    if(dp[i][j] != -1):
+        return dp[i][j]
+    down = triangle[i][j] + min_path_val(i+1,j,n,triangle,dp)
+    dg = triangle[i][j] + min_path_val(i+1,j+1,n,triangle,dp)
+    dp[i][j] = min(down,dg)
+    return dp[i][j]
 
+# triangle = [[2],
+#             [3,4],
+#             [6,5,7],
+#             [4,1,8,3]]
+## O/P ===> 11
 
+# triangle = [[-10]]
+# #o/p ===> -10
+
+triangle = [[1],
+            [2,3],
+            [3,6,7],
+            [8,9,6,10]]
+# O/P ===> 14
+
+n=len(triangle)
+dp=[[-1 for i in range(n)] for j in range(n)]
+print(min_path_val(0,0,n,triangle,dp))
 
