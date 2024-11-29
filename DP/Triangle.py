@@ -59,7 +59,7 @@ for i in range(n):
     dp[n-1][i] = triangle[n-1][i]
 
 for i in range(n-2,-1,-1):
-    for j in range(i,-1,-1):
+    for j in range(i,-1,-1):   # Important range of j because of triangle 
         down = triangle[i][j] + dp[i+1][j]
         dg = triangle[i][j] + dp[i+1][j+1]
         dp[i][j] = min(down,dg)
