@@ -1,3 +1,5 @@
+# Striver 
+
 """
 You are given an integer array coins representing coins of different denominations
  and an integer amount representing a total amount of money.
@@ -34,3 +36,28 @@ Input: coins = [1,2,5], amount = 11
 Output: 3
 """
 
+#------------------------------------
+#       Recursion Method
+#------------------------------------
+
+import sys
+def min_coin_need(ind,coins,amount):
+    if(ind==0):
+        if(amount % coins[0]==0):       # Last coin case
+            return amount//coins[0]
+        else:
+            return sys.maxsize
+    notake = 0 + min_coin_need(ind-1,coins,amount)
+    take=sys.maxsize
+    if(amount >= coins[ind]):
+        take = 1 + min_coin_need(ind,coins,amount-coins[ind])
+    return min(notake,take)
+    
+coins=[1,2,5]
+amount=11
+n=len(coins)
+ans = min_coin_need(n-1,coins,amount)
+if ans>=sys.maxsize:
+    print(-1)
+else:
+    print(ans)
