@@ -28,3 +28,9 @@ Constraints:
 1 <= coins[i] <= 231 - 1
 0 <= amount <= 104
 """
+
+"""
+Input: coins = [1,2,5], amount = 11
+Output: 3
+"""
+
