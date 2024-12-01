@@ -40,6 +40,7 @@ for i in range(len(nums)):
     if(temp_minSum > 0):
         temp_minSum = 0
 
+# Condition for answer 
 if(min_straight_sum == arr_sum):
     print(max_straight_sum)
 else:
