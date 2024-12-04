@@ -1,5 +1,16 @@
 # Link: https://youtu.be/NPZn9jBrX8U?si=fTiqRril12rzgJJU
 # leecode: https://leetcode.com/problems/longest-common-subsequence/
+# LCS: Largest Common Sequence
+
+#-------------------------
+# Recursion Methods
+#-------------------------
+
+
+
+#-------------------------
+# Tabulation Methods
+#-------------------------
 
 def find_lcs(ind1,ind2,text1,text2):
         prev = [0 for i in range(ind2+1)]
@@ -17,4 +28,4 @@ def longestCommonSubsequence(text1: str, text2: str):
     return find_lcs(n,m,text1,text2)
 
 word1,word2 = map(str,input().split())
-print(longestCommonSubsequence(word1,word2))
+print("Using the tabulation method maximum length of LCS :",longestCommonSubsequence(word1,word2))
