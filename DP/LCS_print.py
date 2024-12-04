@@ -16,6 +16,8 @@ def print_max_LCS(word1, word2):
             else:
                 dp[i][j] = max(dp[i-1][j], dp[i][j-1])
     print("Highest common subsequences length: ",dp[n][m])
+
+    # Printing the LCS
     i, j = len(word1), len(word2)
     ans = ""
     while i>0 and j>0:
