@@ -1,3 +1,9 @@
+# Video: https://youtu.be/-zI4mrF2Pb4?si=aREvaiJ3rgaN2uip
+
+# adventure xyzadvklptu
+# Highest common subsequences length:  5
+# The Largest Common subsequence is:  advtu
+
 def print_max_LCS(word1, word2):
     n,m  = len(word1), len(word2)
     dp = [[0]*(m+1) for _ in range(n+1)]
