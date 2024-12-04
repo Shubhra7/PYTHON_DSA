@@ -8,7 +8,21 @@ def print_max_LCS(word1, word2):
                 dp[i][j] = dp[i-1][j-1] + 1
             else:
                 dp[i][j] = max(dp[i-1][j], dp[i][j-1])
-    return dp[n][m]
+    print("Highest common subsequences length: ",dp[n][m])
+    i, j = len(word1), len(word2)
+    ans = ""
+    while i>0 and j>0:
+        if(word1[i-1] == word2[j-1]):
+            ans = word1[i-1] + ans
+            i-=1
+            j-=1
+        else:
+            if(dp[i-1][j]> dp[i][j-1]):
+                i -= 1
+            else:
+                j -= 1
+    return ans
+
 
 word1, word2 = map(str,input().split())
-print(print_max_LCS(word1, word2))
+print("The Largest Common subsequence is: ",print_max_LCS(word1, word2))
