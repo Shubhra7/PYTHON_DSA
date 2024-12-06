@@ -28,7 +28,7 @@ def longest_prefix_suffix(s):
     i=1
     j=0
     while i<n:
-        if(s[i] == s[j]):
+        if(s[i] == s[j]):  #When matched
             j+=1
             lps[i]=j
             i+=1
