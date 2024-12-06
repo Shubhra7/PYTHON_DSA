@@ -12,11 +12,37 @@ string "" if no such prefix exists.
 Example 1:
 Input: s = "level"
 Output: "l"
-Explanation: s contains 4 prefix excluding itself ("l", "le", "lev", "leve"), and suffix ("l", "el", "vel", "evel"). The largest prefix which is also suffix is given by "l".
+Explanation: s contains 4 prefix excluding itself ("l", "le", "lev", "leve"), 
+and suffix ("l", "el", "vel", "evel"). 
+The largest prefix which is also suffix is given by "l".
 
 Example 2:
 Input: s = "ababab"
 Output: "abab"
-Explanation: "abab" is the largest prefix which is also suffix. They can overlap in the original string.
+Explanation: "abab" is the largest prefix which is also suffix. 
+They can overlap in the original string.
 """
+def longest_prefix_suffix(s):
+    n=len(s)
+    lps = [0]*n
+    i=1
+    j=0
+    while i<n:
+        if(s[i] == s[j]):
+            j+=1
+            lps[i]=j
+            i+=1
+        else:       # In Mismatches
+            if j!=0:    # Case 1
+                j=lps[j-1] 
+            else:       # Case 2
+                lps[i]=0
+                i+=1
+    print("The LPS of",s," is: ")
+    print(list(s))
+    print(lps)
+    return s[:lps[n-1]]
+
+s = "ababab"
+print(longest_prefix_suffix(s))
 
