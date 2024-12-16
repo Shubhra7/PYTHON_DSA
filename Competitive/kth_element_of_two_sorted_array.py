@@ -14,6 +14,9 @@ Explanation: The merged array will be
 [2, 3, 4, 6, 7, 8, 45]. The element at
  position '4' of this array is 6. Hence we return 6."""
 
+
+# video: https://www.youtube.com/watch?v=nv7F4PiLUzo
+
 import sys
 def kth_element(arr1,n,arr2,m,k):
     if n>m:
