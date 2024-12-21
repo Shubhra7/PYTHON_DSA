@@ -10,8 +10,8 @@ import sys
 
 def find_kth_element(nums1,nums2,k):
         n1,n2 = len(nums1),len(nums2)
-        low = max(k-n2,0)
-        high=min(k,n1)
+        low = max(k-n2,0)   #Importatnt line
+        high=min(k,n1)      #important line
         while low<=high:
             mid1 = low + (high-low)//2
             mid2 = k - mid1
