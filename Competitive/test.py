@@ -11,29 +11,32 @@ Notice that the solution set must not contain duplicate triplets.
 def threeSum(nums):
     nums.sort()
     st=set()
+    cnt=0
     for i in range(len(nums)):
-        if i>0 and nums[i]==nums[i-1]:
-            i += 1
+        # if i>0 and nums[i]==nums[i-1]:
+        #     i += 1
         j=i+1
         k=len(nums)-1
         while j<k:
             sum1 = nums[i]+nums[j]+nums[k]
-            if sum1<10:
+            if sum1<-2:
                 j += 1
-            elif sum1>10:
+            elif sum1>-2:
                 k -= 1
             else:
                 st.add(tuple([nums[i],nums[j],nums[k]]))
+                cnt+=1
                 j+=1
                 k-=1
-                while j<k and nums[j]==nums[j-1]:
-                    j += 1
-                while j<k and nums[k]==nums[k+1]:
-                    k -= 1
+                # while j<k and nums[j]==nums[j-1]:
+                #     j += 1
+                # while j<k and nums[k]==nums[k+1]:
+                #     k -= 1
     ans=[list(i) for i in st]
+    print(cnt)
     return ans
 
-print(threeSum([-26,32,4,17,-16,18,1,8,6,8,3,-13]))
+print(threeSum([-3, -1, -1, 0, 1, 2]))
 # print(threeSum([2,-95,9,1,-79,88,96,0,5]))
 # print(threeSum([-1,0,1,2,-1,-4]))
 #[[-1, 0, 1], [-1, -1, 2]]

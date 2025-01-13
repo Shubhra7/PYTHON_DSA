@@ -37,6 +37,7 @@ def search(pat,txt):
     res=[]
 
     construct_LPS(pat,lps)
+    print(lps)
 
     # Again same like lps to check pattern
     i,j = 0,0

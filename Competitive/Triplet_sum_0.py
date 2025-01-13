@@ -33,5 +33,6 @@ def threeSum(nums):
     ans=[list(i) for i in st]
     return ans
 
-print(threeSum([-1,0,1,2,-1,-4]))
+# print(threeSum([-1,0,1,2,-1,-4]))
+print(threeSum([-3, -1, -1, 0, 1, 2]))
 #[[-1, 0, 1], [-1, -1, 2]]

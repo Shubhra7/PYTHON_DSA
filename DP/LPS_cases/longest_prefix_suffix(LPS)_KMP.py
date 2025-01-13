@@ -43,8 +43,8 @@ def longest_prefix_suffix(s):
     print(lps)
     return s[:lps[n-1]]
 
-# s = "ababab"        #o/p ==> abab
+s = "ababab"        #o/p ==> abab
 # s = "level"        #o/p ==> l
-s = ")()())"        #o/p ==> l
+# s = ")()())"        #o/p ==> l
 print(longest_prefix_suffix(s))
 
