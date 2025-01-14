@@ -1,42 +1,18 @@
-# https://leetcode.com/problems/3sum/description/
-"""
-Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.
+def find_sum(arr,tar):
+    n=len(arr)
+    ind=[0,n+1]
+    for i in range(n):
+        ans=0
+        for j in range(i,n):
+            ans += arr[j]
+            print(ans)
+            if ans==tar:
+                print("Bro")
+                if ind[1]-ind[0] >(j-i):
+                    ind[0],ind[1]=i,j
+        print("hello ",i,"  ",ind)
+    return ind
 
-Notice that the solution set must not contain duplicate triplets.
-
- 
-"""
-# https://www.youtube.com/watch?v=DhFh8Kw7ymk
-
-def threeSum(nums):
-    nums.sort()
-    st=set()
-    cnt=0
-    for i in range(len(nums)):
-        # if i>0 and nums[i]==nums[i-1]:
-        #     i += 1
-        j=i+1
-        k=len(nums)-1
-        while j<k:
-            sum1 = nums[i]+nums[j]+nums[k]
-            if sum1<-2:
-                j += 1
-            elif sum1>-2:
-                k -= 1
-            else:
-                st.add(tuple([nums[i],nums[j],nums[k]]))
-                cnt+=1
-                j+=1
-                k-=1
-                # while j<k and nums[j]==nums[j-1]:
-                #     j += 1
-                # while j<k and nums[k]==nums[k+1]:
-                #     k -= 1
-    ans=[list(i) for i in st]
-    print(cnt)
-    return ans
-
-print(threeSum([-3, -1, -1, 0, 1, 2]))
-# print(threeSum([2,-95,9,1,-79,88,96,0,5]))
-# print(threeSum([-1,0,1,2,-1,-4]))
-#[[-1, 0, 1], [-1, -1, 2]]
+arr=[1,2,3,7,5]
+print(find_sum(arr,12))
+# print(find_sum([1, 2, 3, 4, 5, 6, 7, 8, 9, 10],15))
