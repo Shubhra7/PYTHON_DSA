@@ -13,3 +13,17 @@ Output: [2, 4]
 Explanation: The sum of elements from 2nd to 4th position is 12.
 """
 
+def subarraySum(arr, target):
+    # code here
+    start=0
+    sum1=0
+    for i in range(len(arr)):
+        sum1 += arr[i]
+        while sum1 > target and start < i:
+            sum1 -= arr[start]
+            start += 1
+        if sum1 == target:
+            return [start+1,i+1]
+    return [-1]
+
+print(subarraySum([1, 2, 3, 7, 5],12))  #o/p==> 2,4
