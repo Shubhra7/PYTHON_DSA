@@ -8,10 +8,6 @@ def subarraySum(arr, sum):
         currentSum += arr[i]
         if currentSum == sum:
             return [0,i]
-        print(currentSum)
-        print(sum-currentSum)
-        print(h)
-        print("----------------------")
         if h.get(currentSum-sum,-1) != -1:
             return [h[currentSum-sum]+1,i]
         h[currentSum]=i
