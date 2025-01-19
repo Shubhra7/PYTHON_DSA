@@ -7,6 +7,8 @@ Explanation: The above elevation map (black section) is represented by array [0,
  In this case, 6 units of rain water (blue section) are being trapped.
 """
 
+#https://leetcode.com/problems/trapping-rain-water/
+
 def trap(height):
         total,l = 0,0
         r=len(height)-1
