@@ -1,14 +1,26 @@
-def find_sum(arr,sum):
-    h={}
-    currentSum=0
-    for i in range(len(arr)):
-        currentSum += arr[i]
-        if currentSum == sum:
-            return [0,i]
-        if h.get(currentSum-sum,-1) != -1:
-            return [h[currentSum-sum]+1,i]
-        h[currentSum]=i
-    return [-1,-1]
+from collections import defaultdict
+def longestUniqueSubstr(s):
+        # code here
+        maxi=0
+        h=defaultdict(int)
+        i=1
+        j=1
+        while j<=len(s):
+                # print(h)
+                if h.get(s[j-1],0)!=0:
+                        if h[s[j-1]]>=i:
+                            maxi=max(maxi,j-i-1)
+                            # print("Maxi:--- ",maxi)
+                            i=h[s[j-1]]
+                            h[s[j-1]]=j
+                        else:
+                              h[s[j-1]]=j
+                else:
+                    h[s[j-1]]=j
+                j+=1
+        maxi = max(maxi,j-i-1)
+        return maxi
 
-# print(find_sum([-4,-6,-1,1],-10))
-print(find_sum([-1,0,-1,0],0))
+# print(longestUniqueSubstr("geeksforgeeks"))
+# print(longestUniqueSubstr("abcdefabcbb"))
+print(longestUniqueSubstr("fqvjgwdhmrgqkamm"))
