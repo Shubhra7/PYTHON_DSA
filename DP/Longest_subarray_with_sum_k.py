@@ -1,5 +1,8 @@
 # https://www.naukri.com/code360/problems/longest-subarray-with-sum-k_5713505?utm_source=youtube&utm_medium=affiliate&utm_campaign=striver_Arrayproblems&leftPanelTabValue=PROBLEM
 
+
+# https://youtu.be/frf7qxiN2qU?si=N5XEaBebt2oX9FjQ
+
 """
 Problem statement
 Ninja and his friend are playing a game of subarrays. They have an array ‘NUMS’ of length ‘N’. 
@@ -18,10 +21,9 @@ There are two subarrays with sum = 4, [1, 2, 1] and [2, 1, 0, 1].
 Hence the length of the longest subarray with sum = 4 is 4.
 """
 
-
 def getLongestSubarray(nums, k):
     # Write your code here
-    h={}
+    h={}  # for storing  prefixsum: index
     sum1=0
     maxi=0
     for i in range(len(nums)):
