@@ -18,3 +18,20 @@ There are two subarrays with sum = 4, [1, 2, 1] and [2, 1, 0, 1].
 Hence the length of the longest subarray with sum = 4 is 4.
 """
 
+
+def getLongestSubarray(nums, k):
+    # Write your code here
+    h={}
+    sum1=0
+    maxi=0
+    for i in range(len(nums)):
+        sum1+=nums[i]
+        if sum1==k:
+            maxi=max(maxi,i+1)
+            
+        if h.get((sum1-k),-1)!=-1:  # *** -1 is very important because we store index, 0 will clash with index 0
+            maxi=max(maxi,i-h[sum1-k])
+            
+        if h.get(sum1,-1)==-1:
+            h[sum1]=i
+    return maxi
