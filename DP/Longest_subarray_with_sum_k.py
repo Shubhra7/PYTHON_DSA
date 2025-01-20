@@ -35,3 +35,5 @@ def getLongestSubarray(nums, k):
         if h.get(sum1,-1)==-1:
             h[sum1]=i
     return maxi
+
+print(getLongestSubarray([ 1, 2, 1, 0, 1 ],4))  #0/p ==> 4
