@@ -90,8 +90,8 @@ class SLLIterator:   # explicitly making the LL iterable***
         return self
     def __next__(self):
         if not self.current:    
-            raise StopIteration    # making stop iteration by creating exceptions
-        data=self.current.item
+            raise StopIteration    #  making stop iteration by creating exceptions
+        data=self.current.item 
         self.current=self.current.next
         return data
     
