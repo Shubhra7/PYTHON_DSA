@@ -60,8 +60,9 @@ obj.insert_at_start(4)
 obj.insert_at_start(3)
 obj.insert_at_start(2)
 obj.insert_at_start(1)
-print("List is before k reverse: ")
+print("List is before k reverse: ",end="")
 obj.print_list()
 # obj.rev_k_ll(2)   #[2,1,4,3,5]
 obj.rev_k_ll(3)     #[3,2,1,4,5]
+print("List is after k reverse: ",end=" ")
 obj.print_list()
