@@ -31,12 +31,13 @@ def recurPermute(sarr, ds, ans, freq):
             freq[i] = False  # Backtrack
             ds.pop()  # Corrected list removal
 
-s = "ABC"
+# s = "ABC"
+s="kk"
 sarr = list(s)
 ans = []
 ds = []
 freq = [False] * len(sarr)  # Boolean list
 
-# recurPermute(sarr, ds, ans, freq)
-recurPermute_Appr_2(0,sarr,ans)
-print(ans)
+recurPermute(sarr, ds, ans, freq)
+# recurPermute_Appr_2(0,sarr,ans)
+print(list(set(ans)))
