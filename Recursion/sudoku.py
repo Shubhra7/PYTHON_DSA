@@ -8,7 +8,7 @@ def solve(board,ro,co):
         for col in range(9):
             if board[row][col] == '.':
                 for num in '123456789':
-                    if is_valid(row, col, num):
+                    if isSafe(board,row, col, num):
                         board[row][col] = num
                         if solve(board,0,0):
                             return True
@@ -16,17 +16,16 @@ def solve(board,ro,co):
                 return False
     return True
 
-def is_valid(row, col, num):
+def isSafe(mat,row,col,num):
     for i in range(9):
-        if board[row][i] == num or board[i][col] == num:
+        if mat[i][col]==num:
             return False
-    start_row, start_col = 3 * (row // 3), 3 * (col // 3)
-    for i in range(start_row, start_row + 3):
-        for j in range(start_col, start_col + 3):
-            if board[i][j] == num:
-                return False
+        if mat[row][i]==num:
+            return False
+        if mat[3*(row//3)+i//3][3*(col//3)+i%3]==num:
+            return False
     return True
-
+   
 
 # def solve(mat,row,col):
 #         if row==8 and col==9:
@@ -43,16 +42,7 @@ def is_valid(row, col, num):
 #                     return True
 #                 mat[row][col]=0
 #         return False
-# def isSafe(mat,row,col,num):
-#     for i in range(9):
-#         if mat[i][col]==num:
-#             return False
-#         if mat[row][i]==num:
-#             return False
-#         if mat[3*(row//3)+i//3][3*(col//3)+i%3]==num:
-#             return False
-#     return True
-#     #Function to find a solved Sudoku. 
+ 
 
 def sudoku(board):
     solve(board,0,0)
