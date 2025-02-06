@@ -1,4 +1,6 @@
 # https://leetcode.com/problems/word-search/description/
+# https://www.youtube.com/watch?v=whyax_vB8xY
+
 def find(board,i,j,word,idx,m,n):
     direction=[[1,0],[-1,0],[0,1],[0,-1]]
     if idx==len(word):
