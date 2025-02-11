@@ -28,17 +28,27 @@ def buildT(preorder,preStart,preEnd,inorder,inStart,inEnd,inMap):
 
 def level_order_traversal(root):
     if root is None:
-        print("N ",end="")
+        print("N ", end="")
         return
+
     queue = deque([root])
-    while queue:
-        cur = queue.popleft()
-        if cur is None:
-            print("N ",end="")
+    non_null = 1
+
+    while queue and non_null > 0:
+        curr = queue.popleft()
+
+        if curr is None:
+            print("N ", end="")
             continue
-        print(cur.val,end=" ")
-        queue.append(cur.left)
-        queue.append(cur.right)
+        non_null -= 1
+
+        print(curr.val, end=" ")
+        queue.append(curr.left)
+        queue.append(curr.right)
+        if curr.left:
+            non_null += 1
+        if curr.right:
+            non_null += 1
 
 def buildTree(preorder,inorder):
     inMap={}
