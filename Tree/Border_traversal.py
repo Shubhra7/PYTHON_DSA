@@ -1,3 +1,4 @@
+# https://youtu.be/0ca1nvR0be4?si=V9z_KqgKECOCXc5e
 
 class Node:
     def __init__(self, data):
@@ -60,7 +61,7 @@ if __name__ == "__main__":
     #       4   5 6   7
     #          / \
     #         8   9
-    
+
     root = Node(1)
     root.left = Node(2)
     root.right = Node(3)
