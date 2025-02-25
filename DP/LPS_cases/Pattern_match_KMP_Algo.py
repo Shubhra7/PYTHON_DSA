@@ -59,7 +59,9 @@ def search(pat,txt):
     return res
 
 
-txt = "aabaacaadaabaaba"
-pat = "aaba"   # o/p ==> 0 9 12
+# txt = "aabaacaadaabaaba"
+# pat = "aaba"   # o/p ==> 0 9 12
+txt="geeksforgeeks"
+pat="geek"
 res = search(pat,txt)
 print(res)
