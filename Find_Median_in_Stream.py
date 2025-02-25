@@ -1,3 +1,10 @@
+# https://www.geeksforgeeks.org/batch/gfg-160-problems/track/heap-gfg-160/problem/find-median-in-a-stream-1587115620
+# https://youtu.be/Yv2jzDzYlp8
+"""
+    i) One maxheap and one minheap
+    ii) maxheap will take more element if odd number of elements are present
+    iii) then peek() from both or from maxHeap and calculate the median
+"""
 from heapq import *
 class Solution:
     def __init__(self):
