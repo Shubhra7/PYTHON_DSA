@@ -1,44 +1,50 @@
-import copy
-def subseq(ind,arr,ds,ans):
-    if ind == len(arr):
-        if len(ds)==0:
-            return
-        val=1
-        for i in ds:
-            val *= i
-        # ans.append(copy.deepcopy(ds))
-        ans.append(copy.deepcopy(val))
+#Driver Code Starts{
+# Python program to find the height of a binary 
+# tree using depth-first search (DFS) approach.
+class Node:
+    def __init__(self, val):
+        self.data = val
+        self.left = None
+        self.right = None
+#Driver Code Ends }
+
+
+# Returns height which is the number of edges
+# along the longest path from the root node down 
+# to the farthest leaf node.
+def height(root):
+    if root is None:
+        return -1
+
+    # compute the height of left and right subtrees
+    lHeight = height(root.left)
+    rHeight = height(root.right)
+
+    return max(lHeight, rHeight) + 1
+
+def in_order(root,ans):
+    if root is None:
         return
-    ds.append(arr[ind])
-    subseq(ind+1,arr,ds,ans)
-    ds.pop()
-    subseq(ind+1,arr,ds,ans)
-def isPrime(n):
-    if n>1 and n<=3:
-        return True
-    if ((n**2)-1)%24==0:
-        return True
-    return False
-def check_beau(n):
-    if n==2:
-        return True
-    for i in range(2,n):
-        if n%i==0:
-            if not isPrime(i):
-                return False
-    return True
-        
-arr=[10,6,1]
-# arr=[3]
-ans=[]
-ds=[]
-subseq(0,arr,ds,ans)
-print("kalu ",ans)
-finalans=[]
-for i in ans:
-    if i!=1:
-        if check_beau(i):
-            print(i,"---HI")
-            finalans.append(i)
-print(finalans)
-print(len(finalans))
+    in_order(root.left,ans)
+    ans.append(root.data)
+    in_order(root.right,ans)
+#Driver Code Starts{
+if __name__ == "__main__":
+  
+    # Representation of the input tree:
+    #     12
+    #    /  \
+    #   8   18
+    #  / \
+    # 5   11
+    root = Node(12)
+    root.left = Node(8)
+    root.right = Node(18)
+    root.left.left = Node(5)
+    root.left.right = Node(11)
+
+    print(height(root))
+    ans=[]
+    in_order(root,ans)
+    print(ans)
+#Driver Code Ends }
