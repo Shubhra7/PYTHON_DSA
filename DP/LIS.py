@@ -9,6 +9,27 @@ Output: 4
 Explanation: The longest increasing subsequence is [2,3,7,101], therefore the length is 4.'
 """
 
+##############################################
+#-------------Normal dp method with n^2 --------------
+##############################################
+
+class Solution1:
+    def lengthOfLIS1(self, nums):
+        dp=[1]*len(nums)
+        maxi=1
+        for i in range(1,len(nums)):
+            for j in range(i):
+                if nums[i]>nums[j] and dp[j]+1>dp[i]:
+                    dp[i]=dp[j]+1
+            maxi=max(maxi,dp[i])
+        return maxi
+obj=Solution1()
+print(obj.lengthOfLIS1([10,9,2,5,3,7,101,18]))
+
+##############################################
+#--------------- To make n*logn --------------
+##############################################
+
 import bisect
 class Solution:
     def lengthOfLIS(self, nums):
