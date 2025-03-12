@@ -19,7 +19,8 @@ def LCS(s1,s2):
     return maxi
 
 
-s = 'abc'
+s = "aacabdkacaa"
+# s = 'cbbd'
 # s = 'forgeeksskeegfor'
 s1= s[::-1]
 ans=LCS(s,s1)
