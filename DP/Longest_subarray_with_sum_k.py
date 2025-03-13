@@ -39,5 +39,6 @@ def getLongestSubarray(nums, k):
             h[sum1]=i
     return maxi
 
-print(getLongestSubarray([ 1, 2, 1, 0, 1 ],4))  #0/p ==> 4
+# print(getLongestSubarray([ 1, 2, 1, 0, 1 ],4))  #0/p ==> 4
+print(getLongestSubarray([8,2,4,7],10))  #0/p ==> 2
 
