@@ -40,3 +40,4 @@ def getLongestSubarray(nums, k):
     return maxi
 
 print(getLongestSubarray([ 1, 2, 1, 0, 1 ],4))  #0/p ==> 4
+
