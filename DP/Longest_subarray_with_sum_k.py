@@ -21,6 +21,7 @@ There are two subarrays with sum = 4, [1, 2, 1] and [2, 1, 0, 1].
 Hence the length of the longest subarray with sum = 4 is 4.
 """
 
+
 def getLongestSubarray(nums, k):
     # Write your code here
     h={}  # for storing  prefixsum: index
