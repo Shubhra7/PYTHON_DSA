@@ -32,7 +32,7 @@ def getLongestSubarray(nums, k):
         if sum1==k:
             maxi=max(maxi,i+1)
             
-        if h.get((sum1-k),-1)!=-1:  # *** -1 is very important because we store index, 0 will clash with index 0
+        if h.get((sum1-k),-1)!=-1:  # *** -1 is very important because we store index,0 will clash with index 0
             maxi=max(maxi,i-h[sum1-k])
             
         if h.get(sum1,-1)==-1:
