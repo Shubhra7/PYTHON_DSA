@@ -17,6 +17,31 @@ Explanation: there are four ways to make up the amount:
 """
 
 ######################################
+#       Tabulation
+######################################
+class Solution:
+    def change(self,amount,coins):
+        n=len(coins)
+        dp=[[0]*(amount+1) for _ in range(n)]
+        for i in range(amount+1):
+            if i%coins[0]==0:
+                dp[0][i]=1
+        for i in range(1,n):
+            for j in range(amount+1):
+                notake=0+dp[i-1][j]
+                take=0
+                if j>=coins[i]:
+                    take=dp[i][j-coins[i]]
+                dp[i][j]=notake+take
+        return dp[n-1][amount]
+amount=5
+coins=[1,2,5]
+obj=Solution()
+print(obj.change(amount,coins))
+print(obj.change(5,[2,5]))
+
+
+######################################
 #       Recursion + memo
 ######################################
 class Solution:
@@ -30,7 +55,7 @@ class Solution:
                 return dp[ind][amount]
             notake=0+f(ind-1,amount,dp)
             take=0
-            if coins[ind]<=amount:
+            if coins[ind]<=amount:  #Important to check
                 take=f(ind,amount-coins[ind],dp)
             dp[ind][amount]=take+notake
             return dp[ind][amount]
