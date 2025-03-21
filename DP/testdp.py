@@ -1,22 +1,28 @@
-# https://youtu.be/fJaKO8FbDdo
 class Solution:
-    def change(self, amount, coins):
-        n=len(coins)
-        dp=[[0]*(amount+1) for _ in range(n)]
-        for i in range(amount+1):
-            if i%coins[0] == 0:
-                dp[0][i]=1
-        for i in range(1,n):
-            for j in range(amount+1):
-                notake=dp[i-1][j]
-                take=0
-                if j>=coins[i]:
-                    take=dp[i][j-coins[i]]
-                dp[i][j]=notake+take
-        for i in dp:
-            print(i)
-        return dp[n-1][amount]
+	def minJumps(self, arr):
+	    # code here
+	    def f(ind,dp):
+	        if ind+arr[ind]>= len(arr):
+	            dp[ind]=1
+	            return
+	        else:
+	            val=float['inf']
+	            for i in range(1,arr[ind]+1):
+	                val=min(val,dp[ind+i])
+	            dp[ind]=val
+	            return 
+	                
+	    dp=[float('inf')]*len(arr)
+	    n=len(arr)
+		for i in range(n-1,-1,-1):
+			f(i,dp)
+	    # ans=f(n-1,dp)
+	    print(dp)
+	    if dp[0]<float('inf'):
+	        return dp[0]
+	    return -1
 
-
+arr=[1,3,5,8,9,2,6,7,6,8,9]
 obj=Solution()
-print(obj.change(5,[2,5]))
+print(obj.minJumps(arr))
+

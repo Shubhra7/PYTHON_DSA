@@ -1,19 +1,30 @@
-Y = [[12,7],
-    [4 ,5],
-    [3 ,8]]
+class Solution:
+    def minJumps(self, arr):
+        # code here
+        def f(ind, dp):
+            if ind + arr[ind] >= len(arr)-1:
+                dp[ind] = 1
+                return
+            else:
+                val = float('inf')
+                for i in range(1, arr[ind] + 1):
+                    # if ind + i < len(arr):  # Avoid out-of-bounds access
+                    val = min(val, dp[ind + i])
+                dp[ind] = val + 1 if val != float('inf') else float('inf')
+                return 
+                    
+        dp = [float('inf')] * len(arr)
+        n = len(arr)
+        
+        for i in range(n - 1, -1, -1):
+            f(i, dp)
+        print(dp)
+        if dp[0] < float('inf'):
+            return dp[0]
+        return -1
 
-ans=[[0 for i in range(len(Y))] for j  in range(len(Y[0]))]
-for i in range(len(Y)):
-    for j in range(len(Y[0])):
-        ans[j][i]=Y[i][j]
-for i in ans:
-    print(i)
-
-print("Rotate matrix by 90 degree anticlockwise: ")
-print(ans[::-1])
-
-print("Rotate matrix by 90 degree clockwise: ")
-for i in range(len(ans)):
-    ans[i]=ans[i][::-1]
-print(ans)
-
+# arr = [0, 10, 20]
+# arr = [1, 4, 3, 2, 6, 7]
+arr = [1, 3, 5, 8, 9, 2, 6, 7, 6, 8, 9]
+obj = Solution()
+print(obj.minJumps(arr))
