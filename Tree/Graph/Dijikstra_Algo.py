@@ -1,7 +1,20 @@
 import heapq
+import sys 
 
 def dijk(v,adj,source):
-    
+    pq=[]
+    heapq.heappush(pq,(0,source))
+    dist=[sys.maxsize]*v
+    dist[source]=0
+    while pq:
+        dis,Node = heapq.heappop(pq)
+        for adjNode,edgeWieght in adj[Node]:
+            if dis+edgeWieght < dist[adjNode]:
+                dist[adjNode]=dis+edgeWieght
+                heapq.heappush(pq,(dist[adjNode],adjNode))
+    return dist
+
+
 graph=   [  [0, 4, 0, 0, 0, 0, 0, 8, 0],
             [4, 0, 8, 0, 0, 0, 0, 11, 0],
             [0, 8, 0, 7, 0, 4, 0, 0, 2],
