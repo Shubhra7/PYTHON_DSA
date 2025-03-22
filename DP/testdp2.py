@@ -1,28 +1,38 @@
-def print_max_LCS(word1,word2):
-    ro,co=len(word1),len(word2)
-    m,n=-1,-1
-    dp=[[0]*(co+1) for _ in range(ro+1)]
-    maxi=0
-    for i in range(1,ro+1):
-        for j in range(1,co+1):
-            if word1[i-1]==word2[j-1]:
-                dp[i][j]=dp[i-1][j-1]+1
-                if maxi<dp[i][j]:
-                    maxi=dp[i][j]
-                    m,n=i,j
+
+class Solution:
+    def f(self,pat,lps):
+        i,j=1,0
+        n=len(pat)
+        while i<n:
+            if pat[i]==pat[j]:
+                j+=1
+                lps[i]=j
+                i+=1
             else:
-                dp[i][j]=0
-    for i in dp:
-        print(i)
-    ans=""
-    for i in range(m,m-maxi,-1):
-        ans=word1[i-1]+ans
-    print(ans)
-    return maxi
-    
+                if j!=0:
+                    j=lps[j-1]
+                else:
+                    i+=1
+    def search(self, pat, txt):
+        # code here
+        lps=[0]*len(pat)
+        self.f(pat,lps)
+        res=[]
+        n,m=len(txt),len(pat)
+        i,j=0,0
+        while i<n:
+            if pat[j]==txt[i]:
+                j+=1
+                i+=1
+                if j==m:
+                    res.append(i-j)
+                    j=lps[j-1]
+            else:
+                if j!=0:
+                    j=lps[j-1]
+                else:
+                    i+=1
+        return res
 
-
-
-word1="adventure"
-word2="erventpo"
-print("The Largest Common subsequence is: ",print_max_LCS(word1, word2))
+obj=Solution()
+print(obj.search("ab","abcab"))
