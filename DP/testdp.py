@@ -1,28 +1,24 @@
 class Solution:
-	def minJumps(self, arr):
-	    # code here
-	    def f(ind,dp):
-	        if ind+arr[ind]>= len(arr):
-	            dp[ind]=1
-	            return
-	        else:
-	            val=float['inf']
-	            for i in range(1,arr[ind]+1):
-	                val=min(val,dp[ind+i])
-	            dp[ind]=val
-	            return 
-	                
-	    dp=[float('inf')]*len(arr)
-	    n=len(arr)
-		for i in range(n-1,-1,-1):
-			f(i,dp)
-	    # ans=f(n-1,dp)
-	    print(dp)
-	    if dp[0]<float('inf'):
-	        return dp[0]
-	    return -1
-
-arr=[1,3,5,8,9,2,6,7,6,8,9]
+    def f(self,s):
+        n=len(s)
+        lps=[0]*n
+        i,j=1,0
+        while i<n:
+            if s[i]==s[j]:
+                j+=1
+                lps[i]=j
+                i+=1
+            else:
+                if j!=0:
+                    j=lps[j-1]
+                else:
+                    i+=1
+        return lps[-1]
+    def minInsertions(self, s: str) -> int:
+        a=s+'#'+s[::-1]
+        print(a)
+        ans=self.f(a)
+        return len(s)-ans
+        
 obj=Solution()
-print(obj.minJumps(arr))
-
+print(obj.minInsertions("zzazz"))

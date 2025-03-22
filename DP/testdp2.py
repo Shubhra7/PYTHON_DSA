@@ -1,30 +1,28 @@
-class Solution:
-    def minJumps(self, arr):
-        # code here
-        def f(ind, dp):
-            if ind + arr[ind] >= len(arr)-1:
-                dp[ind] = 1
-                return
+def print_max_LCS(word1,word2):
+    ro,co=len(word1),len(word2)
+    m,n=-1,-1
+    dp=[[0]*(co+1) for _ in range(ro+1)]
+    maxi=0
+    for i in range(1,ro+1):
+        for j in range(1,co+1):
+            if word1[i-1]==word2[j-1]:
+                dp[i][j]=dp[i-1][j-1]+1
+                if maxi<dp[i][j]:
+                    maxi=dp[i][j]
+                    m,n=i,j
             else:
-                val = float('inf')
-                for i in range(1, arr[ind] + 1):
-                    # if ind + i < len(arr):  # Avoid out-of-bounds access
-                    val = min(val, dp[ind + i])
-                dp[ind] = val + 1 if val != float('inf') else float('inf')
-                return 
-                    
-        dp = [float('inf')] * len(arr)
-        n = len(arr)
-        
-        for i in range(n - 1, -1, -1):
-            f(i, dp)
-        print(dp)
-        if dp[0] < float('inf'):
-            return dp[0]
-        return -1
+                dp[i][j]=0
+    for i in dp:
+        print(i)
+    ans=""
+    for i in range(m,m-maxi,-1):
+        ans=word1[i-1]+ans
+    print(ans)
+    return maxi
+    
 
-# arr = [0, 10, 20]
-# arr = [1, 4, 3, 2, 6, 7]
-arr = [1, 3, 5, 8, 9, 2, 6, 7, 6, 8, 9]
-obj = Solution()
-print(obj.minJumps(arr))
+
+
+word1="adventure"
+word2="erventpo"
+print("The Largest Common subsequence is: ",print_max_LCS(word1, word2))

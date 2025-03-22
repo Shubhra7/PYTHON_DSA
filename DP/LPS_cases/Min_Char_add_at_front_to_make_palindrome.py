@@ -56,5 +56,6 @@ def minChar(s):
     # string length, we will get our result
     return n - lps[-1]
 
-s = "AACECAAAA"   # O/p ==> 2 
+s = "mbadm" # O/p ==> 2 
+# s = "AACECAAAA"   # O/p ==> 2 
 print(minChar(s))
