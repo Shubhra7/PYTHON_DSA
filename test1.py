@@ -7,8 +7,7 @@ def subseq(ind,arr,ds,ans):
     subseq(ind+1,arr,ds,ans)
     ds.pop()
     subseq(ind+1,arr,ds,ans)
-
-
+    
 arr=[10,6,1]
 ans=[]
 ds=[]
