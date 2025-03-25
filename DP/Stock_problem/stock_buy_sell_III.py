@@ -1,3 +1,4 @@
+# https://youtu.be/-uQGzhYj8BQ
 # When only two transaction are allowed 
 from sys import *
 class Solution:
@@ -11,6 +12,9 @@ class Solution:
             pick2=max(pick2,notpick1-p)
             notpick2=max(notpick2,pick2+p)
         return notpick2
+
+obj=Solution()
+print(obj.maxProfit([3,3,5,0,0,3,1,4]))  #6 
 
         # for p in prices:
         #     buy1=min(buy1,p)
@@ -47,6 +51,4 @@ class Solution:
         #             else:
         #                 dp[ind][buy][cap]=max(prices[ind]+dp[ind+1][1][cap-1], 0+dp[ind+1][0][cap])
         # return dp[0][1][2]
-
-obj=Solution()
-print(obj.maxProfit([3,3,5,0,0,3,1,4]))    
+ 
