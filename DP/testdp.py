@@ -1,24 +1,29 @@
 class Solution:
-    def f(self,s):
-        n=len(s)
-        lps=[0]*n
-        i,j=1,0
-        while i<n:
-            if s[i]==s[j]:
-                j+=1
-                lps[i]=j
-                i+=1
-            else:
-                if j!=0:
-                    j=lps[j-1]
-                else:
-                    i+=1
-        return lps[-1]
-    def minInsertions(self, s: str) -> int:
-        a=s+'#'+s[::-1]
-        print(a)
-        ans=self.f(a)
-        return len(s)-ans
-        
+    def isMatch(self, s: str, p: str) -> bool:
+        def f(i,j,dp):
+            if i<0 and j<0:
+                return True
+            if i<0 and j>=0:
+                return False
+            if i>=0 and j<0:
+                for k in range(0,i+1):
+                    if p[k]!='*':
+                        return False
+                return True
+            if dp[i][j]!=-1:
+                return dp[i][j]
+            if p[i]==s[j] or p[i]=='?':
+                dp[i][j]= f(i-1,j-1,dp) 
+                return dp[i][j]
+            if p[i]=='*':  #Main Trick place
+                dp[i][j]=f(i-1,j,dp) or f(i,j-1,dp) #Either * like noting or any length 
+                return dp[i][j]
+            dp[i][j]= False
+            return dp[i][j]
+        n=len(p)
+        m=len(s)
+        dp=[[-1]*(m) for _ in range(n)]
+        ans=f(n-1,m-1,dp)
+        return ans
 obj=Solution()
-print(obj.minInsertions("zzazz"))
+print(obj.isMatch("abcdefhjo","**"))
