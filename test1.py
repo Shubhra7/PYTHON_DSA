@@ -26,8 +26,12 @@
 # digi=123
 # print(int(math.log10(digi)+1))
 
-arr=[[1,2],[1,3],[1,-3],[1,0]]
-arr.sort(key=lambda x:x[1]**2)
-print(arr)
-arr.sort(key=lambda x:x[1])
+# arr=[[1,2],[1,3],[1,-3],[1,0]]
+# arr.sort(key=lambda x:x[1]**2)
+# print(arr)
+# arr.sort(key=lambda x:x[1])
+# print(arr)
+
+arr=[0,1,2]
+del arr[0]
 print(arr)
