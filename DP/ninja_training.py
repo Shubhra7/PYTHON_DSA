@@ -77,21 +77,25 @@ print(dp[n-1][3])
 def find_max(day,point,dp,last):
     if(day == 0):
         maxi=0
-        for i in range(len(point[0])):
+        # for i in range(len(point[0])):
+        for i in range(3):
             if(i != last):
                 maxi = max(maxi,point[0][i])
         return maxi
+    if dp[day][last]!=-1:
+        return dp[day][last]
     maxi=0
     for task in range(3):
         if(task != last):
             value = point[day][task] + find_max(day-1,point,dp,task)
             maxi = max(maxi,value)
-        dp[day][task]=maxi
+    dp[day][task]=maxi
     return maxi
-
 
 dps=[[-1 for i in range(5)]for j in range(n+1)]
 ans = find_max(n-1,point,dps,3)
+# for i in dps:
+#     print(dp)
 print(ans)
 
 
