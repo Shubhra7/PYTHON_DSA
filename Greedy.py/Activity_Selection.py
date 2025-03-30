@@ -18,7 +18,7 @@ class Solution:
         temp.sort(key=lambda x:x[1]) #important line
         count=1
         curfin=temp[0][1]
-        for i in range(1,n):
+        for i in range(1,n): #Important to start with 1 beacuse first work will be do
             if temp[i][0]>curfin:
                 count+=1
                 curfin=temp[i][1]
