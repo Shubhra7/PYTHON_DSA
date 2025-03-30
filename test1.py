@@ -13,6 +13,21 @@
 # for i in dp:
 #     print(i)
 
-a=['1','2','3']
-p=list(map(int,a))
-print(type(p[1]))
+# a=['1','2','3']
+# p=list(map(int,a))
+# print(type(p[1]))
+
+# import math
+# a=7
+# b=4
+# print(math.floor(a/b))
+# print(math.sqrt(45))
+
+# digi=123
+# print(int(math.log10(digi)+1))
+
+arr=[[1,2],[1,3],[1,-3],[1,0]]
+arr.sort(key=lambda x:x[1]**2)
+print(arr)
+arr.sort(key=lambda x:x[1])
+print(arr)
