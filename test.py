@@ -1,3 +1,5 @@
-a=[[1,2],[2,3],[2,1],[2,-1],[4,9]]
-a.sort(key=lambda x:x[1])
-print(a)
+arr=[[1,2],[2,1],[3,-1]]
+arr.sort(key=lambda x:x[1])
+print(arr)
+del arr[1]
+print(arr)
