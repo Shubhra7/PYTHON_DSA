@@ -5,3 +5,6 @@
 - Stack
 - Queue
 - Priority Queue
+- Tree
+- Graph
+- Tires
