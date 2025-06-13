@@ -50,3 +50,40 @@ E = 3
 edges= [[0, 1], [1, 2], [2, 3]] #False
 obj=Solu()
 print(obj.isCycle(V,edges))
+
+
+########################
+#  Using DFS
+######################
+
+from collections import *
+class Solu:
+    def isCycle(self,V,edges):
+        adj=[[] for _ in range(V)]
+        for u,v in edges:
+            adj[u].append(v)
+            adj[v].append(u)
+        visit=[False]*V
+        def check(node,parent):
+            visit[node]=True
+            for adjNd in adj[node]:
+                if not visit[adjNd]:
+                    return check(adjNd,node)
+                elif adjNd!=parent:
+                    return True
+            return False
+        for i in range(V):
+            if not visit[i]:
+                if check(i,-1):
+                    return True
+        return False
+
+V = 4 
+E = 4
+edges= [[0, 1], [0, 2], [1, 2], [2, 3]] #True
+# V = 4
+# E = 3
+# edges= [[0, 1], [1, 2], [2, 3]] #False
+obj=Solu()
+print("Using dfs: ",end=" ")
+print(obj.isCycle(V,edges))
