@@ -1,6 +1,8 @@
 # https://youtu.be/edXdVwkYHF8?si=f1p_WzThUFnT_ERZ
 # https://www.geeksforgeeks.org/problems/distance-of-nearest-cell-having-1-1587115620/1
 
+# Start from 1 then dfs and add the zero for their distance
+
 """
 Input: 
 grid = [[0,1,1,0], [1,1,0,0], [0,0,1,1]]
