@@ -1,33 +1,43 @@
-import heapq
-class Solution:
-    # Returns shortest distances from src to all other vertices
-    def dij(self,adj,src):
-        pq=[]
-        heapq.heappush(pq,(0,src))
-        dist=[float('inf')]*len(adj)
-        dist[src]=0
-        while pq:
-            dis,node = heapq.heappop(pq)
-            for adjNode,edgeWeight in adj[node]:
-                if dis+edgeWeight < dist[adjNode]:
-                    dist[adjNode]=dis+edgeWeight
-                    heapq.heappush(pq,(dist[adjNode],adjNode))
-        return dist
-    def dijkstra(self, V, edges, src):
-        # code here
-        adj=[[] for _ in range(V)]
-        for i in edges:
-            print(i[0]," ",i[1]," ",i[2])
-            adj[i[0]].append([i[1],i[2]])
-            adj[i[1]].append([i[0],i[2]])
-            # print(adj)
-        for i in adj:
-            print(i)
-        return self.dij(adj,src)
-    
-V = 3
-edges= [[0, 1, 1], [1, 2, 3], [0, 2, 6]]
-src = 2
+#User function Template for python3
 
+import sys
+from typing import List
+sys.setrecursionlimit(10**8)
+class Solution:
+    def countDistinctIslands(self, grid):
+        # code here
+        rows,cols = len(grid),len(grid[0])
+        visit=[[0]*cols for _ in range(rows)]
+        
+        def dfs(row,col,visit,grid,ds,rowB,colB):
+            visit[row][col]=1
+            ds.append((row-rowB,col-colB))
+            directions=[[1,0],[-1,0],[0,1],[0,-1]]
+            for u,v in directions:
+                newR,newC = row+u,col+v
+                print(newR," ",newC," ")
+                if newR in range(rows) and newC in range(cols) and visit[newR][newC]==0 and grid[newR][newC]==1:
+                    print("hi")
+                    dfs(newR,newC,visit,grid,ds,rowB,colB)
+                    print(ds)
+                    
+        
+        ans=set()
+        for i in range(rows):
+            for j in range(cols):
+                if grid[i][j]==1 and visit[i][j]==0:
+                    print("Hello: ",i," ",j)
+                    ds=[]
+                    dfs(i,j,visit,grid,ds,i,j)
+                    ans.add(tuple(ds))
+        print(ans)
+        return len(ans)
+    
+grid = [[1, 1, 0, 1, 1],
+        [1, 0, 0, 0, 0],
+        [0, 0, 0, 0, 1],
+        [1, 1, 0, 1, 1]]
 obj=Solution()
-print(obj.dijkstra(V,edges,src))
+print(obj.countDistinctIslands(grid))
+                    
+                    
