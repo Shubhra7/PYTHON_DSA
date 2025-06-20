@@ -44,6 +44,37 @@ class Solution:
 obj=Solution()
 # graph = [[1,2,3],[0,2],[0,1,3],[0,2]]  #False
 graph = [[1,3],[0,2],[1,3],[0,2]]  #True
+print("Using BFS: ",end="")
 print(obj.isBipartite(graph))
+
+
+class Solution:
+    def isBipartite(self, graph):
+        ####################
+        #       Used DFS
+        ####################
+        def check(node,col,graph,colour):
+            colour[node]=col
+            for subN in graph[node]:
+                if colour[subN]==-1:
+                    if(not check(subN,not(col),graph,colour)):
+                        return False
+                elif colour[subN] == colour[node]:
+                    return False
+            return True
+        V=len(graph)
+        colour=[-1]*V
+        for i in range(V):
+            if colour[i]==-1:
+                if not check(i,0,graph,colour):
+                    return False
+        return True
+    
+obj=Solution()
+# graph = [[1,2,3],[0,2],[0,1,3],[0,2]]  #False
+graph = [[1,3],[0,2],[1,3],[0,2]]  #True
+print("Using DFS: ",end="")
+print(obj.isBipartite(graph))
+
 
         
