@@ -11,7 +11,7 @@ class Solution:
         col=len(grid[0])
 
         q=collections.deque()
-        fresh=set()
+        fresh=0
         direction=[[1,0],[-1,0],[0,1],[0,-1]]
 
         for i in range(row):
@@ -19,7 +19,7 @@ class Solution:
                 if (grid[i][j]==2):
                     q.append((i,j,0))
                 if (grid[i][j]==1):
-                    fresh.add((i,j))
+                    fresh+=1
 
         ans=0
         while q:
@@ -31,15 +31,15 @@ class Solution:
                     and grid[rows][cols]==1):
                     grid[rows][cols]=2
                     q.append((rows,cols,time+1))
-                    fresh.pop()
+                    fresh-=1
                     ans=max(ans,time+1)
 
-        if (len(fresh)==0):
+        if (fresh==0):
             return ans
         else:
             return -1
                 
 obj=Solution()
-grid = [[2,1,1],[0,1,1],[1,0,1]] #-1
-# grid = [[2,1,1],[1,1,0],[0,1,1]]  #4
+# grid = [[2,1,1],[0,1,1],[1,0,1]] #-1
+grid = [[2,1,1],[1,1,0],[0,1,1]]  #4
 print(obj.orangesRotting(grid))
