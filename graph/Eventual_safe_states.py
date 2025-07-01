@@ -46,5 +46,51 @@ class Solution:
 graph = [[1,2],[2,3],[5],[0],[5],[],[]]
 obj=Solution()
 print(obj.eventualSafeNodes(graph))
+
+
+
+
+
+##################################################
+#       Using topological sort
+# https://youtu.be/2gtg3VsDGyc?list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn
+##################################################
+
+# reverse the direction of the graph 
+# do topological sort
+# the queue entered elements are the safenode
+
+from collections import deque
+class Solution:
+    def eventualSafeNodes(self, adj):
+        V=len(adj)
+        safenode=[]
+        indegree=[0]*V
+        adjRev=[[] for _ in range(V)]
+        for i in range(V):
+            for it in adj[i]:
+                adjRev[it].append(i)
+                indegree[i]+=1
+        q=deque()
+        for i in range(V):
+            if indegree[i]==0:
+                q.append(i)
+        while q:
+            node=q.popleft()
+            safenode.append(node)
+            for it in adjRev[node]:
+                indegree[it]-=1
+                if indegree[it]==0:
+                    q.append(it)
+        safenode.sort()
+        return safenode
+
+
+
+graph = [[1,2],[2,3],[5],[0],[5],[],[]]
+obj=Solution()
+print(obj.eventualSafeNodes(graph))
+
+
     
 
