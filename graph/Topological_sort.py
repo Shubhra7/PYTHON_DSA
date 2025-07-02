@@ -13,8 +13,6 @@ Explanation: The output true denotes that the order is valid. Few valid Topologi
 #  https://youtu.be/ZUFQfFaU-8U?list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&t=309
 ######################################
 
-
-
 class Solution:
     def topoSort(self, V, edges):
         # Code here
