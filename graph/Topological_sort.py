@@ -12,6 +12,9 @@ Explanation: The output true denotes that the order is valid. Few valid Topologi
 # For dfs just this part:
 #  https://youtu.be/ZUFQfFaU-8U?list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&t=309
 ######################################
+# go through nodes if not visited
+#  then if subN are not visited 
+# remember during backtrack add the node in ds for store
 
 class Solution:
     def topoSort(self, V, edges):
