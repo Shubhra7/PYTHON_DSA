@@ -8,6 +8,7 @@ Output: false
 # linear without cycle graph is always is bipartite graph
 # graph cycle with odd number node is not biparatite graph
 # graph cycle with even number node is  biparatite graph
+# if the total graph can be coloured by Two colour then it is bipartite graph 
 
 
 from collections import deque
