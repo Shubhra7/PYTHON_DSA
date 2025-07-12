@@ -40,4 +40,5 @@ obj=Solution()
 row = 3
 columns = 3 
 heights = [[1,2,2],[3,8,2],[5,3,5]]
+print("The minimum path cost would be: ",end=" ")
 print(obj.MinimumEffort(row,columns, heights))
