@@ -15,6 +15,9 @@ The optimal path with at most 1 stop from city 0 to 3 is marked in red and has c
 Note that the path through cities [0,1,2,3] is cheaper but is invalid because it uses 2 stops.
 """
 
+# Like dijikstra but 
+# here we will focus on K value in the min-heap
+
 from collections import deque
 
 class Solution:
