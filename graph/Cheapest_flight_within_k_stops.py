@@ -16,7 +16,8 @@ Note that the path through cities [0,1,2,3] is cheaper but is invalid because it
 """
 
 # Like dijikstra but 
-# here we will focus on K value in the min-heap
+# here we will focus on K value in the queue
+# But not need "min-heap" because increasing by same 1+
 
 from collections import deque
 
