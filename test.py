@@ -1,31 +1,27 @@
-def merge(arr,l,m,r):
-    i,j = l,m+1
-    temp=[]
-    while i<=m and j<=r:
-        if arr[i]<= arr[j]:
-            temp.append(arr[i])
+def parition(arr,l,r):
+    pvloc=arr[l]
+    i,j = l+1,r
+    while i<=r:
+        while i<r and pvloc > arr[i]:
             i+=1
+        while j>=0 and pvloc < arr[j]:
+            j-=1
+        if i < j:
+            arr[i],arr[j] = arr[j],arr[i]
+            i+=1
+            j-=1
         else:
-            temp.append(arr[j])
-            j+=1
-    while i<=m:
-        temp.append(arr[i])
-        i+=1
-    while j<=r:
-        temp.append(arr[j])
-        j+=1
-    for k in range(l,r+1):
-        arr[k]=temp[k-l]
+            i+=1
+    arr[l],arr[j]=arr[j],arr[l]
+    return j
 
-def mergeSort(arr,l,r):
+def quickSort(arr,l,r):
     if l>=r:
         return
-    m= l + (r-l)//2
-    mergeSort(arr,l,m)
-    mergeSort(arr,m+1,r)
-    merge(arr,l,m,r)
-    
+    pivot = parition(arr,l,r)
+    quickSort(arr,l,pivot-1)
+    quickSort(arr,pivot+1,r)
 
 arr = [9,4,5,6,3,1,1]
-mergeSort(arr,0,len(arr)-1)
+quickSort(arr,0,len(arr)-1)
 print(arr)
