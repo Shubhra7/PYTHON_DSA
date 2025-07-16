@@ -1,43 +1,31 @@
-#User function Template for python3
+def merge(arr,l,m,r):
+    i,j = l,m+1
+    temp=[]
+    while i<=m and j<=r:
+        if arr[i]<= arr[j]:
+            temp.append(arr[i])
+            i+=1
+        else:
+            temp.append(arr[j])
+            j+=1
+    while i<=m:
+        temp.append(arr[i])
+        i+=1
+    while j<=r:
+        temp.append(arr[j])
+        j+=1
+    for k in range(l,r+1):
+        arr[k]=temp[k-l]
 
-import sys
-from typing import List
-sys.setrecursionlimit(10**8)
-class Solution:
-    def countDistinctIslands(self, grid):
-        # code here
-        rows,cols = len(grid),len(grid[0])
-        visit=[[0]*cols for _ in range(rows)]
-        
-        def dfs(row,col,visit,grid,ds,rowB,colB):
-            visit[row][col]=1
-            ds.append((row-rowB,col-colB))
-            directions=[[1,0],[-1,0],[0,1],[0,-1]]
-            for u,v in directions:
-                newR,newC = row+u,col+v
-                print(newR," ",newC," ")
-                if newR in range(rows) and newC in range(cols) and visit[newR][newC]==0 and grid[newR][newC]==1:
-                    print("hi")
-                    dfs(newR,newC,visit,grid,ds,rowB,colB)
-                    print(ds)
-                    
-        
-        ans=set()
-        for i in range(rows):
-            for j in range(cols):
-                if grid[i][j]==1 and visit[i][j]==0:
-                    print("Hello: ",i," ",j)
-                    ds=[]
-                    dfs(i,j,visit,grid,ds,i,j)
-                    ans.add(tuple(ds))
-        print(ans)
-        return len(ans)
+def mergeSort(arr,l,r):
+    if l>=r:
+        return
+    m= l + (r-l)//2
+    mergeSort(arr,l,m)
+    mergeSort(arr,m+1,r)
+    merge(arr,l,m,r)
     
-grid = [[1, 1, 0, 1, 1],
-        [1, 0, 0, 0, 0],
-        [0, 0, 0, 0, 1],
-        [1, 1, 0, 1, 1]]
-obj=Solution()
-print(obj.countDistinctIslands(grid))
-                    
-                    
+
+arr = [9,4,5,6,3,1,1]
+mergeSort(arr,0,len(arr)-1)
+print(arr)
