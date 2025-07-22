@@ -2,6 +2,9 @@
 # https://www.geeksforgeeks.org/problems/alien-dictionary/1
 
 #modified with striver
+# First do make the adj of graph by comparing
+# then do topological sort 
+# then check for correct sequence
 
 from collections import deque
 class Solution:
