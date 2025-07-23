@@ -1,3 +1,5 @@
+# Disjoint Set Union (DSU) with Rank/Size: Use to efficiently manage and merge disjoint sets, especially in Kruskal’s MST or cycle detection in graphs.
+
 class DisjointSet:
     def __init__(self,n):
         self.rank=[0 for _ in range(n+1)]
