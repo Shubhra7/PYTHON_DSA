@@ -1,0 +1,17 @@
+Topological Sort: Use when you need to order tasks with dependencies (DAG - Directed Acyclic Graph).
+
+Dijkstra's Algorithm: Use to find the shortest path from a single source to all nodes with non-negative edge weights.
+
+Floyd Warshall: Use to find shortest paths between all pairs of nodes in a weighted graph.
+
+Prim’s MST: Use to find the minimum spanning tree of a connected, weighted, undirected graph using greedy edge selection.
+
+Disjoint Set Union (DSU) with Rank/Size: Use to efficiently manage and merge disjoint sets, especially in Kruskal’s MST or cycle detection in graphs.
+
+
+
+
+
+
+
+
