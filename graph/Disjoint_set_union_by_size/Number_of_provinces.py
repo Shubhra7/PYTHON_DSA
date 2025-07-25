@@ -1,7 +1,7 @@
 # https://leetcode.com/problems/number-of-provinces/
 
 
-
+# https://youtu.be/ZGr5nX-Gi6Y
 # Striver technique (** Using disjoint set union **)
 
 from typing import List
