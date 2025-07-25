@@ -3,6 +3,9 @@
 
 
 # Striver technique (** Using disjoint set union **)
+
+from typing import List
+
 class DisjointSet:
     def __init__(self,n):
         self.parent=[i for i in range(n)]
@@ -39,4 +42,32 @@ class Solution:
                 cnt+=1
         return cnt
 
+
+## Using DFS
+class Solution2:
+    def findCircleNum(self, isConnected: List[List[int]]) -> int:
+        n=len(isConnected)
+        print(isConnected)
+        
+        def dfs(start,visit):
+            visit[start]=1
+            for i in range(n):
+                if isConnected[start][i]==1 and visit[i]==0:
+                    dfs(i,visit)
+
+        visit=[0]*n
+        c=0
+        for i in range(n):
+            if visit[i]==0:
+                c+=1
+                dfs(i,visit)
+        return c
+        
+
 isConnected = [[1,1,0],[1,1,0],[0,0,1]]
+obj=Solution()
+print(obj.findCircleNum(isConnected))
+
+
+obj2=Solution2()
+print(obj.findCircleNum(isConnected))
