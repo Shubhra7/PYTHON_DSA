@@ -48,7 +48,7 @@ class Solution:
                 newR,newC = r+u,c+v
                 if newR in range(rows) and newC in range(cols):
                     if visit[newR][newC]==1:
-                        nodeNo = r*cols + c
+                        nodeNo = r*cols + c #formula for idvidual node
                         adjNo = newR*cols + newC
                         if ds.findUPar(nodeNo) != ds.findUPar(adjNo):
                             cnt -= 1
