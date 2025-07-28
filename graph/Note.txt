@@ -8,7 +8,7 @@ Prim’s MST: Use to find the minimum spanning tree of a connected, weighted, un
 
 Disjoint Set Union (DSU) with Rank/Size: Use to efficiently manage and merge disjoint sets, especially in Kruskal’s MST or cycle detection in graphs.
 
-
+Dynamic Graph + connection of Components => DSU 
 
 
 
