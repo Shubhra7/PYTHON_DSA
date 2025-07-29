@@ -2,6 +2,15 @@
 
 # https://youtu.be/Rn6B-Q4SNyA?list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn
 
+"""
+Input: n = 4
+m = 5
+k = 4
+A = {{1,1],{0,1],{3,3],{3,4]]
+
+Output: 1 1 2 2
+"""
+
 #all individual code my r*cols + c
 #the DSU for connected or not
 #then ans count
@@ -55,5 +64,11 @@ class Solution:
                             ds.unionBySize(nodeNo,adjNo)
             ans.append(cnt)
         return ans
+
+n = 4
+m = 5
+A = [[1,1],[0,1],[3,3],[3,4]]
+obj=Solution()
+print(obj.numOfIslands(4,5,A))      # [1, 1, 2, 2]
             
             
