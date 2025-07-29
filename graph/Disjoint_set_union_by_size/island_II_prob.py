@@ -25,10 +25,10 @@ class DisjoinSet:
             return
         if self.size[ulp_u] > self.size[ulp_v]:
             self.parent[ulp_v] = ulp_u
-            self.size[ulp_v] += self.size[ulp_u]
+            self.size[ulp_u] += self.size[ulp_v]
         else:
             self.parent[ulp_u] = ulp_v
-            self.size[ulp_u] += self.size[ulp_v]
+            self.size[ulp_v] += self.size[ulp_u]
             
 class Solution:
     def numOfIslands(self, rows: int, cols : int, operators : List[List[int]]) -> List[int]:
