@@ -1,7 +1,10 @@
 # https://www.geeksforgeeks.org/problems/critical-connections/1
 # https://youtu.be/qrAub5z8FeA?list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn
 
+# Tarjan's Algorithm
 #check by adj can i reach you without you
+# tin==> DFS time insert on
+# low[] ==> min lowest time insertion of all adjacent nodes apart from parent
 
 class Solution:
     def criticalConnections(self, v, adj):
