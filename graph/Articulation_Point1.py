@@ -1,6 +1,14 @@
 # https://www.geeksforgeeks.org/problems/articulation-point-1/1
 # https://youtu.be/j1QDfU21iZk
 
+#same with
+# Strongly Connected Components ==> Kosaraju's Algorithm
+#     1. Sort all the edges according to the finishing time.
+#     2. Reverse the Graph.
+#     3. Do the dfs.
+# *****But difference****
+# if low[it]>=tin[node] and parent!=-1:
+# low[node] = min(low[node],tin[it])
 
 import sys
 sys.setrecursionlimit(10**6)
@@ -26,8 +34,10 @@ class Solution:
                     child += 1
                 else:
                     low[node] = min(low[node],tin[it])
-            if child>1 and parent==-1:
+
+            if child>1 and parent==-1: # Edge case for parent node
                 mark[node]=1
+                
         # code here
         tin=[-1]*V
         low=[-1]*V
