@@ -38,6 +38,7 @@ class Solution:
                 if visit[i][j]==0 and grid[i][j]==1:
                     ds=[]
                     bfs(i,j,visit,grid,ds,i,j)
+                    # print(ds,": ",i," ",j) #For visulation 
                     ans.add(tuple(ds))
         return len(ans)
 grid = [[1, 1, 0, 1, 1],
