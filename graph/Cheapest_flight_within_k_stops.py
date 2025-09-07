@@ -38,17 +38,20 @@ class Solution:
             if kth > k:
                 continue
             for subN,wt in adj[node]:
-                if wt+d < dist[subN] and kth<=k:
+                if wt+d < dist[subN]:   # this "wt+d" ==> d is very important for taking the cost of the coming path if go by dist[node] then it will be greedy
                     dist[subN]=wt+d
                     q.append((kth+1, wt+d, subN))
         
         if dist[dst]==float('inf'):
             return -1
+        # look at this print==> the dist[node] are made by dijkstra logic so optimal not like d. otherwise the dist[2] should be 5 for correct root
+        print(dist)
         return dist[dst]
                 
 obj=Solution()
 n = 4
-flights = [[0,1,100],[1,2,100],[2,0,100],[1,3,600],[2,3,200]]
+# flights = [[0,1,100],[1,2,100],[2,0,100],[1,3,600],[2,3,200]]
+flights = [[0,1,1],[0,2,5],[1,2,1],[2,3,1]]
 src = 0
 dst = 3
 k = 1
