@@ -1,27 +1,31 @@
-def parition(arr,l,r):
-    pvloc=arr[l]
-    i,j = l+1,r
-    while i<=r:
-        while i<r and pvloc > arr[i]:
-            i+=1
-        while j>=0 and pvloc < arr[j]:
-            j-=1
-        if i < j:
-            arr[i],arr[j] = arr[j],arr[i]
-            i+=1
-            j-=1
-        else:
-            i+=1
-    arr[l],arr[j]=arr[j],arr[l]
-    return j
+from typing import List
 
-def quickSort(arr,l,r):
-    if l>=r:
-        return
-    pivot = parition(arr,l,r)
-    quickSort(arr,l,pivot-1)
-    quickSort(arr,pivot+1,r)
+class Solution:
+    def bowlSubarrays(self, nums: List[int]) -> int:
+        n = len(nums)
+        
+        # Step 1: Next Greater Left & Right
+        left = [-1] * n
+        right = [n] * n
+        stack = []
+        for i in range(n):
+            while stack and nums[stack[-1]] < nums[i]:
+                right[stack.pop()] = i
+            if stack:
+                left[i] = stack[-1]
+            stack.append(i)
+        
+        # Step 2: Count bowls
+        count = 0
+        for i in range(n):
+            # left candidates: (left[i], i) plus left[i] itself
+            l_count = sum(1 for j in range(left[i], i) if j >= 0 and nums[j] > nums[i])
+            # right candidates: (i, right[i]) plus right[i] itself
+            r_count = sum(1 for k in range(i+1, right[i]+1) if k < n and nums[k] > nums[i])
+            count += l_count * r_count
+        
+        return count
 
-arr = [9,4,5,6,3,1,1]
-quickSort(arr,0,len(arr)-1)
-print(arr)
+pbj=Solution()
+nums=[2,5,3,1,4]
+print(pbj.bowlSubarrays(nums))
